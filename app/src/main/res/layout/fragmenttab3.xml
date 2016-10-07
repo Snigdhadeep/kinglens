@@ -19,11 +19,25 @@
        >
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3rd frag"/>
 
+       <HorizontalScrollView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:scrollbars="none"
+           >
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+
+               <include layout="@layout/burgerfood"></include>
+               <include layout="@layout/cakefood"></include>
+               <include layout="@layout/cupcakefood"></include>
+               <include layout="@layout/pastafood"></include>
+               <include layout="@layout/noodlesfood"></include>
+           </LinearLayout>
+       </HorizontalScrollView>
 
    </LinearLayout>
 
