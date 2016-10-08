@@ -23,7 +23,7 @@ public class TabFragment2 extends Fragment {
     private GridviewAdapter gridviewAdapter;
     private View view;
 
-    private int[] IMAGEgrid = {R.drawable.pik1, R.drawable.pik2, R.drawable.pik3, R.drawable.pik4};
+    private int[] IMAGEgrid = {R.drawable.layertwo, R.drawable.layerfour, R.drawable.layerfive, R.drawable.layersix, R.drawable.layerseven};
 
 
 

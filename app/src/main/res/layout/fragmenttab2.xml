@@ -1,41 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#fff"
     >
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
             >
 
-
-            <com.king.king_lens.Home_Sliding.ExpandableHeightGridView
-                android:layout_height="wrap_content"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:verticalSpacing="1dp"
-                android:stretchMode="columnWidth"
-                android:numColumns="2"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                android:horizontalSpacing="1dp"
-                android:id="@+id/gridview"
-                android:background="#f2f2f2"
-                />
+                <include layout="@layout/burgerfood"></include>
+                <include layout="@layout/cakefood"></include>
+                <include layout="@layout/cupcakefood"></include>
+                <include layout="@layout/pastafood"></include>
+                <include layout="@layout/noodlesfood"></include>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
 
 
-        </LinearLayout>
+                <com.king.king_lens.Home_Sliding.ExpandableHeightGridView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:verticalSpacing="1dp"
+                    android:stretchMode="columnWidth"
+                    android:numColumns="2"
 
-    </ScrollView>
+                    android:horizontalSpacing="1dp"
+                    android:id="@+id/gridview"
+                    android:background="#f2f2f2"
+
+                    />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
 
 
 
-
-</RelativeLayout>
+</LinearLayout>
