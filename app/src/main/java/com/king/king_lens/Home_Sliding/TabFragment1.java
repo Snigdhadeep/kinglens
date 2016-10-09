@@ -23,7 +23,7 @@ public class TabFragment1 extends Fragment {
     private GridviewAdapter gridviewAdapter;
     private View view;
 
-    private int[] IMAGEgrid = {R.drawable.layertwo, R.drawable.layerfour, R.drawable.layerfive, R.drawable.layersix, R.drawable.layerseven};
+    private int[] IMAGEgrid = {R.drawable.layertwo, R.drawable.layerfour, R.drawable.layerfive, R.drawable.layersix, R.drawable.layerseven,R.drawable.layertwo};
   /*  private String[] TITLeGgrid = {"Min 70% off", "Min 50% off", "Min 45% off",  "Min 60% off", "Min 70% off", "Min 50% off"};
     private String[] DIscriptiongrid = {"Wrist Watch", "Wrist Watch", "Wrist Watch","Wrist Watch", "Wrist Watch", "Wrist Watch"};
     private String[] Dategrid = {"Explore Now!","Grab Now!","Discover now!", "Great Savings!", "Explore Now!","Grab Now!"};*/
