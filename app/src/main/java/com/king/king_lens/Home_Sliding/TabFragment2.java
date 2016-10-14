@@ -5,8 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.king.king_lens.R;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
 
@@ -22,6 +25,13 @@ public class TabFragment2 extends Fragment {
     private ArrayList<Beanclass> beanclassArrayList;
     private GridviewAdapter gridviewAdapter;
     private View view;
+    CarouselView carouselView;
+
+
+
+
+    int[] sampleImages = {R.drawable.layerfour,
+            R.drawable.brandontop, R.drawable.layertwo, R.drawable.brandontop, R.drawable.layersix};
 
     private int[] IMAGEgrid = {R.drawable.layertwo, R.drawable.layerfour, R.drawable.layerfive, R.drawable.layersix, R.drawable.layerseven};
 
@@ -32,7 +42,19 @@ public class TabFragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragmenttab2, container, false);
 
-      gridview = (ExpandableHeightGridView)view.findViewById(R.id.gridview);
+
+        //for carousel
+        carouselView = (CarouselView)view.findViewById(R.id.carouselView);
+        carouselView.setPageCount(sampleImages.length);
+        carouselView.setImageListener(new ImageListener() {
+            @Override
+            public void setImageForPosition(int position, ImageView imageView) {
+                imageView.setImageResource(sampleImages[position]);
+            }
+        });
+
+
+        gridview = (ExpandableHeightGridView)view.findViewById(R.id.gridview);
         beanclassArrayList= new ArrayList<Beanclass>();
 
         for (int i= 0; i< IMAGEgrid.length; i++) {

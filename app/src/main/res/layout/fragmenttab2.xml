@@ -5,32 +5,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#fff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <include layout="@layout/burgerfood"></include>
-                <include layout="@layout/cakefood"></include>
-                <include layout="@layout/cupcakefood"></include>
-                <include layout="@layout/pastafood"></include>
-                <include layout="@layout/noodlesfood"></include>
-            </LinearLayout>
-        </HorizontalScrollView>
-
-    </LinearLayout>
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:fillColor="#FFFFFFFF"
+        app:pageColor="#00000000"
+        app:radius="6dp"
+        app:slideInterval="3000"
+        app:strokeWidth="1dp"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
