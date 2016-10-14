@@ -27,7 +27,7 @@ public class EnterScreen extends AppCompatActivity
         setContentView(R.layout.activity_enter_screen);
 
 
-        //for toolbar
+       // for toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -92,20 +92,17 @@ public class EnterScreen extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_lenscare) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_myaccount) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_search) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_shoppingcart) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_wishlist) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

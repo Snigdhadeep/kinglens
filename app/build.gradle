@@ -25,5 +25,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:design:24.2.0'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    compile 'com.synnapps:carouselview:0.0.9'
 
 }
