@@ -1,12 +1,16 @@
 package com.king.king_lens.Home_Sliding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.king.king_lens.Grid_List.Gridlist_Activity;
 import com.king.king_lens.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -65,9 +69,22 @@ public class TabFragment2 extends Fragment {
         }
         gridviewAdapter = new GridviewAdapter(getActivity(), beanclassArrayList);
         gridview.setExpanded(true);
-
+       gridview.setOnItemClickListener(onItemClick);
         gridview.setAdapter(gridviewAdapter);
      return view;
 
     }
+
+
+    AdapterView.OnItemClickListener onItemClick = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            //Do any thing when user click to item
+          //  Toast.makeText(getActivity(),gridviewAdapter.getItemId(position) + " - " , Toast.LENGTH_SHORT).show();
+
+            Intent i=new Intent(getActivity(), Gridlist_Activity.class);
+            startActivity(i);
+
+        }
+    };
 }

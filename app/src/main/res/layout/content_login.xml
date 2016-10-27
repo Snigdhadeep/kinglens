@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    tools:showIn="@layout/app_bar_login">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#44A0BB"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="NOT A MEMBER?"
+            android:textColor="#44A0BB"
+            android:id="@+id/notamember"
+            android:height="30dp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/rect_edittext"
+            android:hint=" Email"
+            android:textColor="#000000"
+            android:textColorHint="#f3787d7e"
+            android:textCursorDrawable="@null"
+            android:layout_marginRight="16dp"
+
+
+            >
+
+        </EditText>
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#D1F4FE"
+        android:gravity="center"
+
+        >
+
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+
+            android:gravity="center"
+            android:text="CONTINUE AS GUEST"
+            android:textColor="#fff"
+            android:id="@+id/guest"
+            android:height="50dp"
+            android:background="@drawable/rect1"
+            android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="LOGIN TO YOUR ADASAT.NET ACCOUNT "
+            android:textColor="#44A0BB"
+            android:id="@+id/lo"
+            android:height="30dp" />
+
+
+        <EditText
+            android:id="@+id/email2"
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/rect_edittext"
+            android:hint=" Email"
+            android:textColor="#000000"
+            android:textColorHint="#f3787d7e"
+            android:layout_marginRight="16dp"
+
+
+            >
+
+        </EditText>
+
+        <View
+            android:id="@+id/view8"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true" />
+        <EditText
+            android:id="@+id/password"
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/rect_edittext"
+            android:hint=" Password"
+            android:textColor="#000000"
+            android:textColorHint="#f3787d7e"
+            android:layout_marginRight="16dp"
+
+
+            >
+
+        </EditText>
+
+    </LinearLayout>
+    <View
+        android:id="@+id/view9"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#D1F4FE"
+        android:gravity="center"
+
+        >
+
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+
+            android:gravity="center"
+            android:text="SIGN IN"
+            android:textColor="#fff"
+            android:id="@+id/signin"
+            android:height="50dp"
+            android:background="@drawable/rect1"
+            android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:layout_gravity="center">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FORGOT PASSWORD ?"
+        android:textColor="#f3787d7e"
+        android:id="@+id/forgotpass"
+        android:background="#FFFFFF"
+        android:layout_gravity="center_horizontal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:src="@drawable/layersix"/>
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:gravity="center"
+            android:orientation="horizontal"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="Subcribe to  recieve the latest offers and discounts"
+
+                android:layout_marginLeft="16dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:layout_weight="1"
+
+                android:gravity="center"
+                android:text="SIGN IN"
+                android:textColor="#fff"
+                android:id="@+id/textView3"
+                android:height="50dp"
+                android:background="@drawable/rect1"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#44A0BB"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:text="ADASAT.NET ALL RIGHTS RESERVED"
+
+                android:layout_marginLeft="16dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:text="Follow us"
+                android:layout_weight=".5"
+
+
+
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/facebook"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+
+                android:layout_weight=".5"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/twitter"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                android:layout_weight=".2"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/instagram"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                android:layout_weight=".5"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>
+
+

@@ -10,18 +10,16 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="ADASET"
+            android:label="ADASAT"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".Home_adslot"
             android:label="HOME"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Splashscreen"
-            android:label="ADASET"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="ADASAT"
+            android:theme="@style/AppThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,9 +28,25 @@
         </activity>
         <activity
             android:name=".EnterScreen"
-            android:label="ADASET"
+            android:label="ADASAT"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="ADASAT.NET"
             android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".Grid_List.Item_activity"
+            android:label="@string/title_activity_wishlist"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Grid_List.Gridlist_Activity"
+            android:label="ADASAT.NET"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Grid_List.Filter_Activity" />
+        <activity android:name=".Grid_List.Popup_Activity"
+            android:theme="@style/AppTheme.popup"
+            ></activity>
     </application>
 
 </manifest>

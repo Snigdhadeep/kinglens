@@ -1,8 +1,14 @@
 <resources>
-    <string name="app_name">King_lens</string>
+    <string name="app_name">ADASAT</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_enter_screen">EnterScreen</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_wishlist">Wishlist</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_gridlist_">Gridlist_Activity</string>
 </resources>

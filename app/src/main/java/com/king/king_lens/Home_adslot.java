@@ -1,5 +1,6 @@
 package com.king.king_lens;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -45,9 +46,9 @@ public class Home_adslot extends AppCompatActivity
 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("WATCHES"));
-        tabLayout.addTab(tabLayout.newTab().setText("VIEW ALL"));
-        tabLayout.addTab(tabLayout.newTab().setText("CHOTHES"));
+        tabLayout.addTab(tabLayout.newTab().setText("COLORED"));
+        tabLayout.addTab(tabLayout.newTab().setText("PRESCRIPTION"));
+        tabLayout.addTab(tabLayout.newTab().setText("ACCESSORIES"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
@@ -95,7 +96,7 @@ public class Home_adslot extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.enter_screen, menu);
+        getMenuInflater().inflate(R.menu.home_menu, menu);
         return true;
     }//optionsmenu
     @Override
@@ -106,9 +107,16 @@ public class Home_adslot extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.home_menu_heart) {
+
         }
+        else if(id == R.id.home_menu_search){
+
+        }
+        else if(id == R.id.home_menu_cart){
+
+        }
+
 
         return super.onOptionsItemSelected(item);
     }//optionsitemSelected
@@ -120,9 +128,15 @@ public class Home_adslot extends AppCompatActivity
         int id = item.getItemId();
 
 
-        if (id == R.id.nav_lenscare) {
+        if (id == R.id.nav_login) {
             // Handle the camera action
-        } else if (id == R.id.nav_myaccount) {
+            Intent i=new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(i);
+        }
+
+        else if (id == R.id.nav_lenscare) {
+
+        }else if (id == R.id.nav_myaccount) {
 
         } else if (id == R.id.nav_search) {
 

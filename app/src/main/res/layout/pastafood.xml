@@ -1,46 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:id="@+id/linear"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/eyeicon"
+
     >
 
 
+
     <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#f9f7f7"
-        android:padding="10dp"
-        android:elevation="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/carticon"
+
         >
 
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:orientation="vertical"
-            >
-
-            <ImageView
-                android:id="@+id/image"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/brandontop"
-                android:scaleType="fitXY"
-                />
 
 
-        </LinearLayout>
     </FrameLayout>
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
 
 
 
-</LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="-05dp"
+            android:weightSum="1"
+            android:id="@+id/linearLayout">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/rect1"
+                android:layout_marginTop="100dp"
+                android:hint="Name"
+                android:textColor="#fff"
+                android:textColorHint="#181717"
+                android:paddingLeft="20dp"
+
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:drawablePadding="16dp"
+                android:layout_weight="0.14">
+            </EditText>
+
+            <EditText
+                android:id="@+id/email"
+                android:textColor="#fff"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/rect1"
+                android:layout_marginTop="20dp"
+                android:hint="Email"
+                android:textColorHint="#181717"
+
+                android:paddingLeft="20dp"
+                android:drawablePadding="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+
+                >
+            </EditText>
+
+            <EditText
+                android:id="@+id/phone"
+                android:textColor="#fff"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/rect1"
+                android:layout_marginTop="20dp"
+
+                android:textColorHint="#181717"
+                android:hint="Phone"
+                android:paddingLeft="20dp"
+                android:drawablePadding="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+
+                />
+
+
+            <EditText
+                android:id="@+id/multitext"
+                android:textColor="#fff"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/rect1"
+                android:layout_marginTop="20dp"
+
+                android:textColorHint="#181717"
+                android:inputType="textMultiLine"
+                android:hint="Message"
+                android:ems="10"
+                android:paddingLeft="20dp"
+                android:drawablePadding="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"></EditText>
+
+
+            />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

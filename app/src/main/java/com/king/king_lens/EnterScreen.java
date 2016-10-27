@@ -92,9 +92,15 @@ public class EnterScreen extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_lenscare) {
+        if (id == R.id.nav_login) {
             // Handle the camera action
-        } else if (id == R.id.nav_myaccount) {
+            Intent i=new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(i);
+        }
+
+        else if (id == R.id.nav_lenscare) {
+
+        }else if (id == R.id.nav_myaccount) {
 
         } else if (id == R.id.nav_search) {
 

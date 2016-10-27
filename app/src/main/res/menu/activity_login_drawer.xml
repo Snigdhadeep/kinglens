@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/icon_search"
+            android:title="SEARCH" />
+
+        <item
+            android:id="@+id/nav_lenscare"
+            android:icon="@drawable/eyeicon"
+            android:title="LENS CARE" />
+        <item
+            android:id="@+id/nav_shoppingcart"
+            android:icon="@drawable/carticon"
+            android:title="SHOPPING CART" />
+        <item
+            android:id="@+id/nav_wishlist"
+            android:icon="@drawable/hearticon"
+            android:title="WISH LIST" />
+
+        <item
+            android:id="@+id/nav_myaccount"
+            android:icon="@drawable/myaccounticon"
+            android:title="MY ACCOUNT" />
+    </group>
+
+
+</menu>
