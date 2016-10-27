@@ -34,7 +34,7 @@
             android:name=".LoginActivity"
             android:label="ADASAT.NET"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Grid_List.Item_activity"
             android:label="@string/title_activity_wishlist"
