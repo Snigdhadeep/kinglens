@@ -36,7 +36,7 @@ public class Popup_Activity extends AppCompatActivity {
         getWindow().setLayout((int) (width*0.4),(int)(hight*0.4));*/
 
 
-        linearLayout=(LinearLayout)findViewById(R.id.loop_popup);
+      //  linearLayout=(LinearLayout)findViewById(R.id.loop_popup);
 
         int i=6;
         while (i>0)

@@ -5,18 +5,18 @@
     android:layout_height="match_parent"
     android:background="#FFF"
     android:orientation="vertical"
-    android:paddingBottom="5dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="5dp">
+>
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/w2" />
+        android:scaleType="fitXY"
+        android:src="@drawable/listlens2"
+
+         />
 
     <TextView
         android:id="@+id/txtTitle"

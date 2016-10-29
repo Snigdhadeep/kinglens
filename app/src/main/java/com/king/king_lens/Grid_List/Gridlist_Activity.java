@@ -152,7 +152,7 @@ public class Gridlist_Activity extends AppCompatActivity
 
                 final PopupWindow popupWindow = new PopupWindow(
                        popupView, ViewGroup.LayoutParams.WRAP_CONTENT,  ViewGroup.LayoutParams.WRAP_CONTENT);
-                popupWindow.showAsDropDown(firebtn,50,30);
+                popupWindow.showAsDropDown(firebtn);
 
                 back_dim_layout.setVisibility(View.VISIBLE);
             }
@@ -205,16 +205,15 @@ public class Gridlist_Activity extends AppCompatActivity
     public List<Product> getProductList() {
         //pseudo code to get product, replace your code to get real product here
         productList = new ArrayList<>();
-        productList.add(new Product(R.drawable.w1, "Title 1", "This is description 1"));
-        productList.add(new Product(R.drawable.w2, "Title 2", "This is description 2"));
-        productList.add(new Product(R.drawable.w3, "Title 3", "This is description 3"));
-        productList.add(new Product(R.drawable.w4, "Title 4", "This is description 4"));
-        productList.add(new Product(R.drawable.w5, "Title 5", "This is description 5"));
-        productList.add(new Product(R.drawable.w1, "Title 6", "This is description 6"));
-        productList.add(new Product(R.drawable.w2, "Title 7", "This is description 7"));
-        productList.add(new Product(R.drawable.w3, "Title 8", "This is description 8"));
-        productList.add(new Product(R.drawable.w4, "Title 9", "This is description 9"));
-        productList.add(new Product(R.drawable.w5, "Title 10", "This is description 10"));
+        productList.add(new Product(R.drawable.eyepic1, "Title 1", "This is description 1"));
+        productList.add(new Product(R.drawable.eyepic2, "Title 2", "This is description 2"));
+        productList.add(new Product(R.drawable.eyepic3, "Title 3", "This is description 3"));
+        productList.add(new Product(R.drawable.eyepic6, "Title 4", "This is description 4"));
+        productList.add(new Product(R.drawable.eyepic5, "Title 5", "This is description 5"));
+        productList.add(new Product(R.drawable.listlens4, "Title 6", "This is description 6"));
+        productList.add(new Product(R.drawable.listpic3, "Title 7", "This is description 7"));
+        productList.add(new Product(R.drawable.listlens2, "Title 8", "This is description 8"));
+
 
         return productList;
     }

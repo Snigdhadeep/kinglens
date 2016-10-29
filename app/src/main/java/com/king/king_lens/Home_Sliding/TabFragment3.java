@@ -32,9 +32,9 @@ public class TabFragment3 extends Fragment {
 
 
     int[] sampleImages = {R.drawable.layerfour,
-            R.drawable.brandontop, R.drawable.layertwo, R.drawable.brandontop, R.drawable.layersix};
+            R.drawable.brandontop, R.drawable.layertwo, R.drawable.brandontop};
 
-    private int[] IMAGEgrid = {R.drawable.layertwo, R.drawable.layerfour, R.drawable.layerfive, R.drawable.layersix, R.drawable.layerseven};
+    private int[] IMAGEgrid = {R.drawable.brand20, R.drawable.brand21, R.drawable.brand22, R.drawable.brand23,R.drawable.brand26,R.drawable.brand12};
   /*  private String[] TITLeGgrid = {"Min 70% off", "Min 50% off", "Min 45% off",  "Min 60% off", "Min 70% off", "Min 50% off"};
     private String[] DIscriptiongrid = {"Wrist Watch", "Wrist Watch", "Wrist Watch","Wrist Watch", "Wrist Watch", "Wrist Watch"};
     private String[] Dategrid = {"Explore Now!","Grab Now!","Discover now!", "Great Savings!", "Explore Now!","Grab Now!"};*/
