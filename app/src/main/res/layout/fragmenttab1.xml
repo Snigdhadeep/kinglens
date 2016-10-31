@@ -9,20 +9,7 @@
     >
 
 
-    <com.synnapps.carouselview.CarouselView
-        android:id="@+id/carouselView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-
-        app:fillColor="#0c82f0"
-        app:radius="6dp"
-        app:strokeColor="#f5f1f1"
-        app:slideInterval="3000"
-        app:strokeWidth="5dp"
-        />
-
-
-<LinearLayout
+    <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <ScrollView
@@ -57,6 +44,17 @@
 
 </LinearLayout>
 
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        app:fillColor="#0c82f0"
+        app:radius="6dp"
+        app:strokeColor="#f5f1f1"
+        app:slideInterval="3000"
+        app:strokeWidth="5dp"
+        />
 
 
 </LinearLayout>

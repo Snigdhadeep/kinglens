@@ -1,5 +1,6 @@
 package com.king.king_lens;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -72,9 +73,16 @@ public class LoginActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_lenscare) {
+        if (id == R.id.nav_home) {
+
+            Intent i=new Intent(getApplicationContext(), Home_adslot.class);
+            startActivity(i);
+
             // Handle the camera action
-        } else if (id == R.id.nav_myaccount) {
+        } else if (id == R.id.nav_home) {
+            Intent i=new Intent(getApplicationContext(), Home_adslot.class);
+            startActivity(i);
+
 
         } else if (id == R.id.nav_search) {
 

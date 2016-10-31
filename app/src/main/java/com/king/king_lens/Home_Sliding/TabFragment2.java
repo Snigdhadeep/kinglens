@@ -34,7 +34,7 @@ public class TabFragment2 extends Fragment {
 
 
 
-    int[] sampleImages = {R.drawable.layerfour,
+    int[] sampleImages = {
             R.drawable.brandontop, R.drawable.layertwo, R.drawable.brandontop};
 
     private int[] IMAGEgrid = {R.drawable.brand1, R.drawable.brand2, R.drawable.brand3, R.drawable.brand4, R.drawable.brand16,R.drawable.brand15};

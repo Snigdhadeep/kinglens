@@ -9,8 +9,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/mygridview"
         android:numColumns="2"
+        android:horizontalSpacing="10dp"
+        android:layout_margin="10dp"
         android:gravity="center"
-        android:columnWidth="150dp"
+        android:columnWidth="15dp"
         android:stretchMode="columnWidth"
         />
 </FrameLayout>

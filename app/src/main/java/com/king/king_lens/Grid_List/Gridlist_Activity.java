@@ -29,6 +29,8 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.king.king_lens.Home_adslot;
+import com.king.king_lens.LoginActivity;
 import com.king.king_lens.R;
 
 import java.util.ArrayList;
@@ -128,8 +130,8 @@ public class Gridlist_Activity extends AppCompatActivity
         filterbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getApplicationContext(),Filter_Activity.class);
-                startActivity(i);
+               /* Intent i=new Intent(getApplicationContext(),Filter_Activity.class);
+                startActivity(i);*/
             }
         });
 
@@ -142,7 +144,7 @@ public class Gridlist_Activity extends AppCompatActivity
         firebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getApplicationContext(),Popup_Activity.class);
+                /*Intent i=new Intent(getApplicationContext(),Popup_Activity.class);
                // startActivity(i);
 
                 LayoutInflater layoutInflater =
@@ -154,7 +156,7 @@ public class Gridlist_Activity extends AppCompatActivity
                        popupView, ViewGroup.LayoutParams.WRAP_CONTENT,  ViewGroup.LayoutParams.WRAP_CONTENT);
                 popupWindow.showAsDropDown(firebtn);
 
-                back_dim_layout.setVisibility(View.VISIBLE);
+                back_dim_layout.setVisibility(View.VISIBLE);*/
             }
         });
 
@@ -205,14 +207,14 @@ public class Gridlist_Activity extends AppCompatActivity
     public List<Product> getProductList() {
         //pseudo code to get product, replace your code to get real product here
         productList = new ArrayList<>();
-        productList.add(new Product(R.drawable.eyepic1, "Title 1", "This is description 1"));
-        productList.add(new Product(R.drawable.eyepic2, "Title 2", "This is description 2"));
-        productList.add(new Product(R.drawable.eyepic3, "Title 3", "This is description 3"));
-        productList.add(new Product(R.drawable.eyepic6, "Title 4", "This is description 4"));
-        productList.add(new Product(R.drawable.eyepic5, "Title 5", "This is description 5"));
-        productList.add(new Product(R.drawable.listlens4, "Title 6", "This is description 6"));
-        productList.add(new Product(R.drawable.listpic3, "Title 7", "This is description 7"));
-        productList.add(new Product(R.drawable.listlens2, "Title 8", "This is description 8"));
+        productList.add(new Product(R.drawable.eyepic1, "Title 1", "This is description 1","$10"));
+        productList.add(new Product(R.drawable.eyepic2, "Title 2", "This is description 2","$20"));
+        productList.add(new Product(R.drawable.eyepic3, "Title 3", "This is description 3","$45"));
+        productList.add(new Product(R.drawable.eyepic6, "Title 4", "This is description 4","$52"));
+        productList.add(new Product(R.drawable.eyepic5, "Title 5", "This is description 5","$61"));
+        productList.add(new Product(R.drawable.listlens4, "Title 6", "This is description 6","$69"));
+        productList.add(new Product(R.drawable.listpic3, "Title 7", "This is description 7","$87"));
+        productList.add(new Product(R.drawable.listlens2, "Title 8", "This is description 8","$47"));
 
 
         return productList;
@@ -257,7 +259,7 @@ public class Gridlist_Activity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                if(VIEW_MODE_LISTVIEW == currentViewMode) {
+                /*if(VIEW_MODE_LISTVIEW == currentViewMode) {
                     currentViewMode = VIEW_MODE_GRIDVIEW;
                 } else {
                     currentViewMode = VIEW_MODE_LISTVIEW;
@@ -268,7 +270,7 @@ public class Gridlist_Activity extends AppCompatActivity
                 SharedPreferences sharedPreferences = getSharedPreferences("ViewMode", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt("currentViewMode", currentViewMode);
-                editor.commit();
+                editor.commit();*/
 
                 break;
         }
@@ -281,9 +283,14 @@ public class Gridlist_Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_login) {
+            Intent i=new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
+
+        } else if (id == R.id.nav_home) {
+
+            Intent i=new Intent(getApplicationContext(), Home_adslot.class);
+            startActivity(i);
 
         } else if (id == R.id.nav_slideshow) {
 

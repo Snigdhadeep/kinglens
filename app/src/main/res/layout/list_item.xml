@@ -30,6 +30,17 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/price_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/imageView"
+        android:text="$10"
+        android:layout_gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="normal" />
+
+    <TextView
         android:id="@+id/txtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
