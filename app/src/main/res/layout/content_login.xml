@@ -220,8 +220,8 @@
         android:layout_gravity="center_horizontal" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
             android:id="@+id/imageView2"
             android:src="@drawable/visamaster"/>
 
@@ -233,21 +233,18 @@
             android:layout_height="80dp"
             android:gravity="center"
             android:orientation="horizontal"
-
+            android:layout_margin="3dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:layout_weight="1"
-                android:text="Subcribe to  recieve the latest offers and discounts"
-
-                android:layout_marginLeft="16dp"/>
+                android:text="Subcribe to  recieve the latest offers and discounts" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
                 android:layout_weight="1"
 
                 android:gravity="center"
@@ -301,6 +298,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:gravity="center"
+                android:textColor="#ffffff"
                 android:text="ADASAT.NET ALL RIGHTS RESERVED"
                 android:layout_marginLeft="16dp"/>
         </LinearLayout>
@@ -317,6 +315,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:gravity="center"
+                android:textColor="#ffffff"
                 android:text="Follow us"
                 android:layout_weight=".5"
                 />
