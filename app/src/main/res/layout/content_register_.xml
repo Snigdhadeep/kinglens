@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,8 +8,96 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.king.king_lens.Register_Activity"
     tools:showIn="@layout/activity_register_">
 
-</RelativeLayout>
+    <EditText
+        android:id="@+id/name"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:hint="   First Name"
+        android:textColor="#000000"
+        android:textColorHint="#f3787d7e"
+        android:layout_marginRight="16dp"
+
+
+        >
+    </EditText>
+    <View
+        android:id="@+id/view8"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:id="@+id/lastname"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:hint="   Last Name"
+        android:textColor="#000000"
+        android:textColorHint="#f3787d7e"
+        android:layout_marginRight="16dp"
+
+
+        >
+    </EditText>
+
+    <View
+        android:id="@+id/view10"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:id="@+id/gender"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:hint="   Gender"
+        android:textColor="#000000"
+        android:textColorHint="#f3787d7e"
+        android:layout_marginRight="16dp"
+
+
+        >
+    </EditText>
+    <View
+        android:id="@+id/view9"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:id="@+id/password"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:hint="   Password"
+        android:textColor="#000000"
+        android:textColorHint="#f3787d7e"
+        android:layout_marginRight="16dp"
+
+
+        >
+    </EditText>
+    <View
+        android:id="@+id/view15"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:id="@+id/repeat_pass"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:hint="   Repeat Password"
+        android:textColor="#000000"
+        android:textColorHint="#f3787d7e"
+        android:layout_marginRight="16dp"
+
+
+        >
+    </EditText>
+
+</LinearLayout>
