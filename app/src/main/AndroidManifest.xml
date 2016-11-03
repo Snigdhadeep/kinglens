@@ -17,7 +17,7 @@
             android:label="HOME"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Collection_Activity"
+            android:name=".Splashscreen"
             android:label="ADASAT"
             android:theme="@style/AppThemeSplash">
             <intent-filter>
@@ -48,9 +48,18 @@
             android:name=".Grid_List.Popup_Activity"
             android:theme="@style/AppTheme.popup" />
         <activity
-            android:name=".Splashscreen"
+            android:name=".Collection_Activity"
             android:label="@string/title_activity_collection_"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Register_Activity"
+            android:label="@string/title_activity_register_"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.king.king_lens.LoginActivity" />
+        </activity>
     </application>
 
 </manifest>

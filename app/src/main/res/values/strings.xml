@@ -12,4 +12,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_gridlist_">Gridlist_Activity</string>
     <string name="title_activity_collection_">Collection_Activity</string>
+    <string name="title_activity_register_">Register_Activity</string>
 </resources>

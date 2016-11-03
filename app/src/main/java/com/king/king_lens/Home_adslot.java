@@ -1,6 +1,7 @@
 package com.king.king_lens;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -15,10 +16,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.king.king_lens.Grid_List.wishfrag3;
+import com.king.king_lens.Home_Sliding.Color_Collectionfrag;
 import com.king.king_lens.Home_Sliding.PagerAdapter1;
 
 public class Home_adslot extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener
+        ,Color_Collectionfrag.OnFragmentInteractionListener {
 
 
     Button enterbtn;
@@ -86,10 +90,13 @@ public class Home_adslot extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+
+        int count = getFragmentManager().getBackStackEntryCount();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer.isDrawerOpen(GravityCompat.START )) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else {
             super.onBackPressed();
         }
     }//on back pressed
@@ -148,5 +155,10 @@ public class Home_adslot extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

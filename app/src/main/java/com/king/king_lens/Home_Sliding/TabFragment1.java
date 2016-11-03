@@ -3,11 +3,15 @@ package com.king.king_lens.Home_Sliding;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.king.king_lens.Grid_List.Gridlist_Activity;
@@ -33,7 +37,7 @@ public class TabFragment1 extends Fragment {
     private View view;
     CarouselView carouselView;
 
-
+    LinearLayout linearLayout;
 
 
     int[] sampleImages = {
@@ -49,9 +53,9 @@ public class TabFragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragmenttab1, container, false);
-
+        //frameLayout=(FrameLayout)view.findViewById(R.id.colorfrag1);
         //for carousel
-        carouselView = (CarouselView)view.findViewById(R.id.carouselView);
+        carouselView=(CarouselView) view.findViewById(R.id.carouselView1);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(new ImageListener() {
             @Override
@@ -63,6 +67,7 @@ public class TabFragment1 extends Fragment {
 
 
 
+        linearLayout=(LinearLayout)view.findViewById(R.id.hidelayout);
 
 
        gridview = (ExpandableHeightGridView)view.findViewById(R.id.gridview);
@@ -91,6 +96,24 @@ public class TabFragment1 extends Fragment {
 
             Intent i=new Intent(getActivity(), Gridlist_Activity.class);
             startActivity(i);
+
+
+
+        /*    linearLayout.setVisibility(View.GONE);
+
+
+           Color_Collectionfrag color_collectionfrag = new Color_Collectionfrag();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.colorfrag1, color_collectionfrag);
+
+            fragmentTransaction.addToBackStack(null);
+
+            fragmentTransaction.commit();
+
+         // linearLayout.setVisibility(View.VISIBLE);
+
+            Toast.makeText(getActivity(), "", Toast.LENGTH_SHORT).show();*/
 
         }
     };
