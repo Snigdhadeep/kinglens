@@ -50,19 +50,16 @@
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_centerHorizontal="true" />
-    <EditText
+    <Spinner
         android:id="@+id/gender"
         android:layout_height="40dp"
         android:layout_width="match_parent"
         android:background="@drawable/rect_edittext"
-        android:hint="   Gender"
-        android:textColor="#000000"
-        android:textColorHint="#f3787d7e"
+        android:entries="@array/gender_array"
+        android:prompt="@string/genderprompt"
         android:layout_marginRight="16dp"
-
-
         >
-    </EditText>
+    </Spinner>
     <View
         android:id="@+id/view9"
         android:layout_width="0dp"

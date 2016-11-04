@@ -250,7 +250,7 @@
                 android:gravity="center"
                 android:text="SIGN UP"
                 android:textColor="#fff"
-                android:id="@+id/textView3"
+                android:id="@+id/signup_btn"
                 android:height="50dp"
                 android:background="@drawable/rect1"
                 android:textStyle="bold" />
@@ -258,15 +258,7 @@
 
 
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="REGISTER NOW"
-            android:textColor="#FFF"
-            android:background="@drawable/rect1"
-            android:textSize="27dp"
-            android:id="@+id/register_text" />
+
 
         <View
             android:id="@+id/view16"

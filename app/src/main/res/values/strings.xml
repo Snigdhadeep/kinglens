@@ -13,4 +13,14 @@
     <string name="title_activity_gridlist_">Gridlist_Activity</string>
     <string name="title_activity_collection_">Collection_Activity</string>
     <string name="title_activity_register_">Register_Activity</string>
+    <string name="genderprompt">Select Gender</string>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+
+
+
 </resources>

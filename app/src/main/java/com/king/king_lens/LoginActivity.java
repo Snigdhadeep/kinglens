@@ -13,13 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    TextView register;
+    Button signup_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +39,9 @@ public class LoginActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        register=(TextView)findViewById(R.id.register_text);
+        signup_btn=(Button) findViewById(R.id.signup_btn);
 
-        register.setOnClickListener(new View.OnClickListener() {
+        signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getApplicationContext(),Register_Activity.class);
