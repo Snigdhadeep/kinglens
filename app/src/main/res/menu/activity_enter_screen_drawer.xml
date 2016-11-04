@@ -7,10 +7,6 @@
             android:icon="@drawable/myaccounticon"
             android:title="HOME" />
         <item
-            android:id="@+id/nav_login"
-            android:icon="@drawable/myaccounticon"
-            android:title="LOG IN" />
-        <item
             android:id="@+id/nav_search"
             android:icon="@drawable/icon_search"
             android:title="SEARCH" />
@@ -32,6 +28,15 @@
             android:id="@+id/nav_myaccount"
             android:icon="@drawable/myaccounticon"
             android:title="MY ACCOUNT" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/myaccounticon"
+            android:title="LOG IN" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/myaccounticon"
+            android:title="LOG OUT"
+            android:visible="false"/>
     </group>
 
 

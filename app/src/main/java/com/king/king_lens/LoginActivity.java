@@ -1,9 +1,12 @@
 package com.king.king_lens;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,13 +21,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
+import HelperClasses.AsyncResponse;
+import HelperClasses.CheckNetwork;
 import HelperClasses.EmailValidator;
 import HelperClasses.RegisterUser;
 
 public class LoginActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AsyncResponse.Response {
 
     Button signin;
     Button signup_btn;
@@ -36,6 +43,9 @@ public class LoginActivity extends AppCompatActivity
     private String route = "api/v1/user/auth";
     HashMap<String,String> data = new HashMap<>();
 
+    //loading variables
+    ProgressDialog loading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +53,7 @@ public class LoginActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        registerUser.delegate = this;
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -85,7 +96,17 @@ public class LoginActivity extends AppCompatActivity
                     EmailValidator emailValidator = new EmailValidator();
                     if(emailValidator.validate(user_email.getText().toString()))
                     {
-
+                        if(CheckNetwork.isInternetAvailable(getApplicationContext()))
+                        {
+                            data.put("email",user_email.getText().toString());
+                            data.put("password",user_password.getText().toString());
+                            loading = ProgressDialog.show(LoginActivity.this, "","Validating user...", true, false);
+                            registerUser.register(data,route);
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"No Internet Connection",Toast.LENGTH_LONG).show();
+                        }
                     }
                     else
                     {
@@ -161,5 +182,35 @@ public class LoginActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void processFinish(String output) {
+        Log.i("kingsukmajumder","output of login api call is: "+output);
+        loading.dismiss();
+        try
+        {
+            JSONObject jsonObject = new JSONObject(output);
+            if(jsonObject.getBoolean("status"))
+            {
+                JSONObject response = new JSONObject(jsonObject.getString("response"));
+                //Log.i("kingsukmajumder",""+response.getInt("id"));
+                SharedPreferences.Editor editor = getSharedPreferences("ADASAT", MODE_PRIVATE).edit();
+                editor.putInt("id", response.getInt("id"));
+                if(editor.commit())
+                {
+                    Intent intent = new Intent(LoginActivity.this,Home_adslot.class);
+                    startActivity(intent);
+                }
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(),jsonObject.getString("message"),Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch (Exception e)
+        {
+            Log.i("kingsukmajumder","error in login response "+e.toString());
+        }
     }
 }

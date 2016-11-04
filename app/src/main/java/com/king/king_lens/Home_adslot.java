@@ -1,6 +1,7 @@
 package com.king.king_lens;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,7 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.king.king_lens.Grid_List.wishfrag3;
 import com.king.king_lens.Home_Sliding.Color_Collectionfrag;
@@ -26,6 +29,7 @@ public class Home_adslot extends AppCompatActivity
 
 
     Button enterbtn;
+    int user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +86,17 @@ public class Home_adslot extends AppCompatActivity
 
 
 
+        SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
+        user_id = prefs.getInt("id",0);
+        //Toast.makeText(getApplicationContext(),""+user_id,Toast.LENGTH_SHORT).show();
 
-
-
+        //hiding login logout programatically
+        if(user_id!=0)
+        {
+            //Toast.makeText(getApplicationContext(),"use id"+user_id,Toast.LENGTH_SHORT).show();
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+        }
 
     }
 
@@ -134,11 +146,20 @@ public class Home_adslot extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-
         if (id == R.id.nav_login) {
             // Handle the camera action
             Intent i=new Intent(getApplicationContext(),LoginActivity.class);
             startActivity(i);
+        }
+        else if(id == R.id.nav_logout)
+        {
+            SharedPreferences.Editor editor = getSharedPreferences("ADASAT", MODE_PRIVATE).edit();
+            editor.putInt("id", 0);
+            if(editor.commit())
+            {
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+            }
         }
 
         else if (id == R.id.nav_lenscare) {
