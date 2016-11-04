@@ -124,7 +124,7 @@
 
 
         <EditText
-            android:id="@+id/email2"
+            android:id="@+id/user_email"
             android:layout_height="40dp"
             android:layout_width="match_parent"
             android:background="@drawable/rect_edittext"
@@ -144,7 +144,7 @@
             android:layout_height="20dp"
             android:layout_centerHorizontal="true" />
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/user_password"
             android:layout_height="40dp"
             android:layout_width="match_parent"
             android:background="@drawable/rect_edittext"

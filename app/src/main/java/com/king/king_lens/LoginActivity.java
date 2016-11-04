@@ -14,13 +14,28 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.HashMap;
+
+import HelperClasses.EmailValidator;
+import HelperClasses.RegisterUser;
 
 public class LoginActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    Button signin;
     Button signup_btn;
+    EditText user_email;
+    EditText user_password;
+
+    //server variables
+    RegisterUser registerUser = new RegisterUser("POST");
+    private String route = "api/v1/user/auth";
+    HashMap<String,String> data = new HashMap<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +63,41 @@ public class LoginActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+
+        user_email=(EditText)findViewById(R.id.user_email);
+        user_password=(EditText)findViewById(R.id.user_password);
+
+        //log in button
+
+
+
+        signin=(Button)findViewById(R.id.signin);
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(user_email.getText().equals("") || user_password.getText().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(),"Email and Password cannot be empty!",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    EmailValidator emailValidator = new EmailValidator();
+                    if(emailValidator.validate(user_email.getText().toString()))
+                    {
+
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"Please enter a valid email!",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+
+
+
 
     }
 
