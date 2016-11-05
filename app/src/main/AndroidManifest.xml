@@ -27,7 +27,8 @@
             android:name=".Home_adslot"
             android:label="HOME"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
+            <intent-filter
+                android:label="ADASAT">
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
