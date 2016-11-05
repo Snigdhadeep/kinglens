@@ -14,11 +14,11 @@
     tools:showIn="@layout/activity_register_">
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/firstname"
         android:layout_height="40dp"
         android:layout_width="match_parent"
         android:background="@drawable/rect_edittext"
-        android:hint="   First Name"
+        android:hint=" Name"
         android:textColor="#000000"
         android:textColorHint="#f3787d7e"
         android:layout_marginRight="16dp"
@@ -27,16 +27,16 @@
         >
     </EditText>
     <View
-        android:id="@+id/view8"
+        android:id="@+id/view21"
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_centerHorizontal="true" />
     <EditText
-        android:id="@+id/lastname"
+        android:id="@+id/email"
         android:layout_height="40dp"
         android:layout_width="match_parent"
         android:background="@drawable/rect_edittext"
-        android:hint="   Last Name"
+        android:hint=" Email"
         android:textColor="#000000"
         android:textColorHint="#f3787d7e"
         android:layout_marginRight="16dp"
@@ -44,6 +44,27 @@
 
         >
     </EditText>
+    <View
+        android:id="@+id/view9"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:id="@+id/password"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:hint=" Password"
+        android:textColor="#000000"
+        android:textColorHint="#f3787d7e"
+        android:layout_marginRight="16dp"
+
+
+        >
+    </EditText>
+
+
+
 
     <View
         android:id="@+id/view10"
@@ -60,17 +81,18 @@
         android:layout_marginRight="16dp"
         >
     </Spinner>
+
     <View
-        android:id="@+id/view9"
+        android:id="@+id/view22"
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_centerHorizontal="true" />
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/contact_no"
         android:layout_height="40dp"
         android:layout_width="match_parent"
         android:background="@drawable/rect_edittext"
-        android:hint="   Password"
+        android:hint=" ContactNo."
         android:textColor="#000000"
         android:textColorHint="#f3787d7e"
         android:layout_marginRight="16dp"
@@ -78,23 +100,13 @@
 
         >
     </EditText>
-    <View
-        android:id="@+id/view15"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_centerHorizontal="true" />
-    <EditText
-        android:id="@+id/repeat_pass"
-        android:layout_height="40dp"
-        android:layout_width="match_parent"
-        android:background="@drawable/rect_edittext"
-        android:hint="   Repeat Password"
-        android:textColor="#000000"
-        android:textColorHint="#f3787d7e"
-        android:layout_marginRight="16dp"
 
 
-        >
-    </EditText>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTER"
+        android:id="@+id/reg_btn"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

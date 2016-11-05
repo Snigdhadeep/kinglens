@@ -16,6 +16,7 @@
     <string name="genderprompt">Select Gender</string>
 
     <string-array name="gender_array">
+        <item>Select Gender</item>
         <item>Male</item>
         <item>Female</item>
 

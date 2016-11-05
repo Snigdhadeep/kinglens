@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/myaccounticon"
+            android:icon="@mipmap/ic_home"
             android:title="HOME" />
         <item
             android:id="@+id/nav_search"
@@ -30,11 +30,11 @@
             android:title="MY ACCOUNT" />
         <item
             android:id="@+id/nav_login"
-            android:icon="@drawable/myaccounticon"
+            android:icon="@mipmap/ic_login"
             android:title="LOG IN" />
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/myaccounticon"
+            android:icon="@mipmap/ic_logout"
             android:title="LOG OUT"
             android:visible="false"/>
     </group>
