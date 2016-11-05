@@ -58,6 +58,9 @@ public class Gridlist_Activity extends AppCompatActivity
     ImageButton  firebtn;
 
 
+    //page variables
+    int user_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -172,6 +175,19 @@ public class Gridlist_Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
+        user_id = prefs.getInt("id",0);
+        //Toast.makeText(getApplicationContext(),""+user_id,Toast.LENGTH_SHORT).show();
+
+        //hiding login logout programatically
+        if(user_id!=0)
+        {
+            //Toast.makeText(getApplicationContext(),"use id"+user_id,Toast.LENGTH_SHORT).show();
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+        }
     }
 
 
@@ -287,7 +303,17 @@ public class Gridlist_Activity extends AppCompatActivity
             Intent i=new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
 
-        } else if (id == R.id.nav_home) {
+        }
+        else if(id == R.id.nav_logout)
+        {
+            SharedPreferences.Editor editor = getSharedPreferences("ADASAT", MODE_PRIVATE).edit();
+            editor.putInt("id", 0);
+            if(editor.commit())
+            {
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+            }
+        }else if (id == R.id.nav_home) {
 
             Intent i=new Intent(getApplicationContext(), Home_adslot.class);
             startActivity(i);

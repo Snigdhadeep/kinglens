@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-                if(user_email.getText().equals("") || user_password.getText().equals(""))
+                if(user_email.getText().toString().equals("") || user_password.getText().toString().equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"Email and Password cannot be empty!",Toast.LENGTH_SHORT).show();
                 }
