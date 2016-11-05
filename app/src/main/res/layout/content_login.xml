@@ -202,22 +202,63 @@
 
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FORGOT PASSWORD ?"
+            android:textColor="#f3787d7e"
+            android:id="@+id/forgotpass"
+            android:background="#FFFFFF"
+            android:layout_gravity="center" />
+        <View
+            android:id="@+id/view132"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true" />
 
-    <LinearLayout
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#D1F4FE"
+            android:gravity="center"
+            android:orientation="vertical"
+
+            >
+
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+
+                android:gravity="center"
+                android:text="REGISTER HERE"
+                android:textColor="#fff"
+                android:id="@+id/register"
+                android:height="50dp"
+                android:background="@drawable/rect1"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#FFFFFF"
         android:layout_gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FORGOT PASSWORD ?"
-        android:textColor="#f3787d7e"
-        android:id="@+id/forgotpass"
-        android:background="#FFFFFF"
-        android:layout_gravity="center_horizontal" />
 
         <ImageView
             android:layout_width="250dp"

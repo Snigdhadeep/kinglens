@@ -20,13 +20,13 @@
             android:label="ADASAT"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Home_adslot"
-            android:label="HOME"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Splashscreen"
             android:label="ADASAT"
-            android:theme="@style/AppThemeSplash">
+            android:theme="@style/AppThemeSplash"/>
+        <activity
+            android:name=".Home_adslot"
+            android:label="HOME"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,6 +61,7 @@
         <activity
             android:name=".Register_Activity"
             android:label="REGISTER"
+            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

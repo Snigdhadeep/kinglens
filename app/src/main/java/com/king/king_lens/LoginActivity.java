@@ -38,6 +38,8 @@ public class LoginActivity extends AppCompatActivity
     EditText user_email;
     EditText user_password;
 
+    Button register_here;
+
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
     private String route = "api/v1/user/auth";
@@ -63,6 +65,19 @@ public class LoginActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+        register_here=(Button)findViewById(R.id.register);
+        register_here.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),Register_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
         signup_btn=(Button) findViewById(R.id.signup_btn);

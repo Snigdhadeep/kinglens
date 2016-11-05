@@ -1,106 +1,404 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.king.king_lens.Select_Language">
 
-    <FrameLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#D1F4FE">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#D1F4FE">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SELECT YOUR LANGUAGE"
             android:layout_gravity="center"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:textColor="#44A0BB"
             android:textSize="14dp"
            />
-    </FrameLayout>
-    <View
-        android:id="@+id/view6"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_centerHorizontal="true" />
+
+        </FrameLayout>
+        <View
+            android:id="@+id/view205"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true" />
 
 
-    <LinearLayout
-    android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:background="#D1F4FE"
+                android:gravity="center"
+                android:layout_weight="1"
+
+                >
+
+
+
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+
+                    android:gravity="center"
+                    android:text="ENGLISH"
+                    android:textColor="#fff"
+                    android:id="@+id/english_lang"
+                    android:height="50dp"
+                    android:background="@drawable/rect1"
+                    android:textStyle="bold" />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:background="#D1F4FE"
+                android:gravity="center"
+                android:layout_weight="1"
+
+                >
+
+
+
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="40dp"
+
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+
+                    android:gravity="center"
+                    android:text="URDU"
+
+                    android:textColor="#fff"
+                    android:id="@+id/urdu_lang"
+                    android:height="50dp"
+                    android:background="@drawable/rect1"
+                    android:textStyle="bold" />
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SELECT YOUR COUNTRY"
+                android:layout_gravity="center"
+                android:textColor="#44A0BB"
+
+                android:textSize="14dp"
+                />
+        </FrameLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:gravity="center"
+           android:layout_marginBottom="50dp">
+
+<LinearLayout
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_gravity="center">
-    <LinearLayout
+    android:orientation="vertical"
+    android:layout_marginRight="10dp">
+           <ImageView
+               android:layout_width="120dp"
+               android:layout_height="80dp"
+
+               android:src="@drawable/country1"
+             />
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:background="#D1F4FE"
-        android:gravity="center"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="SAUDI ARABIA"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+       </LinearLayout>
 
-        >
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_marginRight="10dp">
+               <ImageView
+                   android:layout_width="120dp"
+                   android:layout_height="80dp"
+
+                   android:src="@drawable/country2"
+                   />
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="UAE"
+                   android:textStyle="bold"
+                   android:layout_gravity="center"/>
+           </LinearLayout>
 
 
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_marginRight="10dp">
+               <ImageView
+                   android:layout_width="120dp"
+                   android:layout_height="80dp"
 
+                   android:src="@drawable/country3"
+                   />
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="BAHRIN"
+                   android:textStyle="bold"
+                   android:layout_gravity="center"/>
+           </LinearLayout>
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="30dp"
+       </LinearLayout>
 
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:text="ENGLISH"
-            android:textColor="#fff"
-            android:id="@+id/english_lang"
-            android:height="50dp"
-            android:background="@drawable/rect1"
-            android:textStyle="bold" />
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="10dp">
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
+
+                    android:src="@drawable/country4"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KUWAIT"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="10dp">
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
+
+                    android:src="@drawable/country5"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KATAR"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="10dp">
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
+
+                    android:src="@drawable/country6"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OMAN"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#D1F4FE"
+            android:gravity="center"
+
+
+            >
+
+
+
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+
+
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+
+                android:gravity="center"
+                android:text="START"
+                android:textColor="#fff"
+                android:id="@+id/start"
+                android:height="50dp"
+                android:background="@drawable/rect1"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+            </LinearLayout>
 
 
 
     </LinearLayout>
 
+    </ScrollView>
+
+
+
+
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:background="#D1F4FE"
-        android:gravity="center"
-        android:layout_weight="1"
-
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#44A0BB"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
         >
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+           >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="ADASAT.NET ALL RIGHTS RESERVED"
+                android:layout_marginLeft="16dp"/>
+        </LinearLayout>
 
 
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="30dp"
-            android:layout_marginRight="40dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="Follow us"
+                android:layout_weight=".5"
+                />
 
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
 
-            android:gravity="center"
-            android:text="URDU"
 
-            android:textColor="#fff"
-            android:id="@+id/urdu_lang"
-            android:height="50dp"
-            android:background="@drawable/rect1"
-            android:textStyle="bold" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/facebook"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
 
+                android:layout_weight=".5"/>
+            <View
+                android:id="@+id/view10"
+                android:layout_width="10dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/twitter"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                android:layout_weight=".2"/>
+            <View
+                android:id="@+id/view11"
+                android:layout_width="10dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/instagram"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                android:layout_weight=".5"/>
+        </LinearLayout>
 
 
     </LinearLayout>
 
-
-
-</LinearLayout>
-
-
-
-</LinearLayout>
+</FrameLayout>
