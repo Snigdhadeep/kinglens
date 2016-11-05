@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.king.king_lens.Select_Language">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#D1F4FE">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SELECT YOUR LANGUAGE"
+            android:layout_gravity="center"
+            android:textSize="14dp"
+           />
+    </FrameLayout>
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="#D1F4FE"
+        android:gravity="center"
+        android:layout_weight="1"
+
+        >
+
+
+
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+
+            android:gravity="center"
+            android:text="ENGLISH"
+            android:textColor="#fff"
+            android:id="@+id/english_lang"
+            android:height="50dp"
+            android:background="@drawable/rect1"
+            android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="#D1F4FE"
+        android:gravity="center"
+        android:layout_weight="1"
+
+        >
+
+
+
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="40dp"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+
+            android:gravity="center"
+            android:text="URDU"
+
+            android:textColor="#fff"
+            android:id="@+id/urdu_lang"
+            android:height="50dp"
+            android:background="@drawable/rect1"
+            android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
+
+</LinearLayout>
