@@ -3,6 +3,7 @@ package com.king.king_lens;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -154,7 +155,8 @@ public class Select_Language extends AppCompatActivity  implements View.OnClickL
         english_lang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  english_lang.setBackgroundColor(Color.GREEN);
+                english_lang.setBackgroundResource(R.drawable.button_back_selected);
+                urdu_lang.setBackgroundResource(R.drawable.rect1);
                 IntLanguage=1;
             }
         });
@@ -162,7 +164,8 @@ public class Select_Language extends AppCompatActivity  implements View.OnClickL
         urdu_lang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             //   urdu_lang.setBackgroundColor(Color.GREEN);
+                urdu_lang.setBackgroundResource(R.drawable.button_back_selected);
+                english_lang.setBackgroundResource(R.drawable.rect1);
                 IntLanguage=2;
             }
         });
