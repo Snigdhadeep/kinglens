@@ -68,7 +68,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.king.king_lens.LoginActivity" />
         </activity>
-        <activity android:name=".Select_Language"></activity>
+        <activity android:name=".Select_Language"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

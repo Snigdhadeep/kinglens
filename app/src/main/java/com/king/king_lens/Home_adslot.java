@@ -40,6 +40,19 @@ public class Home_adslot extends AppCompatActivity
        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar_home);
        setSupportActionBar(toolbar);
 
+
+        //checking if country and language is selected
+        SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
+        int language=prefs.getInt("language",0);
+        int country=prefs.getInt("country",0);
+
+        if (language==0 || country==0)
+        {
+            Intent intent=new Intent(getApplicationContext(),Select_Language.class);
+            startActivity(intent);
+            finish();
+        }
+
         // setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -86,7 +99,7 @@ public class Home_adslot extends AppCompatActivity
 
 
 
-        SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
+
         user_id = prefs.getInt("id",0);
         //Toast.makeText(getApplicationContext(),""+user_id,Toast.LENGTH_SHORT).show();
 
@@ -164,9 +177,14 @@ public class Home_adslot extends AppCompatActivity
 
         else if (id == R.id.nav_lenscare) {
 
-        }else if (id == R.id.nav_myaccount) {
+        } else if (id == R.id.nav_myaccount) {
 
-        } else if (id == R.id.nav_search) {
+        } else if (id == R.id.nav_selectlang) {
+
+            Intent intent = new Intent(getApplicationContext(),Select_Language.class);
+            startActivity(intent);
+
+        }else if (id == R.id.nav_search) {
 
         } else if (id == R.id.nav_shoppingcart) {
 

@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp">
+        android:layout_marginBottom="50dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,11 +62,7 @@
                 <Button
                     android:layout_width="150dp"
                     android:layout_height="30dp"
-
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-
+                    android:layout_marginLeft="20dp"
                     android:gravity="center"
                     android:text="ENGLISH"
                     android:textColor="#fff"
@@ -95,13 +91,10 @@
                 <Button
                     android:layout_width="150dp"
                     android:layout_height="30dp"
-                    android:layout_marginRight="40dp"
-
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
 
                     android:gravity="center"
                     android:text="URDU"
+                   android:layout_marginRight="20dp"
 
                     android:textColor="#fff"
                     android:id="@+id/urdu_lang"
@@ -155,6 +148,7 @@
            <ImageView
                android:layout_width="120dp"
                android:layout_height="80dp"
+               android:id="@+id/country1"
 
                android:src="@drawable/country1"
              />
@@ -174,7 +168,7 @@
                <ImageView
                    android:layout_width="120dp"
                    android:layout_height="80dp"
-
+                   android:id="@+id/country2"
                    android:src="@drawable/country2"
                    />
                <TextView
@@ -194,13 +188,13 @@
                <ImageView
                    android:layout_width="120dp"
                    android:layout_height="80dp"
-
+                   android:id="@+id/country3"
                    android:src="@drawable/country3"
                    />
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="BAHRIN"
+                   android:text="BAHRAIN"
                    android:textStyle="bold"
                    android:layout_gravity="center"/>
            </LinearLayout>
@@ -222,7 +216,7 @@
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="80dp"
-
+                    android:id="@+id/country4"
                     android:src="@drawable/country4"
                     />
                 <TextView
@@ -240,13 +234,13 @@
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="80dp"
-
+                    android:id="@+id/country5"
                     android:src="@drawable/country5"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="KATAR"
+                    android:text="QATAR"
                     android:textStyle="bold"
                     android:layout_gravity="center"/>
             </LinearLayout>
@@ -259,7 +253,7 @@
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="80dp"
-
+                    android:id="@+id/country6"
                     android:src="@drawable/country6"
                     />
                 <TextView
@@ -324,7 +318,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="50dp"
         android:background="#44A0BB"
         android:orientation="horizontal"
         android:layout_gravity="bottom"
@@ -338,7 +332,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:gravity="center"
                 android:textColor="#ffffff"
                 android:text="ADASAT.NET ALL RIGHTS RESERVED"
@@ -355,7 +349,7 @@
             android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:gravity="center"
                 android:textColor="#ffffff"
                 android:text="Follow us"

@@ -1,12 +1,15 @@
 package com.king.king_lens;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -40,6 +43,8 @@ public class LoginActivity extends AppCompatActivity
 
     Button register_here;
 
+    TextView forgotpass;
+
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
     private String route = "api/v1/user/auth";
@@ -66,6 +71,14 @@ public class LoginActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //for forgetpass
+        forgotpass=(TextView)findViewById(R.id.forgotpass);
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showForgetPassword();
+            }
+        });
 
 
         register_here=(Button)findViewById(R.id.register);
@@ -85,8 +98,7 @@ public class LoginActivity extends AppCompatActivity
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getApplicationContext(),Register_Activity.class);
-                startActivity(i);
+               newslettersignup();
             }
         });
 
@@ -192,6 +204,11 @@ public class LoginActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_wishlist) {
 
+        }else if (id == R.id.nav_selectlang) {
+
+            Intent intent = new Intent(getApplicationContext(),Select_Language.class);
+            startActivity(intent);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -228,4 +245,62 @@ public class LoginActivity extends AppCompatActivity
             Log.i("kingsukmajumder","error in login response "+e.toString());
         }
     }
+
+
+    public void showForgetPassword()
+    {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.popup_date, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText edt = (EditText) dialogView.findViewById(R.id.etCoupone);
+
+        dialogBuilder.setTitle("Enter your Email:");
+        dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //do something with edt.getText().toString();
+                Toast.makeText(LoginActivity.this, "API for this is not done yet", Toast.LENGTH_SHORT).show();
+
+
+
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+            }
+        });
+        AlertDialog b = dialogBuilder.create();
+        b.show();
+    }
+
+
+    public void newslettersignup()
+    {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.popup_date, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText edt = (EditText) dialogView.findViewById(R.id.etCoupone);
+
+        dialogBuilder.setTitle("Enter your Email:");
+        dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //do something with edt.getText().toString();
+
+                Toast.makeText(LoginActivity.this, "API for this is not done yet", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+            }
+        });
+        AlertDialog b = dialogBuilder.create();
+        b.show();
+    }
+
 }

@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.king.king_lens.Home_adslot;
 import com.king.king_lens.LoginActivity;
 import com.king.king_lens.R;
+import com.king.king_lens.Select_Language;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -325,6 +326,12 @@ public class Gridlist_Activity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+
+        }
+        else if (id == R.id.nav_selectlang) {
+
+            Intent intent = new Intent(getApplicationContext(),Select_Language.class);
+            startActivity(intent);
 
         }
 
