@@ -98,6 +98,9 @@ public class Register_Activity extends AppCompatActivity implements AsyncRespons
                     if(emailValidator.validate(emailText))
                     {
                         String passwordText = password.getText().toString();
+                        //taking the saved country
+                        SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
+                        int country=prefs.getInt("country",0);
                         if(passwordText.length()>5)
                         {
                             loading = ProgressDialog.show(Register_Activity.this, "","Validating user...", true, false);
@@ -105,7 +108,7 @@ public class Register_Activity extends AppCompatActivity implements AsyncRespons
                             data.put("name",firstname.getText().toString());
                             data.put("email",emailText);
                             data.put("password",passwordText);
-                            data.put("country_id","1");
+                            data.put("country_id",String.valueOf(country));
                             data.put("contact_number",contact_no.getText().toString());
                             data.put("user_type","regular");
                             data.put("gender",givenGender);
