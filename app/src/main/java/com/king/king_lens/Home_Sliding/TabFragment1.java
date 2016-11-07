@@ -3,22 +3,16 @@ package com.king.king_lens.Home_Sliding;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.king.king_lens.Grid_List.Gridlist_Activity;
-import com.king.king_lens.Grid_List.Item_activity;
 import com.king.king_lens.R;
 import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.CirclePageIndicator;
 import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;

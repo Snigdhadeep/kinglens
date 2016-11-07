@@ -22,13 +22,12 @@
         <activity
             android:name=".Splashscreen"
             android:label="ADASAT"
-            android:theme="@style/AppThemeSplash"/>
+            android:theme="@style/AppThemeSplash" />
         <activity
             android:name=".Home_adslot"
             android:label="HOME"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter
-                android:label="ADASAT">
+            <intent-filter android:label="ADASAT">
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -44,17 +43,10 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".Grid_List.Item_activity"
-            android:label="@string/title_activity_wishlist"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Grid_List.Gridlist_Activity"
             android:label="ADASAT.NET"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Grid_List.Filter_Activity" />
-        <activity
-            android:name=".Grid_List.Popup_Activity"
-            android:theme="@style/AppTheme.popup" />
         <activity
             android:name=".Collection_Activity"
             android:label="@string/title_activity_collection_"
@@ -62,15 +54,17 @@
         <activity
             android:name=".Register_Activity"
             android:label="REGISTER"
-            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.king.king_lens.LoginActivity" />
         </activity>
-        <activity android:name=".Select_Language"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Select_Language"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Payment_Activity"></activity>
     </application>
 
 </manifest>
