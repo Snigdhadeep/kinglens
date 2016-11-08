@@ -21,6 +21,7 @@
         <item>Female</item>
 
     </string-array>
+    <string name="title_activity_my__account">My_Account</string>
 
 
 </resources>

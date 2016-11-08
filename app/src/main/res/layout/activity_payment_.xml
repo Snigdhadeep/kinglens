@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:orientation="vertical"
-            >
+          >
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp">
+            >
 
 
                 <LinearLayout
@@ -178,127 +178,20 @@
                     />
                 </LinearLayout>
 
-            </LinearLayout>
-
-
-
-            <View
-                android:id="@+id/view21"
-                android:layout_width="0dp"
-                android:layout_height="20dp"
-                android:layout_centerHorizontal="true" />
-            <EditText
-                android:id="@+id/email"
-                android:layout_height="40dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/rect_edittext"
-                android:hint=" Email"
-                android:textColor="#000000"
-                android:textColorHint="#f3787d7e"
-                android:layout_marginRight="16dp"
-
-
-                >
-            </EditText>
-            <View
-                android:id="@+id/view9"
-                android:layout_width="0dp"
-                android:layout_height="20dp"
-                android:layout_centerHorizontal="true" />
-            <EditText
-                android:id="@+id/password"
-                android:layout_height="40dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/rect_edittext"
-                android:hint=" Password"
-                android:textColor="#000000"
-                android:textColorHint="#f3787d7e"
-                android:layout_marginRight="16dp"
-
-
-                >
-            </EditText>
-
-
-
-
-            <View
-                android:id="@+id/view102"
-                android:layout_width="0dp"
-                android:layout_height="20dp"
-                android:layout_centerHorizontal="true" />
-            <Spinner
-                android:id="@+id/gender"
-                android:layout_height="40dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/rect_edittext"
-                android:entries="@array/gender_array"
-                android:prompt="@string/genderprompt"
-                android:layout_marginRight="16dp"
-                >
-            </Spinner>
-
-            <View
-                android:id="@+id/view22"
-                android:layout_width="0dp"
-                android:layout_height="20dp"
-                android:layout_centerHorizontal="true" />
-            <EditText
-                android:id="@+id/contact_no"
-                android:layout_height="40dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/rect_edittext"
-                android:hint=" ContactNo."
-                android:textColor="#000000"
-                android:textColorHint="#f3787d7e"
-                android:layout_marginRight="16dp"
-
-
-                >
-            </EditText>
-
-
-            <View
-                android:id="@+id/view24"
-                android:layout_width="0dp"
-                android:layout_height="20dp"
-                android:layout_centerHorizontal="true" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="#D1F4FE"
-                android:gravity="center"
-
-
-
-                >
-
-
-
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-
-                    android:gravity="center"
-                    android:text="REGISTER"
-                    android:textColor="#fff"
-                    android:id="@+id/reg_btn"
-                    android:height="50dp"
-                    android:background="@drawable/rect1"
-                    android:textStyle="bold" />
-
 
 
             </LinearLayout>
 
 
-        </>
+
+
+
+
+
+
+        </LinearLayout>
+
+
 
     </ScrollView>
 

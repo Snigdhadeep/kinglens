@@ -64,7 +64,12 @@
         <activity
             android:name=".Select_Language"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Payment_Activity"></activity>
+
+        <activity
+            android:name=".My_Account"
+            android:label="My Account"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>

@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.king.king_lens.Home_adslot;
 import com.king.king_lens.LoginActivity;
+import com.king.king_lens.My_Account;
 import com.king.king_lens.R;
 import com.king.king_lens.Select_Language;
 
@@ -334,6 +335,14 @@ public class Gridlist_Activity extends AppCompatActivity
             startActivity(intent);
 
         }
+
+        else if(id == R.id.nav_myaccount){
+
+            Intent intent=new Intent(getApplicationContext(),My_Account.class);
+            startActivity(intent);
+
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

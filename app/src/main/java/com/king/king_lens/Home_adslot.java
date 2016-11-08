@@ -147,6 +147,7 @@ public class Home_adslot extends AppCompatActivity
         }
 
 
+
         return super.onOptionsItemSelected(item);
     }//optionsitemSelected
 
@@ -175,6 +176,10 @@ public class Home_adslot extends AppCompatActivity
         else if (id == R.id.nav_lenscare) {
 
         } else if (id == R.id.nav_myaccount) {
+
+
+            Intent intent=new Intent(getApplicationContext(),My_Account.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_selectlang) {
 
