@@ -22,6 +22,7 @@
 
     </string-array>
     <string name="title_activity_my__account">My_Account</string>
+    <string name="title_activity_my__account_">My_Account_Activity</string>
 
 
 </resources>
