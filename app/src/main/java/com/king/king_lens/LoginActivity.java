@@ -26,13 +26,14 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import HelperClasses.Api;
 import HelperClasses.AsyncResponse;
 import HelperClasses.CheckNetwork;
 import HelperClasses.EmailValidator;
 import HelperClasses.RegisterUser;
 
 public class LoginActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AsyncResponse.Response {
+        implements NavigationView.OnNavigationItemSelectedListener, AsyncResponse.Response,AsyncResponse.Response2 {
 
     Button signin;
     Button signup_btn;
@@ -43,10 +44,19 @@ public class LoginActivity extends AppCompatActivity
 
     TextView forgotpass;
 
+    EditText email_guest;
+    Button guest_button;
+
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
     private String route = "api/v1/user/auth";
     HashMap<String,String> data = new HashMap<>();
+
+
+    Api api=new Api("POST");
+    private String route2="";
+    HashMap<String,String> data2 = new HashMap<>();
+
 
     //loading variables
     ProgressDialog loading;
@@ -59,6 +69,7 @@ public class LoginActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         registerUser.delegate = this;
+        api.delegate=this;
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -103,6 +114,9 @@ public class LoginActivity extends AppCompatActivity
         user_email=(EditText)findViewById(R.id.user_email);
         user_password=(EditText)findViewById(R.id.user_password);
 
+
+
+
         //log in button
 
 
@@ -142,6 +156,49 @@ public class LoginActivity extends AppCompatActivity
         });
 
 
+        //for guest login
+        email_guest=(EditText)findViewById(R.id.email_guest);
+        guest_button=(Button)findViewById(R.id.guest_button);
+
+        guest_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                if(email_guest.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(),"Email cannot be empty!",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    EmailValidator emailValidator=new EmailValidator();
+                    if(emailValidator.validate(email_guest.getText().toString()))
+
+                    {
+                        if(CheckNetwork.isInternetAvailable(getApplicationContext()))
+
+                        {
+                            data2.put("email_guest",email_guest.getText().toString());
+                            loading = ProgressDialog.show(LoginActivity.this, "","Validating user...", true, false);
+                           api.call(data2,route2);
+
+                        }
+
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"No Internet Connection",Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"Please enter a valid email!",Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+            }
+        });
 
 
 
@@ -309,4 +366,17 @@ public class LoginActivity extends AppCompatActivity
         b.show();
     }
 
+    @Override
+    public void processFinish2(String output) {
+        Log.i("kingsukmajumder","output of login api call is: "+output);
+        loading.dismiss();
+        try {
+
+            }
+        catch (Exception e)
+        {
+            Log.i("kingsukmajumder","error in guest login response "+e.toString());
+        }
+
+    }
 }

@@ -43,7 +43,7 @@
             />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/email_guest"
             android:layout_height="40dp"
             android:layout_width="match_parent"
             android:background="@drawable/rect_edittext"
@@ -90,7 +90,7 @@
             android:gravity="center"
             android:text="CONTINUE AS GUEST"
             android:textColor="#fff"
-            android:id="@+id/guest"
+            android:id="@+id/guest_button"
             android:height="50dp"
             android:background="@drawable/rect1"
             android:textStyle="bold" />

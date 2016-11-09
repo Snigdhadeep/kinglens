@@ -180,7 +180,15 @@ public class Gridlist_Activity extends AppCompatActivity
             //Toast.makeText(getApplicationContext(),"use id"+user_id,Toast.LENGTH_SHORT).show();
             navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+
         }
+        else
+        {
+            navigationView.getMenu().findItem(R.id.nav_myaccount).setVisible(false);
+
+        }
+
+
     }
 
 

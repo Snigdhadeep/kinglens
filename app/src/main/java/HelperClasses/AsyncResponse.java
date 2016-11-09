@@ -7,4 +7,8 @@ public class AsyncResponse {
     public interface Response {
         void processFinish(String output);
     }
+
+    public interface Response2 {
+        void processFinish2(String output);
+    }
 }

@@ -26,10 +26,6 @@
             android:icon="@drawable/hearticon"
             android:title="WISH LIST" />
 
-        <item
-            android:id="@+id/nav_myaccount"
-            android:icon="@drawable/myaccounticon"
-            android:title="MY ACCOUNT" />
 
         <item
             android:id="@+id/nav_selectlang"
