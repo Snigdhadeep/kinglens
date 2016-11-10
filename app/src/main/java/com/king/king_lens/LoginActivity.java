@@ -33,7 +33,7 @@ import HelperClasses.EmailValidator;
 import HelperClasses.RegisterUser;
 
 public class LoginActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AsyncResponse.Response,AsyncResponse.Response2 {
+        implements NavigationView.OnNavigationItemSelectedListener, AsyncResponse.Response {
 
     Button signin;
     Button signup_btn;
@@ -49,12 +49,12 @@ public class LoginActivity extends AppCompatActivity
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
-    private String route = "api/v1/guest/register";
+    private String route = "api/v1/user/register";
     HashMap<String,String> data = new HashMap<>();
 
 
     Api api=new Api("POST");
-    private String route2="";
+    private String route2="api/v1/guest/register";
     HashMap<String,String> data2 = new HashMap<>();
 
 
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         registerUser.delegate = this;
-        api.delegate=this;
+      //  api.delegate=this;
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -366,9 +366,9 @@ public class LoginActivity extends AppCompatActivity
         b.show();
     }
 
-    @Override
+ /*   @Override
     public void processFinish2(String output) {
-        Log.i("kingsukmajumder","output of login api call is: "+output);
+        Log.i("snigdho","output of login api call is: "+output);
         loading.dismiss();
         try {
 
@@ -378,5 +378,5 @@ public class LoginActivity extends AppCompatActivity
             Log.i("kingsukmajumder","error in guest login response "+e.toString());
         }
 
-    }
+    }*/
 }
