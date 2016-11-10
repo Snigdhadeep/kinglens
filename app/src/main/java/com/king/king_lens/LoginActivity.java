@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity
 
     //loading variables
     ProgressDialog loading;
+    boolean guestApiCallin=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,9 +179,14 @@ public class LoginActivity extends AppCompatActivity
                         if(CheckNetwork.isInternetAvailable(getApplicationContext()))
 
                         {
-                            data2.put("email_guest",email_guest.getText().toString());
+                            data2.put("email",email_guest.getText().toString());
+
                             loading = ProgressDialog.show(LoginActivity.this, "","Validating user...", true, false);
-                           api.call(data2,route2);
+                         //  api.call(data2,route2);
+                              registerUser.register(data2,route2);
+                            guestApiCallin=true;
+
+
 
                         }
 
@@ -283,30 +289,40 @@ public class LoginActivity extends AppCompatActivity
     public void processFinish(String output) {
         Log.i("kingsukmajumder","output of login api call is: "+output);
         loading.dismiss();
-        try
-        {
-            JSONObject jsonObject = new JSONObject(output);
-            if(jsonObject.getBoolean("status"))
+
+        if(guestApiCallin){
+
+            Toast.makeText(LoginActivity.this, ""+output, Toast.LENGTH_SHORT).show();
+
+        }else{
+
+            try
             {
-                JSONObject response = new JSONObject(jsonObject.getString("response"));
-                //Log.i("kingsukmajumder",""+response.getInt("id"));
-                SharedPreferences.Editor editor = getSharedPreferences("ADASAT", MODE_PRIVATE).edit();
-                editor.putInt("id", response.getInt("id"));
-                if(editor.commit())
+                JSONObject jsonObject = new JSONObject(output);
+                if(jsonObject.getBoolean("status"))
                 {
-                    Intent intent = new Intent(LoginActivity.this,Home_adslot.class);
-                    startActivity(intent);
+                    JSONObject response = new JSONObject(jsonObject.getString("response"));
+                    //Log.i("kingsukmajumder",""+response.getInt("id"));
+                    SharedPreferences.Editor editor = getSharedPreferences("ADASAT", MODE_PRIVATE).edit();
+                    editor.putInt("id", response.getInt("id"));
+                    if(editor.commit())
+                    {
+                        Intent intent = new Intent(LoginActivity.this,Home_adslot.class);
+                        startActivity(intent);
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),jsonObject.getString("message"),Toast.LENGTH_SHORT).show();
                 }
             }
-            else
+            catch (Exception e)
             {
-                Toast.makeText(getApplicationContext(),jsonObject.getString("message"),Toast.LENGTH_SHORT).show();
+                Log.i("kingsukmajumder","error in login response "+e.toString());
             }
+
         }
-        catch (Exception e)
-        {
-            Log.i("kingsukmajumder","error in login response "+e.toString());
-        }
+
     }
 
 
