@@ -182,8 +182,18 @@ public class LoginActivity extends AppCompatActivity
                             SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
                             int language=prefs.getInt("language",0);
                             int country=prefs.getInt("country",0);
+                            String languageString = "";
+                            if(language==1)
+                            {
+                                languageString="English";
+                            }
+                            else {
+                                languageString="Urdu";
+                            }
 
                             data2.put("email",email_guest.getText().toString());
+                            data2.put("country_id",String.valueOf(country));
+                            data2.put("language",languageString);
 
                             loading = ProgressDialog.show(LoginActivity.this, "","Validating user...", true, false);
                          //  api.call(data2,route2);
@@ -302,7 +312,15 @@ public class LoginActivity extends AppCompatActivity
                 JSONObject jsonObject = new JSONObject(output);
                 if(jsonObject.getBoolean("status"))
                 {
-
+                    JSONObject response = new JSONObject(jsonObject.getString("response"));
+                    //Toast.makeText(getApplicationContext(),""+response.getInt("id"),Toast.LENGTH_SHORT).show();
+                    SharedPreferences.Editor editor = getSharedPreferences("ADASAT", MODE_PRIVATE).edit();
+                    editor.putInt("guest_id", response.getInt("id"));
+                    if(editor.commit())
+                    {
+                        Intent intent = new Intent(LoginActivity.this,Home_adslot.class);
+                        startActivity(intent);
+                    }
                 }
                 else
                 {
