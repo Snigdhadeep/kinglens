@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
-    private String route = "api/v1/user/register";
+    private String route = "api/v1/user/auth";
     HashMap<String,String> data = new HashMap<>();
 
 
@@ -179,6 +179,10 @@ public class LoginActivity extends AppCompatActivity
                         if(CheckNetwork.isInternetAvailable(getApplicationContext()))
 
                         {
+                            SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
+                            int language=prefs.getInt("language",0);
+                            int country=prefs.getInt("country",0);
+
                             data2.put("email",email_guest.getText().toString());
 
                             loading = ProgressDialog.show(LoginActivity.this, "","Validating user...", true, false);
@@ -292,7 +296,25 @@ public class LoginActivity extends AppCompatActivity
 
         if(guestApiCallin){
 
-            Toast.makeText(LoginActivity.this, ""+output, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(LoginActivity.this, ""+output, Toast.LENGTH_SHORT).show();
+            try
+            {
+                JSONObject jsonObject = new JSONObject(output);
+                if(jsonObject.getBoolean("status"))
+                {
+
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),jsonObject.getString("message"),Toast.LENGTH_SHORT).show();
+                }
+            }
+            catch (Exception e)
+            {
+                Log.i("kingsukmajumder","error in login response "+e.toString());
+            }
+
+
 
         }else{
 
