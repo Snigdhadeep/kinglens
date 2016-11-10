@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
-    private String route = "api/v1/user/auth";
+    private String route = "api/v1/guest/register";
     HashMap<String,String> data = new HashMap<>();
 
 

@@ -9,7 +9,7 @@ import java.util.HashMap;
  */
 public class Api {
     String method;
-    public AsyncResponse.Response delegate = null;
+    public AsyncResponse.Response2 delegate = null;
 
     public Api(String method)
     {
@@ -34,7 +34,7 @@ public class Api {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
 
-                delegate.processFinish(s);
+                delegate.processFinish2(s);
             }
 
             @Override

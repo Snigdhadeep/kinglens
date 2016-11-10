@@ -59,7 +59,7 @@ public class Select_Language extends AppCompatActivity  implements View.OnClickL
             @Override
             public void onClick(View view) {
 
-                country1.setImageResource(R.drawable.countries_1_1);
+                country1.setImageResource(R.drawable.country1_1);
                 country2.setImageResource(R.drawable.country2);
                 country3.setImageResource(R.drawable.country3);
                 country4.setImageResource(R.drawable.country4);
@@ -77,7 +77,7 @@ public class Select_Language extends AppCompatActivity  implements View.OnClickL
             @Override
             public void onClick(View view) {
 
-                country2.setImageResource(R.drawable.countries_2_1);
+                country2.setImageResource(R.drawable.country2_2);
                 country1.setImageResource(R.drawable.country1);
                 country3.setImageResource(R.drawable.country3);
                 country4.setImageResource(R.drawable.country4);
@@ -92,7 +92,7 @@ public class Select_Language extends AppCompatActivity  implements View.OnClickL
         country3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                country3.setImageResource(R.drawable.countries_3_1);
+                country3.setImageResource(R.drawable.country3_3);
                 country1.setImageResource(R.drawable.country1);
                 country2.setImageResource(R.drawable.country2);
                 country4.setImageResource(R.drawable.country4);
@@ -107,7 +107,7 @@ public class Select_Language extends AppCompatActivity  implements View.OnClickL
         country4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                country4.setImageResource(R.drawable.countries_4_1);
+                country4.setImageResource(R.drawable.country4_4);
                 country1.setImageResource(R.drawable.country1);
                 country2.setImageResource(R.drawable.country2);
                 country3.setImageResource(R.drawable.country3);
@@ -123,7 +123,7 @@ public class Select_Language extends AppCompatActivity  implements View.OnClickL
         country5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                country5.setImageResource(R.drawable.countries_5_1);
+                country5.setImageResource(R.drawable.country5_5);
                 country1.setImageResource(R.drawable.country1);
                 country2.setImageResource(R.drawable.country2);
                 country3.setImageResource(R.drawable.country3);
@@ -137,7 +137,7 @@ public class Select_Language extends AppCompatActivity  implements View.OnClickL
         country6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                country6.setImageResource(R.drawable.countries_6_1);
+                country6.setImageResource(R.drawable.country6_6);
                 country1.setImageResource(R.drawable.country1);
                 country2.setImageResource(R.drawable.country2);
                 country3.setImageResource(R.drawable.country3);
