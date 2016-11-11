@@ -86,21 +86,36 @@ public class My_Account extends AppCompatActivity implements AsyncResponse.Respo
                 if(!firstname.getText().toString().equals("")&&!ph_no.getText().toString().equals("")&&!password.getText().toString().equals(""))
                 {
                     //Toast.makeText(getApplicationContext(),"conditon satisfied",Toast.LENGTH_LONG).show();
-                    if(password.getText().length()>5)
+                    if(password.getText().length()>0)
+                    {
+                        if(password.getText().length()>5)
+                        {
+                            loading = ProgressDialog.show(My_Account.this, "","Updating profile...", true, false);
+                            updateFunctionCalling=true;
+                            data2.put("id",String.valueOf(id));
+                            data2.put("name",firstname.getText().toString());
+                            data2.put("contact_number",ph_no.getText().toString());
+                            data2.put("password",password.getText().toString());
+                            //Toast.makeText(getApplicationContext(),"APi calling",Toast.LENGTH_LONG).show();
+                            registerUser.register(data2,route2);
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"Password needs to be atleast 6 charecter!",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    else
                     {
                         loading = ProgressDialog.show(My_Account.this, "","Updating profile...", true, false);
                         updateFunctionCalling=true;
                         data2.put("id",String.valueOf(id));
                         data2.put("name",firstname.getText().toString());
                         data2.put("contact_number",ph_no.getText().toString());
-                        data2.put("password",password.getText().toString());
+                        //data2.put("password",password.getText().toString());
                         //Toast.makeText(getApplicationContext(),"APi calling",Toast.LENGTH_LONG).show();
                         registerUser.register(data2,route2);
                     }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(),"Password needs to be atleast 6 charecter!",Toast.LENGTH_LONG).show();
-                    }
+
 
                 }
                 else
