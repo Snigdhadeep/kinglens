@@ -9,25 +9,11 @@
     tools:context="com.king.king_lens.My_Account"
     tools:showIn="@layout/activity_my__account">
 
-<FrameLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="1dp"
-    android:background="#E8E8E8"
-    android:visibility="gone"
-    >
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-
-
-        android:src="@drawable/profile2"/>
-</FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+       android:layout_margin="16dp">
 
 
     <ScrollView
@@ -41,34 +27,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+
             android:orientation="vertical"
             >
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
+                android:orientation="vertical">
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_profile"/>
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="NAME"
+                    android:textColor="#44A0BB"
+                    android:height="30dp"
+                    />
+
             <EditText
                 android:id="@+id/firstname"
                 android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/rect_edittext"
-                android:hint=" Name"
                 android:textColor="#000000"
                 android:textColorHint="#f3787d7e"
-                android:layout_marginRight="16dp"
 
 
                 >
             </EditText>
 
             </LinearLayout>
-
 
 
 
@@ -85,18 +74,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
+            android:orientation="vertical">
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_gender"/>
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="GENDER"
+                android:textColor="#44A0BB"
+                android:height="30dp"
+                />
             <EditText
                 android:id="@+id/gender"
                 android:enabled="false"
                 android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/rect_edittext"
-                android:layout_marginRight="16dp"
+
                 >
             </EditText>
             </LinearLayout>
@@ -111,21 +104,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
+                android:orientation="vertical">
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_phone"/>
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="PHONE NO"
+                    android:textColor="#44A0BB"
+                    android:height="30dp"
+                    />
                 <EditText
                     android:id="@+id/ph_no"
                     android:layout_height="40dp"
                     android:layout_width="match_parent"
                     android:background="@drawable/rect_edittext"
-                    android:hint=" Phone No."
                     android:textColor="#000000"
                     android:inputType="number"
                     android:textColorHint="#f3787d7e"
-                    android:layout_marginRight="16dp"
+
 
 
                     >
@@ -176,21 +172,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
+                android:orientation="vertical">
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_action_name"/>
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="PASSWORD"
+                    android:textColor="#44A0BB"
+                    android:height="30dp"
+                    />
                 <EditText
                     android:id="@+id/password"
                     android:layout_height="40dp"
                     android:layout_width="match_parent"
                     android:background="@drawable/rect_edittext"
-                    android:hint="Password"
                     android:inputType="textPassword"
                     android:textColor="#000000"
                     android:textColorHint="#f3787d7e"
-                    android:layout_marginRight="16dp"
 
 
                     >
@@ -211,7 +209,7 @@
 
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="SAVE"
