@@ -359,11 +359,11 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/facebook"
+                android:src="@drawable/facebook2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
 
-                android:layout_weight=".5"/>
+                />
             <View
                 android:id="@+id/view10"
                 android:layout_width="10dp"
@@ -372,10 +372,10 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/twitter"
+                android:src="@drawable/twitter2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-                android:layout_weight=".2"/>
+               />
             <View
                 android:id="@+id/view11"
                 android:layout_width="10dp"
@@ -384,10 +384,10 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/instagram"
+                android:src="@drawable/instagram4"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-                android:layout_weight=".5"/>
+               />
         </LinearLayout>
 
 

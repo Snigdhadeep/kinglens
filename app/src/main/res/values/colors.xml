@@ -3,5 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#31839e</color>
     <color name="colorAccent">#1f1e1e</color>
-    <color name="appthemeButton">#44A0BB</color>
+    <color name="appthemecolor">#44A0BB</color>
+    <color name="appthemelight">#D1F4FE</color>
 </resources>
