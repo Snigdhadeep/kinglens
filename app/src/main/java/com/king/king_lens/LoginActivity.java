@@ -313,9 +313,15 @@ public class LoginActivity extends AppCompatActivity
                 if(jsonObject.getBoolean("status"))
                 {
                     JSONObject response = new JSONObject(jsonObject.getString("response"));
+
+
+                    //String name=response.getString("name");
                    //Toast.makeText(getApplicationContext(),""+response.getInt("id"),Toast.LENGTH_SHORT).show();
                     SharedPreferences.Editor editor = getSharedPreferences("ADASAT", MODE_PRIVATE).edit();
                     editor.putInt("guest_id", response.getInt("id"));
+                    //editor.putString("name", name);
+
+
 
 
                     if(editor.commit())

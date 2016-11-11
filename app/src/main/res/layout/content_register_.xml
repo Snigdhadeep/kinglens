@@ -101,6 +101,7 @@
         android:background="@drawable/rect_edittext"
         android:hint=" ContactNo."
         android:textColor="#000000"
+        android:inputType="number"
         android:textColorHint="#f3787d7e"
         android:layout_marginRight="16dp"
 

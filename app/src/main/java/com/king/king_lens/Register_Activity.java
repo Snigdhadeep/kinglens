@@ -41,6 +41,8 @@ public class Register_Activity extends AppCompatActivity implements AsyncRespons
     private String route = "api/v1/user/register";
     HashMap<String,String> data = new HashMap<>();
 
+
+
     //loading variables
     ProgressDialog loading;
 
