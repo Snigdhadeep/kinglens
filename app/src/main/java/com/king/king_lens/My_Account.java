@@ -128,7 +128,23 @@ public class My_Account extends AppCompatActivity implements AsyncResponse.Respo
         loading.dismiss();
         if(updateFunctionCalling)
         {
-            Toast.makeText(getApplicationContext(),output,Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),output,Toast.LENGTH_LONG).show();
+            try
+            {
+                JSONObject jsonObject = new JSONObject(output);
+                if(jsonObject.getBoolean("status"))
+                {
+                    Toast.makeText(getApplicationContext(),jsonObject.getString("message"),Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),jsonObject.getString("message"),Toast.LENGTH_SHORT).show();
+                }
+            }
+            catch (Exception e)
+            {
+                Log.i("kingsukmajumder","error in update profile "+e.toString());
+            }
         }
         else
         {
