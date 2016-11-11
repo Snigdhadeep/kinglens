@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity
     HashMap<String,String> data = new HashMap<>();
 
 
-    Api api=new Api("POST");
+   // Api api=new Api("POST");
     private String route2="api/v1/guest/register";
     HashMap<String,String> data2 = new HashMap<>();
 
@@ -301,7 +301,7 @@ public class LoginActivity extends AppCompatActivity
 
     @Override
     public void processFinish(String output) {
-        Log.i("kingsukmajumder","output of login api call is: "+output);
+      //  Log.i("kingsukmajumder","output of login api call is: "+output);
         loading.dismiss();
 
         if(guestApiCallin){
@@ -313,9 +313,14 @@ public class LoginActivity extends AppCompatActivity
                 if(jsonObject.getBoolean("status"))
                 {
                     JSONObject response = new JSONObject(jsonObject.getString("response"));
-                    //Toast.makeText(getApplicationContext(),""+response.getInt("id"),Toast.LENGTH_SHORT).show();
+                    String name=response.getString("name");
+                   //Toast.makeText(getApplicationContext(),""+response.getInt("id"),Toast.LENGTH_SHORT).show();
                     SharedPreferences.Editor editor = getSharedPreferences("ADASAT", MODE_PRIVATE).edit();
                     editor.putInt("guest_id", response.getInt("id"));
+                    editor.putString("name", name);
+
+
+
                     if(editor.commit())
                     {
                         Intent intent = new Intent(LoginActivity.this,Home_adslot.class);
