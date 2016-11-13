@@ -85,7 +85,7 @@ public class My_Account extends AppCompatActivity implements AsyncResponse.Respo
 
                 if(!firstname.getText().toString().equals("")&&!ph_no.getText().toString().equals("")&&!password.getText().toString().equals(""))
                 {
-                    //Toast.makeText(getApplicationContext(),"conditon satisfied",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),password.getText().length(),Toast.LENGTH_LONG).show();
                     if(password.getText().length()>0)
                     {
                         if(password.getText().length()>5)
