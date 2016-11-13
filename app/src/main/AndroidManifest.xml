@@ -24,7 +24,7 @@
             android:label="ADASAT"
             android:theme="@style/AppThemeSplash" />
         <activity
-            android:name=".Home_adslot"
+            android:name=".Grid_List.Gridlist_Activity"
             android:label="ADASAT"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter android:label="ADASAT">
@@ -43,7 +43,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".Grid_List.Gridlist_Activity"
+            android:name=".Home_adslot"
             android:label="ADASAT.NET"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Grid_List.Filter_Activity" />

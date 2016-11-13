@@ -2,7 +2,12 @@ package com.king.king_lens.Grid_List;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -30,7 +35,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Gridlist_Activity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener
+        ,CollectionFragment.OnFragmentInteractionListener,
+        GridListFragment.OnFragmentInteractionListener {
 
 
     private ViewStub stubGrid;
@@ -51,6 +58,10 @@ public class Gridlist_Activity extends AppCompatActivity
     ImageButton  firebtn;
 
 
+    private ViewPager viewPager;
+
+
+
     //page variables
     int user_id;
 
@@ -65,7 +76,10 @@ public class Gridlist_Activity extends AppCompatActivity
 
 
 
-        stubList = (ViewStub) findViewById(R.id.stub_list);
+        viewPager = (ViewPager)findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
+      /*  stubList = (ViewStub) findViewById(R.id.stub_list);
         stubGrid = (ViewStub) findViewById(R.id.stub_grid);
 
         //Inflate ViewStub before get view
@@ -126,8 +140,8 @@ public class Gridlist_Activity extends AppCompatActivity
         filterbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* Intent i=new Intent(getApplicationContext(),Filter_Activity.class);
-                startActivity(i);*/
+            Intent i=new Intent(getApplicationContext(),Filter_Activity.class);
+                startActivity(i);
             }
         });
 
@@ -137,10 +151,10 @@ public class Gridlist_Activity extends AppCompatActivity
       final RelativeLayout back_dim_layout = (RelativeLayout) findViewById(R.id.bac_dim_layout);
         //onclick firebutton
 
-        firebtn.setOnClickListener(new View.OnClickListener() {
+       *//* firebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent i=new Intent(getApplicationContext(),Popup_Activity.class);
+                *//**//*Intent i=new Intent(getApplicationContext(),Popup_Activity.class);
                // startActivity(i);
 
                 LayoutInflater layoutInflater =
@@ -152,11 +166,11 @@ public class Gridlist_Activity extends AppCompatActivity
                        popupView, ViewGroup.LayoutParams.WRAP_CONTENT,  ViewGroup.LayoutParams.WRAP_CONTENT);
                 popupWindow.showAsDropDown(firebtn);
 
-                back_dim_layout.setVisibility(View.VISIBLE);*/
+                back_dim_layout.setVisibility(View.VISIBLE);*//**//*
             }
-        });
+        });*//*
 
-
+*/
 
 
 
@@ -190,6 +204,49 @@ public class Gridlist_Activity extends AppCompatActivity
 
 
     }
+
+
+    //fragment
+
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+
+        adapter.addFragment(new CollectionFragment(), "COLLECTION");
+        adapter.addFragment(new GridListFragment(), "GRIDLIST");
+
+        viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+    }
+
 
 
 

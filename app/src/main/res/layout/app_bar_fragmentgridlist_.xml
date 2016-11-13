@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.king.king_lens.Grid_List.Gridlist_Activity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#44A0BB"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <FrameLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#FFF"
+            android:visibility="visible"
+
+            >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listicon"
+                android:background="#FFF"
+                android:src="@drawable/listicon48"
+                android:layout_gravity="left|center_vertical" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/filter"
+                android:src="@drawable/filter32"
+                android:background="#FFF"
+                android:layout_gravity="center" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fire"
+                android:src="@drawable/fire32"
+                android:background="#FFF"
+                android:layout_gravity="right|center_vertical" />
+        </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <include layout="@layout/content_fragment_gridlist" />
+
+
+</android.support.design.widget.CoordinatorLayout>

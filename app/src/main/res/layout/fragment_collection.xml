@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_collection_"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.king.king_lens.Grid_List.Gridlist_Activity"
+   >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_home"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#44A0BB"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <com.king.king_lens.Home_Sliding.CustomTabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/tab_layout"
+
+        app:tabIndicatorColor="#51a3df"
+        app:tabIndicatorHeight="3.9dp"
+        android:background="#44A0BB"
+
+        app:tabTextColor="#000000"
+        app:tabSelectedTextColor="#fff"
+        android:elevation="6dp"
+        >
+    </com.king.king_lens.Home_Sliding.CustomTabLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:src="@drawable/brandimage"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/appthemecolor"
+        android:gravity="center">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COLLECTION"
+            android:layout_gravity="center"
+            android:textSize="25dp"
+            android:textColor="#FFF"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+            <com.king.king_lens.Home_Sliding.ExpandableHeightGridView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:verticalSpacing="1dp"
+                android:stretchMode="columnWidth"
+                android:numColumns="2"
+
+                android:horizontalSpacing="1dp"
+                android:id="@+id/gridview_collection"
+                android:background="#f2f2f2"
+
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
