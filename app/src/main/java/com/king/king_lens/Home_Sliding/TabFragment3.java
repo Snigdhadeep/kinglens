@@ -32,7 +32,7 @@ public class TabFragment3 extends Fragment {
 
 
     int[] sampleImages = {
-            R.drawable.brandontop, R.drawable.layertwo, R.drawable.brandontop};
+            R.drawable.airoptics_3, R.drawable.solotika_1, R.drawable.freshlook_2};
 
     private int[] IMAGEgrid = {R.drawable.brand20, R.drawable.brand21, R.drawable.brand22, R.drawable.brand23,R.drawable.brand26,R.drawable.brand12};
   /*  private String[] TITLeGgrid = {"Min 70% off", "Min 50% off", "Min 45% off",  "Min 60% off", "Min 70% off", "Min 50% off"};
