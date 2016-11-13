@@ -149,7 +149,8 @@
             android:layout_height="40dp"
             android:layout_width="match_parent"
             android:background="@drawable/rect_edittext"
-            android:hint=" Password"
+            android:hint="Password"
+            android:inputType="textPassword"
             android:textColor="#000000"
             android:textColorHint="#f3787d7e"
             android:layout_marginRight="16dp"
@@ -334,7 +335,7 @@
                 android:gravity="center"
                 android:textColor="#ffffff"
                 android:text="ADASAT.NET ALL RIGHTS RESERVED"
-                android:layout_marginLeft="16dp"/>
+                android:layout_marginLeft="3dp"/>
         </LinearLayout>
 
 
@@ -387,6 +388,7 @@
                 android:src="@drawable/instagram4"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
+                android:layout_marginRight="3dp"
                />
         </LinearLayout>
 
