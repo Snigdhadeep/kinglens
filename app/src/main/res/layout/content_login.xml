@@ -335,7 +335,7 @@
                 android:gravity="center"
                 android:textColor="#ffffff"
                 android:text="ADASAT.NET ALL RIGHTS RESERVED"
-                android:layout_marginLeft="3dp"/>
+                android:layout_marginLeft="4dp"/>
         </LinearLayout>
 
 
