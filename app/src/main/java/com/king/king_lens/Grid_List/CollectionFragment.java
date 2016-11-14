@@ -93,18 +93,23 @@ public class CollectionFragment extends Fragment {
         collectionListAdapter = new CollectionListAdapter(getActivity(), R.layout.collection_listitem,collectionProduct);
         listView.setAdapter(collectionListAdapter);
 
-
+        /*GridListFragment fragment = new GridListFragment();
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.containerView, fragment);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();*/
         //get list of product
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               final int i=position;
+               /*final int i=position;
 
                 Button btnReadMore=(Button)view.findViewById(R.id.btnReadMore);
                 btnReadMore.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(), ""+i, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), ""+i, Toast.LENGTH_SHORT).show();*/
 
                         GridListFragment fragment = new GridListFragment();
                         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -118,8 +123,8 @@ public class CollectionFragment extends Fragment {
 
 
 
-                    }
-                });
+                    /*}
+                });*/
 
 
 
