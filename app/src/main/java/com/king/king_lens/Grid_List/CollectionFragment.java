@@ -7,8 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.ListView;
 
 import com.king.king_lens.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +24,13 @@ import com.king.king_lens.R;
  * create an instance of this fragment.
  */
 public class CollectionFragment extends Fragment {
+
+
+
+    private ViewStub stubList;
+    private ListView listView;
+    private CollectionListAdapter collectionListAdapter;
+    private List<CollectionProduct> collectionProduct;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,7 +77,30 @@ public class CollectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_collection, container, false);
+        View view= inflater.inflate(R.layout.fragment_collection, container, false);
+
+        stubList = (ViewStub)view.findViewById(R.id.stub_list);
+        stubList.inflate();
+
+        listView = (ListView)view.findViewById(R.id.mylistview);
+        getProductList();
+        collectionListAdapter = new CollectionListAdapter(getActivity(), R.layout.collection_listitem,collectionProduct);
+        listView.setAdapter(collectionListAdapter);
+
+
+        //get list of product
+
+        return view;
+    }
+
+    public List<CollectionProduct> getProductList() {
+        //pseudo code to get product, replace your code to get real product here
+        collectionProduct = new ArrayList<>();
+        collectionProduct.add(new CollectionProduct(R.drawable.airoptics2, "AIR OPTIX AQUA"));
+        collectionProduct.add(new CollectionProduct(R.drawable.airoptics, "AIR OPTIX AQYA COLORS"));
+        collectionProduct.add(new CollectionProduct(R.drawable.airoptics3, "AIR OPTIX NIGHT & DAY"));
+
+        return collectionProduct;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

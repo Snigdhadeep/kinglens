@@ -9,9 +9,8 @@
         android:layout_height="match_parent"
         android:id="@+id/mylistview"
         android:cacheColorHint="#00000000"
-        android:paddingTop="10dp"
-        android:dividerHeight="10dp"
+        android:dividerHeight="3dp"
         android:divider="#d1d1d1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"/>
 </FrameLayout>
