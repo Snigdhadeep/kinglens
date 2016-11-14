@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.king.king_lens.R;
 
@@ -79,17 +81,23 @@ public class CollectionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_collection, container, false);
 
-        stubList = (ViewStub)view.findViewById(R.id.stub_list);
-        stubList.inflate();
+        /*stubList = (ViewStub)view.findViewById(R.id.stub_list);
+        stubList.inflate();*/
 
         listView = (ListView)view.findViewById(R.id.mylistview);
+
         getProductList();
         collectionListAdapter = new CollectionListAdapter(getActivity(), R.layout.collection_listitem,collectionProduct);
         listView.setAdapter(collectionListAdapter);
 
 
         //get list of product
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), ""+position, Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 

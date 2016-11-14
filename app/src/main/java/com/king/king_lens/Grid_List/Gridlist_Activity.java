@@ -65,6 +65,10 @@ public class Gridlist_Activity extends AppCompatActivity
     //page variables
     int user_id;
 
+    //fragment variables
+    Fragment fragment = null;
+    Class fragmentClass = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,8 +80,8 @@ public class Gridlist_Activity extends AppCompatActivity
 
 
 
-        viewPager = (ViewPager)findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+        /*viewPager = (ViewPager)findViewById(R.id.viewpager);
+        setupViewPager(viewPager);*/
 
       /*  stubList = (ViewStub) findViewById(R.id.stub_list);
         stubGrid = (ViewStub) findViewById(R.id.stub_grid);
@@ -202,20 +206,33 @@ public class Gridlist_Activity extends AppCompatActivity
 
         }
 
+        //opening fragment
+        fragmentClass = CollectionFragment.class;
+        try
+        {
+            fragment = (Fragment) fragmentClass.newInstance();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.containerView, fragment).commit();
+
 
     }
 
 
     //fragment
 
-    private void setupViewPager(ViewPager viewPager) {
+  /*  private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new CollectionFragment(), "COLLECTION");
         adapter.addFragment(new GridListFragment(), "GRIDLIST");
 
         viewPager.setAdapter(adapter);
-    }
+    }*/
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -223,7 +240,7 @@ public class Gridlist_Activity extends AppCompatActivity
     }
 
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    /*class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -245,7 +262,7 @@ public class Gridlist_Activity extends AppCompatActivity
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
-    }
+    }*/
 
 
 
