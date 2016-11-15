@@ -33,6 +33,7 @@
         android:id="@+id/btnReadMore"
         android:background="@drawable/rect1"
         android:textStyle="bold"
+
         android:gravity="center"
         android:layout_alignBottom="@+id/linearLayout2"
         android:layout_alignParentRight="true"

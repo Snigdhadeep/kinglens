@@ -1,6 +1,7 @@
 package com.king.king_lens.Grid_List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.king.king_lens.Product.ProductView;
 import com.king.king_lens.R;
 
 import java.util.ArrayList;
@@ -227,7 +229,8 @@ public class GridListFragment extends Fragment {
             //Do any thing when user click to item
             Toast.makeText(getActivity(), productList.get(position).getTitle() + " - " + productList.get(position).getDescription(), Toast.LENGTH_SHORT).show();
 
-
+            Intent intent=new Intent(getActivity(),ProductView.class);
+            startActivity(intent);
 
         }
     };
