@@ -70,6 +70,15 @@
             android:parentActivityName=".Home_adslot"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Product.ProductView"
+            android:label="PRODUCT NAME"
+            android:parentActivityName=".Grid_List.Gridlist_Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.king.king_lens.Grid_List.Gridlist_Activity" />
+        </activity>
     </application>
 
 </manifest>

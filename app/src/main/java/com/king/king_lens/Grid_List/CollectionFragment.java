@@ -111,6 +111,7 @@ public class CollectionFragment extends Fragment {
                     public void onClick(View view) {
                         Toast.makeText(getContext(), ""+i, Toast.LENGTH_SHORT).show();*/
 
+
                         GridListFragment fragment = new GridListFragment();
                         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
