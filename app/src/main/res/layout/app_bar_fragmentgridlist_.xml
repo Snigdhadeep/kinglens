@@ -15,7 +15,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="#44A0BB"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
         <FrameLayout
@@ -51,9 +51,9 @@
                 android:background="#FFF"
                 android:layout_gravity="right|center_vertical" />
         </FrameLayout>
+
+
     </android.support.design.widget.AppBarLayout>
-
-
 
     <include layout="@layout/content_fragment_gridlist" />
 

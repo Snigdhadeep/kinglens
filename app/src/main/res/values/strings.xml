@@ -24,6 +24,9 @@
     <string name="title_activity_my__account">My_Account</string>
     <string name="title_activity_my__account_">My_Account_Activity</string>
     <string name="title_activity_product_view">ProductView</string>
+    <string name="title_activity_new_collection">NewCollectionActivity</string>
+    <string name="title_activity_sub_grid_list">SubGridListActivity</string>
+    <string name="title_activity_sub_grid_list_">SubGridList_Activity</string>
 
 
 </resources>

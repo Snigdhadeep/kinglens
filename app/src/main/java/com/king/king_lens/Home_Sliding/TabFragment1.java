@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.king.king_lens.Grid_List.Gridlist_Activity;
+import com.king.king_lens.Grid_List.SubCollectionActivity;
 import com.king.king_lens.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -88,7 +88,7 @@ public class TabFragment1 extends Fragment {
             //Do any thing when user click to item
           //  Toast.makeText(getActivity(),gridviewAdapter.getItemId(position) + " - " , Toast.LENGTH_SHORT).show();
 
-            Intent i=new Intent(getActivity(), Gridlist_Activity.class);
+            Intent i=new Intent(getActivity(), SubCollectionActivity.class);
             startActivity(i);
 
 

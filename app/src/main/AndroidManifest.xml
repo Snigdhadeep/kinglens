@@ -79,6 +79,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.king.king_lens.Grid_List.Gridlist_Activity" />
         </activity>
+        <activity
+            android:name=".Grid_List.SubCollectionActivity"
+
+            android:parentActivityName=".Grid_List.Gridlist_Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.king.king_lens.Grid_List.Gridlist_Activity" />
+        </activity>
+        <activity
+            android:name=".Grid_List.SubGridList_Activity"
+
+            android:parentActivityName=".Grid_List.SubCollectionActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.king.king_lens.Grid_List.SubCollectionActivity" />
+        </activity>
     </application>
 
 </manifest>
