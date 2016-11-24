@@ -64,9 +64,10 @@ public class SubCollectionActivity extends AppCompatActivity {
     public List<CollectionProduct> getProductList() {
         //pseudo code to get product, replace your code to get real product here
         collectionProduct = new ArrayList<>();
-        collectionProduct.add(new CollectionProduct(R.drawable.airoptics2, "AIR OPTIX AQUA"));
-        collectionProduct.add(new CollectionProduct(R.drawable.airoptics, "AIR OPTIX AQYA COLORS"));
-        collectionProduct.add(new CollectionProduct(R.drawable.airoptics3, "AIR OPTIX NIGHT & DAY"));
+        collectionProduct.add(new CollectionProduct(R.drawable.freshlook1, "FRESHLOOK COLORBLENDS"));
+        collectionProduct.add(new CollectionProduct(R.drawable.freshlook2, "FRESHLOOK COLORS"));
+        collectionProduct.add(new CollectionProduct(R.drawable.freshlook3, "FRESHLOOK ONE DAY COLORED LENS"));
+        collectionProduct.add(new CollectionProduct(R.drawable.airoptix4, "AIR OPTICS"));
 
         return collectionProduct;
     }

@@ -36,10 +36,12 @@ public class ListViewAdapter extends ArrayAdapter<Product> {
         ImageView img = (ImageView) v.findViewById(R.id.imageView);
         TextView txtTitle = (TextView) v.findViewById(R.id.txtTitle);
         TextView txtDescription = (TextView) v.findViewById(R.id.txtDescription);
+        TextView txtPrice = (TextView) v.findViewById(R.id.price_list);
 
         img.setImageResource(product.getImageId());
         txtTitle.setText(product.getTitle());
         txtDescription.setText(product.getDescription());
+        txtPrice.setText(""+product.getPrice());
 
         return v;
     }

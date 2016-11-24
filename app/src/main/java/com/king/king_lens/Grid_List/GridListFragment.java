@@ -207,7 +207,7 @@ public class GridListFragment extends Fragment {
 
     public List<Product> getProductList() {
         //pseudo code to get product, replace your code to get real product here
-        productList = new ArrayList<>();
+              productList = new ArrayList<>();
         productList.add(new Product(R.drawable.eyepic1, "Title 1", "This is description 1","$10"));
         productList.add(new Product(R.drawable.eyepic2, "Title 2", "This is description 2","$20"));
         productList.add(new Product(R.drawable.eyepic3, "Title 3", "This is description 3","$45"));

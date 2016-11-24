@@ -7,7 +7,7 @@
     android:descendantFocusability="blocksDescendants"
     android:orientation="horizontal">
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/linearLayout2">
@@ -20,27 +20,12 @@
     <ImageView
        android:id="@+id/imageView"
         android:layout_width="218dp"
+        android:layout_gravity="center"
         android:layout_height="150dp"
         android:src="@drawable/multifocal"/>
     </LinearLayout>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="READ MORE"
-        android:textColor="#fff"
-        android:id="@+id/btnReadMore"
-        android:background="@drawable/rect1"
-        android:textStyle="bold"
-
-        android:gravity="center"
-        android:layout_alignBottom="@+id/linearLayout2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="50dp"
-        />
 
 
 </RelativeLayout>

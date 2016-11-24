@@ -21,6 +21,83 @@
         <item>Female</item>
 
     </string-array>
+
+
+    <string name="lefteye">Left Eye</string>
+
+    <string-array name="lefteye">
+        <item>Left Eye</item>
+
+
+
+
+        <item>-3.00</item>
+        <item>-2.75</item>
+        <item>-2.50</item>
+        <item>-2.25</item>
+        <item>-2.00</item>
+        <item>-1.75</item>
+        <item>-1.50</item>
+        <item>-1.25</item>
+        <item>-1.00</item>
+        <item>-0.75</item>
+        <item>-0.50</item>
+        <item>-0.25</item>
+        <item>0.0</item>
+        <item>0.25</item>
+        <item>0.50</item>
+        <item>0.75</item>
+        <item>1.00</item>
+        <item>1.25</item>
+        <item>1.50</item>
+        <item>1.75</item>
+        <item>2.00</item>
+        <item>2.25</item>
+        <item>2.50</item>
+        <item>2.75</item>
+        <item>3.00</item>
+
+
+    </string-array>
+
+
+
+    <string name="righteye">Right Eye</string>
+
+    <string-array name="righteye">
+        <item>Right Eye</item>
+
+
+
+
+        <item>-3.00</item>
+        <item>-2.75</item>
+        <item>-2.50</item>
+        <item>-2.25</item>
+        <item>-2.00</item>
+        <item>-1.75</item>
+        <item>-1.50</item>
+        <item>-1.25</item>
+        <item>-1.00</item>
+        <item>-0.75</item>
+        <item>-0.50</item>
+        <item>-0.25</item>
+        <item>0.0</item>
+        <item>0.25</item>
+        <item>0.50</item>
+        <item>0.75</item>
+        <item>1.00</item>
+        <item>1.25</item>
+        <item>1.50</item>
+        <item>1.75</item>
+        <item>2.00</item>
+        <item>2.25</item>
+        <item>2.50</item>
+        <item>2.75</item>
+        <item>3.00</item>
+
+
+    </string-array>
     <string name="title_activity_my__account">My_Account</string>
     <string name="title_activity_my__account_">My_Account_Activity</string>
     <string name="title_activity_product_view">ProductView</string>
