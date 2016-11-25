@@ -80,7 +80,7 @@ public class GridviewAdapter extends BaseAdapter {
 
         Beanclass bean = (Beanclass) getItem(position);
 
-        viewHolder.image1.setImageResource(bean.getImage1());
+        viewHolder.image1.setImageBitmap(bean.getBmp());
      /*   viewHolder.title1.setText(bean.getTitle1());
         viewHolder.discription1.setText(bean.getDiscription1());
         viewHolder.date1.setText(bean.getDate1());*/

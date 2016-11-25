@@ -1,5 +1,7 @@
 package com.king.king_lens.Home_Sliding;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Rp on 3/30/2016.
  */
@@ -9,12 +11,23 @@ package com.king.king_lens.Home_Sliding;
 public class Beanclass {
     private int image1;
 
+    private Bitmap bmp;
+
 
     public Beanclass(int image) {
         this.image1 = image;
        /* this.title1 = title;
         this.discription1 = discription;
         this.date1 = date;*/
+    }
+
+    public void setBmp(Bitmap bmp)
+    {
+        this.bmp = bmp;
+    }
+
+    public Bitmap getBmp() {
+        return bmp;
     }
 
     public int getImage1() {

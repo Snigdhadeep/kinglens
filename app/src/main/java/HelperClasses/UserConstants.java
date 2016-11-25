@@ -5,5 +5,5 @@ package HelperClasses;
  */
 public class UserConstants {
     public static final String BASE_URL = "http://104.236.11.215/web/";
-    public static final String IMAGE_FOLDER = "public/app_images/";
+    public static final String IMAGE_FOLDER = "public/storage/images/";
 }
