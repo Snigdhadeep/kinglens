@@ -8,13 +8,13 @@ public class Product {
     private int imageId;
     private String title;
     private String description;
-    private String price;
+   // private String price;
 
-    public Product(int imageId, String title, String description,String price) {
+    public Product(int imageId, String title, String description) {
         this.imageId = imageId;
         this.title = title;
         this.description = description;
-        this.price=price;
+        //this.price=price;
     }
 
     public int getImageId() {
@@ -41,5 +41,5 @@ public class Product {
         this.description = description;
     }
 
-    public String getPrice(){return price;}
+  //  public String getPrice(){return price;}
 }

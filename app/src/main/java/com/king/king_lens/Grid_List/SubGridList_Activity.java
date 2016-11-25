@@ -151,14 +151,14 @@ public class SubGridList_Activity extends AppCompatActivity {
     public List<Product> getProductList() {
         //pseudo code to get product, replace your code to get real product here
         productList = new ArrayList<>();
-        productList.add(new Product(R.drawable.eyepic1,"Tiltle1", "This is description1","$10"));
-        productList.add(new Product(R.drawable.eyepic2,"Tiltle2", "This is description2","$20"));
-        productList.add(new Product(R.drawable.eyepic3, "Tiltle3", "This is description3","$30"));
-        productList.add(new Product(R.drawable.eyepic6,"Tiltle4", "This is description4","$40"));
-        productList.add(new Product(R.drawable.eyepic5, "Tiltle5", "This is description5","$40"));
-        productList.add(new Product(R.drawable.listlens4,"Tiltle6", "This is description6","$50"));
-        productList.add(new Product(R.drawable.listpic3, "Tiltle7", "This is description7","$80"));
-        productList.add(new Product(R.drawable.listlens2, "Tiltle8", "This is description8","$90"));
+        productList.add(new Product(R.drawable.eyepic1,"HONEY", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.eyepic2,"HAZELNUT", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.eyepic3, "GREY", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.eyepic8,"GREEN", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.eyepic5, "AMETHYST", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.listlens4,"GEMSTONE GREEN", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.listpic3, "TRUE SAPPHIRE", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.listlens2, "STERLING GREY", "FRESHLOOK COLORBLENDS"));
 
 
         return productList;

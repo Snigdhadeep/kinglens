@@ -1,8 +1,10 @@
 package com.king.king_lens.Home_Sliding;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +17,19 @@ import com.king.king_lens.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import HelperClasses.AsyncResponse;
+import HelperClasses.RegisterUser;
 
 /**
  * Created by apple on 18/03/16.
  */
-public class TabFragment1 extends Fragment {
+public class TabFragment1 extends Fragment implements AsyncResponse.Response {
 
 
 
@@ -32,6 +41,17 @@ public class TabFragment1 extends Fragment {
     CarouselView carouselView;
 
     LinearLayout linearLayout;
+
+
+    //server variables
+    RegisterUser registerUser = new RegisterUser("POST");
+    private String route = "api/v1/brandbycategory";
+    HashMap<String,String> data = new HashMap<>();
+
+    //loading variables
+    ProgressDialog loading;
+
+
 
 
     int[] sampleImages = {
@@ -55,10 +75,16 @@ public class TabFragment1 extends Fragment {
             @Override
             public void setImageForPosition(int position, ImageView imageView) {
                 imageView.setImageResource(sampleImages[position]);
+
+
+
             }
         });
 
 
+        registerUser.delegate = this;
+        //  api.delegate=this;
+        data.put("category_id",String.valueOf(1));
 
 
         linearLayout=(LinearLayout)view.findViewById(R.id.hidelayout);
@@ -113,4 +139,15 @@ public class TabFragment1 extends Fragment {
     };
 
 
+    @Override
+    public void processFinish(String output) {
+
+        try {
+            JSONObject jsonObject = new JSONObject(output);
+            Log.i("tabfrag1",jsonObject.toString());
+        } catch (JSONException e) {
+            Log.i("tabfrag1",e.toString());
+        }
+
+    }
 }

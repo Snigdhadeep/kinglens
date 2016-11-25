@@ -39,7 +39,7 @@ public class GridViewAdapter extends ArrayAdapter<Product> {
         img.setImageResource(product.getImageId());
         txtTitle.setText(product.getTitle());
         txtDescription.setText(product.getDescription());
-        txtPrice.setText(""+product.getPrice());
+       // txtPrice.setText(""+product.getPrice());
 
         return v;
     }

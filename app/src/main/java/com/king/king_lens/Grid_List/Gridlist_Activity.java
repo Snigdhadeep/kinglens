@@ -298,14 +298,14 @@ public class Gridlist_Activity extends AppCompatActivity
     public List<Product> getProductList() {
         //pseudo code to get product, replace your code to get real product here
         productList = new ArrayList<>();
-        productList.add(new Product(R.drawable.eyepic1, "Title 1", "This is description 1","$10"));
-        productList.add(new Product(R.drawable.eyepic2, "Title 2", "This is description 2","$20"));
-        productList.add(new Product(R.drawable.eyepic3, "Title 3", "This is description 3","$45"));
-        productList.add(new Product(R.drawable.eyepic6, "Title 4", "This is description 4","$52"));
-        productList.add(new Product(R.drawable.eyepic5, "Title 5", "This is description 5","$61"));
-        productList.add(new Product(R.drawable.listlens4, "Title 6", "This is description 6","$69"));
-        productList.add(new Product(R.drawable.listpic3, "Title 7", "This is description 7","$87"));
-        productList.add(new Product(R.drawable.listlens2, "Title 8", "This is description 8","$47"));
+        productList.add(new Product(R.drawable.eyepic1,"HONEY", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.eyepic2,"HAZELNUT", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.eyepic3, "GREY", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.eyepic8,"GREEN", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.eyepic5, "AMETHYST", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.listlens4,"GEMSTONE GREEN", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.listpic3, "TRUE SAPPHIRE", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.listlens2, "STERLING GREY", "FRESHLOOK COLORBLENDS"));
 
 
         return productList;

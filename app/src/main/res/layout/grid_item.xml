@@ -25,25 +25,27 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:text="Title"
+        android:textColor="#000"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="$10"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+       android:textStyle="bold" />
+    <!--  <TextView
+         android:id="@+id/price"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:layout_marginTop="10dp"
+         android:text="$10"
+         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/txtDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Description"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+ -->
+     <TextView
+         android:id="@+id/txtDescription"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:layout_marginTop="10dp"
+         android:text="Description"
+         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 
-</LinearLayout>
+ </LinearLayout>
