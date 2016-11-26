@@ -29,8 +29,6 @@
         <item>Left Eye</item>
 
 
-
-
         <item>-3.00</item>
         <item>-2.75</item>
         <item>-2.50</item>
@@ -61,13 +59,10 @@
     </string-array>
 
 
-
     <string name="righteye">Right Eye</string>
 
     <string-array name="righteye">
         <item>Right Eye</item>
-
-
 
 
         <item>-3.00</item>
@@ -106,8 +101,6 @@
         <item>Both Eye</item>
 
 
-
-
         <item>-3.00</item>
         <item>-2.75</item>
         <item>-2.50</item>
@@ -142,6 +135,7 @@
     <string name="title_activity_new_collection">NewCollectionActivity</string>
     <string name="title_activity_sub_grid_list">SubGridListActivity</string>
     <string name="title_activity_sub_grid_list_">SubGridList_Activity</string>
+    <string name="title_activity_collection_page">CollectionPageActivity</string>
 
 
 </resources>

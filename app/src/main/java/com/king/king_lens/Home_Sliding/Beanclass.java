@@ -2,16 +2,20 @@ package com.king.king_lens.Home_Sliding;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
+
 /**
  * Created by Rp on 3/30/2016.
  */
 
 
 //********GRIDVIEW************
-public class Beanclass {
+public class Beanclass implements Serializable{
     private int image1;
 
     private Bitmap bmp;
+
+    private Integer imgaeId;
 
 
     public Beanclass(int image) {
@@ -26,9 +30,21 @@ public class Beanclass {
         this.bmp = bmp;
     }
 
+    public void setImageId(Integer id)
+    {
+        this.imgaeId = id;
+    }
+
     public Bitmap getBmp() {
         return bmp;
     }
+
+    public Integer getImgaeId()
+    {
+        return imgaeId;
+    }
+
+
 
     public int getImage1() {
         return image1;

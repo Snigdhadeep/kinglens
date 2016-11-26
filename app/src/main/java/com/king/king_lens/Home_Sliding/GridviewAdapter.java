@@ -11,10 +11,11 @@ import android.widget.TextView;
 
 import com.king.king_lens.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class GridviewAdapter extends BaseAdapter {
+public class GridviewAdapter extends BaseAdapter implements Serializable{
 
     Context context;
 
@@ -81,6 +82,7 @@ public class GridviewAdapter extends BaseAdapter {
         Beanclass bean = (Beanclass) getItem(position);
 
         viewHolder.image1.setImageBitmap(bean.getBmp());
+        viewHolder.image1.setTag(bean.getImgaeId());
      /*   viewHolder.title1.setText(bean.getTitle1());
         viewHolder.discription1.setText(bean.getDiscription1());
         viewHolder.date1.setText(bean.getDate1());*/

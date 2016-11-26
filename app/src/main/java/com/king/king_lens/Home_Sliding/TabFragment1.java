@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -57,13 +58,8 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
     private String route = "api/v1/brandbycategory";
     HashMap<String,String> data = new HashMap<>();
 
-    //loading variables
-    ProgressDialog loading;
 
-
-    HashMap<Bitmap,Integer> imageList = new HashMap<>();
-    int j=0;
-
+    //unused variables
     int[] sampleImages = {
             R.drawable.airoptics_3, R.drawable.solotika_1, R.drawable.freshlook_2};
     private int[] IMAGEgrid = {R.drawable.freshlooknew, R.drawable.layerfour, R.drawable.layerfive, R.drawable.layersix, R.drawable.layerseven,R.drawable.brand1};
@@ -74,6 +70,8 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
         view = inflater.inflate(R.layout.fragmenttab1, container, false);
         //frameLayout=(FrameLayout)view.findViewById(R.id.colorfrag1);
         //for carousel
@@ -87,19 +85,30 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
             }
         });
 
-
-        registerUser.delegate = this;
-        //  api.delegate=this;
-        data.put("category_id",String.valueOf(3));
-
-        registerUser.register(data,route);
-
-
         linearLayout=(LinearLayout)view.findViewById(R.id.hidelayout);
 
         gridview = (ExpandableHeightGridView)view.findViewById(R.id.gridview);
         beanclassArrayList= new ArrayList<Beanclass>();
 
+        if (UserConstants.tab1ExecutionDone) {
+            // Restore last state for checked position.
+
+            ArrayList<Beanclass> savedImageData = UserConstants.tab1ImageArray;
+            for(int k = 0; k<savedImageData.size();k++)
+            {
+
+                setUpImages(savedImageData.get(k).getBmp(),savedImageData.get(k).getImgaeId());
+            }
+
+        }
+        else
+        {
+            registerUser.delegate = this;
+
+            data.put("category_id",String.valueOf(3));
+            registerUser.register(data,route);
+            UserConstants.tab1ExecutionDone = true;
+        }
 
 
      return view;
@@ -110,7 +119,9 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             //Do any thing when user click to item
-          //  Toast.makeText(getActivity(),gridviewAdapter.getItemId(position) + " - " , Toast.LENGTH_SHORT).show();
+            ImageView imageView =(ImageView) view.findViewById(R.id.image1);
+            String tag = imageView.getTag().toString();
+            Toast.makeText(getActivity(),tag, Toast.LENGTH_SHORT).show();
 
             Intent i=new Intent(getActivity(), SubCollectionActivity.class);
             startActivity(i);
@@ -119,11 +130,13 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
         }
     };
 
-    public void setUpImages()
+    public void setUpImages(Bitmap bmp, Integer brandId)
     {
+        Beanclass beanclass = new Beanclass(IMAGEgrid[1]);
+        beanclass.setBmp(bmp);
+        beanclass.setImageId(brandId);
 
-
-
+        beanclassArrayList.add(beanclass);
         gridviewAdapter = new GridviewAdapter(getActivity(), beanclassArrayList);
         gridview.setExpanded(true);
         gridview.setOnItemClickListener(onItemClick);
@@ -173,24 +186,7 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
                             //loading.dismiss();
                             if (bmp != null)
                             {
-                                Toast.makeText(getContext(),"downloaded "+j,Toast.LENGTH_SHORT).show();
-                                j++;
-                                imageList.put(bmp,brandId);
-                                Beanclass beanclass = new Beanclass(IMAGEgrid[1]);
-                                beanclass.setBmp(bmp);
-                                beanclassArrayList.add(beanclass);
-                                /*for (int i= 0; i< IMAGEgrid.length; i++) {
-
-                                    Beanclass beanclass = new Beanclass(IMAGEgrid[i]);
-                                    beanclassArrayList.add(beanclass);
-
-                                }*/
-
-                                gridviewAdapter = new GridviewAdapter(getActivity(), beanclassArrayList);
-                                gridview.setExpanded(true);
-                                gridview.setOnItemClickListener(onItemClick);
-
-                                gridview.setAdapter(gridviewAdapter);
+                                setUpImages(bmp,brandId);
                             }
 
 
@@ -210,5 +206,19 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
             Log.i("tabfrag1",e.toString());
         }
 
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        //outState.putSerializable("curChoice", beanclassArrayList);
+        UserConstants.tab1ImageArray = beanclassArrayList;
+        UserConstants.tab1ExecutionDone = true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 }
