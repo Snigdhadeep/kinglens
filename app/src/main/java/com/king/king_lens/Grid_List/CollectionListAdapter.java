@@ -1,7 +1,11 @@
 package com.king.king_lens.Grid_List;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +15,8 @@ import android.widget.TextView;
 
 import com.king.king_lens.R;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -34,10 +40,43 @@ public class CollectionListAdapter extends ArrayAdapter<CollectionProduct> {
             v = inflater.inflate(R.layout.collection_listitem, null);
         }
         CollectionProduct collectionProduct = getItem(position);
-        ImageView img = (ImageView) v.findViewById(R.id.imageView);
+        final ImageView img = (ImageView) v.findViewById(R.id.imageView);
         TextView txt=(TextView)v.findViewById(R.id.txt_collection);
 
-        img.setImageResource(collectionProduct.getImageId());
+        final String imageUrl = collectionProduct.getImageUrl();
+
+        AsyncTask asyncTask = new AsyncTask<Void, Void, Void>() {
+            Bitmap bmp;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                    InputStream in = new URL(imageUrl).openStream();
+                    bmp = BitmapFactory.decodeStream(in);
+                } catch (Exception e) {
+                    //Toast.makeText(getContext(),"Some error occoured while loading images!",Toast.LENGTH_LONG).show();
+                    Log.i("kingsukmajumder","error in loading images "+e.toString());
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                //loading.dismiss();
+                if (bmp != null)
+                {
+                    img.setImageBitmap(bmp);
+                }
+
+
+            }
+        }.execute();
+
+
         txt.setText(collectionProduct.getTitle());
 
         return v;

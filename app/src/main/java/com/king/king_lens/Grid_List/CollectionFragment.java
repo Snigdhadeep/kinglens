@@ -136,10 +136,10 @@ public class CollectionFragment extends Fragment {
 
     public List<CollectionProduct> getProductList() {
         //pseudo code to get product, replace your code to get real product here
-        collectionProduct = new ArrayList<>();
+        /*collectionProduct = new ArrayList<>();
         collectionProduct.add(new CollectionProduct(R.drawable.airoptics2, "AIR OPTIX AQUA"));
         collectionProduct.add(new CollectionProduct(R.drawable.airoptics, "AIR OPTIX AQYA COLORS"));
-        collectionProduct.add(new CollectionProduct(R.drawable.airoptics3, "AIR OPTIX NIGHT & DAY"));
+        collectionProduct.add(new CollectionProduct(R.drawable.airoptics3, "AIR OPTIX NIGHT & DAY"));*/
 
         return collectionProduct;
     }

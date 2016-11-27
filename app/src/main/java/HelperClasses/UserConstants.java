@@ -21,4 +21,7 @@ public class UserConstants {
 
     public static boolean tab3ExecutionDone = false;
     public static ArrayList<Beanclass> tab3ImageArray = new ArrayList<>();
+
+    public static String collection_Brand_id = "";
+    public static String collection_Category_id = "";
 }

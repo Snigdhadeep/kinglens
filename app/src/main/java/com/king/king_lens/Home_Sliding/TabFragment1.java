@@ -121,9 +121,12 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
             //Do any thing when user click to item
             ImageView imageView =(ImageView) view.findViewById(R.id.image1);
             String tag = imageView.getTag().toString();
-            Toast.makeText(getActivity(),tag, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(),tag, Toast.LENGTH_SHORT).show();
 
             Intent i=new Intent(getActivity(), SubCollectionActivity.class);
+
+            UserConstants.collection_Brand_id = tag;
+            UserConstants.collection_Category_id = String.valueOf(3);
             startActivity(i);
 
 

@@ -7,10 +7,12 @@ package com.king.king_lens.Grid_List;
 public class CollectionProduct {
     private int imageId;
     private String title;
+    private String imageUrl;
 
-    public CollectionProduct(int imageId, String title) {
+    public CollectionProduct(String imageUrl, String title) {
         this.imageId = imageId;
         this.title = title;
+        this.imageUrl = imageUrl;
 
     }
 
@@ -28,6 +30,11 @@ public class CollectionProduct {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getImageUrl()
+    {
+        return imageUrl;
     }
 
 
