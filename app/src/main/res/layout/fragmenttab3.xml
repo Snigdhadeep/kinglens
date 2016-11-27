@@ -43,8 +43,7 @@
                     android:numColumns="2"
                     android:horizontalSpacing="1dp"
                     android:id="@+id/gridview"
-                    android:background="#ffffff"
-
+                    android:background="#f2f2f2"
                     />
 
 
