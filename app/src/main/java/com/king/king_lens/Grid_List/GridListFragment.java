@@ -208,14 +208,14 @@ public class GridListFragment extends Fragment {
     public List<Product> getProductList() {
         //pseudo code to get product, replace your code to get real product here
         productList = new ArrayList<>();
-        productList.add(new Product(R.drawable.eyepic1,"HONEY", "FRESHLOOK COLORBLENDS"));
+        /*productList.add(new Product(R.drawable.eyepic1,"HONEY", "FRESHLOOK COLORBLENDS"));
         productList.add(new Product(R.drawable.eyepic2,"HAZELNUT", "FRESHLOOK COLORBLENDS"));
         productList.add(new Product(R.drawable.eyepic3, "GREY", "FRESHLOOK COLORBLENDS"));
         productList.add(new Product(R.drawable.eyepic8,"GREEN", "FRESHLOOK COLORBLENDS"));
         productList.add(new Product(R.drawable.eyepic5, "AMETHYST", "FRESHLOOK COLORBLENDS"));
         productList.add(new Product(R.drawable.listlens4,"GEMSTONE GREEN", "FRESHLOOK COLORBLENDS"));
         productList.add(new Product(R.drawable.listpic3, "TRUE SAPPHIRE", "FRESHLOOK COLORBLENDS"));
-        productList.add(new Product(R.drawable.listlens2, "STERLING GREY", "FRESHLOOK COLORBLENDS"));
+        productList.add(new Product(R.drawable.listlens2, "STERLING GREY", "FRESHLOOK COLORBLENDS"));*/
 
 
         return productList;

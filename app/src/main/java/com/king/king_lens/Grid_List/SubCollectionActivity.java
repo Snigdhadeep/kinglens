@@ -108,6 +108,7 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
 
                 ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
                 Toast.makeText(SubCollectionActivity.this, imageView.getTag().toString(), Toast.LENGTH_SHORT).show();
+                UserConstants.product_Collection_id = imageView.getTag().toString();
                 Intent i=new Intent(getApplicationContext(),SubGridList_Activity.class);
                 startActivity(i);
 

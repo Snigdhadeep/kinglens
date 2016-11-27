@@ -11,7 +11,7 @@
         android:layout_height="300dp"
         android:layout_gravity="center"
         android:scaleType="fitXY"
-        android:src="@drawable/listlens2"/>
+        android:src="@drawable/fakeloading"/>
 
 
 

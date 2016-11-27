@@ -1,5 +1,6 @@
 package com.king.king_lens.Grid_List;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.AdapterView;
@@ -18,10 +20,19 @@ import android.widget.Toast;
 import com.king.king_lens.Product.ProductView;
 import com.king.king_lens.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class SubGridList_Activity extends AppCompatActivity {
+import HelperClasses.AsyncResponse;
+import HelperClasses.RegisterUser;
+import HelperClasses.UserConstants;
+
+public class SubGridList_Activity extends AppCompatActivity implements AsyncResponse.Response{
 
 
 
@@ -31,7 +42,7 @@ public class SubGridList_Activity extends AppCompatActivity {
     private GridView gridView;
     private ListViewAdapter listViewAdapter;
     private GridViewAdapter gridViewAdapter;
-    private List<Product> productList;
+    private List<Product> productList = new ArrayList<>();;
     private int currentViewMode = 0;
 
     static final int VIEW_MODE_LISTVIEW = 0;
@@ -42,6 +53,19 @@ public class SubGridList_Activity extends AppCompatActivity {
     ImageButton filterbtn;
     ImageButton  firebtn;
 
+
+    //server variables
+    RegisterUser registerUser = new RegisterUser("POST");
+    private String route = "api/v1/productbycategorybrandandcollection";
+    HashMap<String,String> data = new HashMap<>();
+
+    //page variables
+    String brand_id="";
+    String category_id="";
+    String subcategory_id = "";
+
+    ProgressDialog loading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +75,20 @@ public class SubGridList_Activity extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        registerUser.delegate = this;
+
+        brand_id = UserConstants.collection_Brand_id;
+        category_id = UserConstants.collection_Category_id;
+        subcategory_id = UserConstants.product_Collection_id;
+
+        //calling to get the collection for brand and category
+        data.put("brand_id",brand_id);
+        data.put("category_id",category_id);
+        data.put("subcategory_id",subcategory_id);
+
+        registerUser.register(data,route);
+        loading = ProgressDialog.show(this, "", "Please wait...", true);
 
 
         stubList = (ViewStub)findViewById(R.id.stub_list);
@@ -64,8 +102,8 @@ public class SubGridList_Activity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.mylistview);
         gridView = (GridView)findViewById(R.id.mygridview);
 
-        //get list of product
-        getProductList();
+
+
 
         //Get current view mode in share reference
         SharedPreferences sharedPreferences =getApplicationContext().getSharedPreferences("ViewMode", 0);
@@ -74,7 +112,7 @@ public class SubGridList_Activity extends AppCompatActivity {
         listView.setOnItemClickListener(onItemClick);
         gridView.setOnItemClickListener(onItemClick);
 
-        switchView();
+
 
 
 
@@ -108,61 +146,10 @@ public class SubGridList_Activity extends AppCompatActivity {
 
 
 
-        //onclick  filter button
 
-
-    /*    filterbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               *//* Intent i=new Intent(getApplicationContext(),Filter_Activity.class);
-                startActivity(i);*//*
-            }
-        });*/
-
-
-
-        //setting background dim when showing popup
-   /*   final RelativeLayout back_dim_layout = (RelativeLayout)view.findViewById(R.id.bac_dim_layout);
-        //onclick firebutton
-
-        firebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                *//*Intent i=new Intent(getApplicationContext(),Popup_Activity.class);
-               // startActivity(i);
-
-                LayoutInflater layoutInflater =
-                        (LayoutInflater)getBaseContext()
-                                .getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = layoutInflater.inflate(R.layout.activity_popup_, null);
-
-                final PopupWindow popupWindow = new PopupWindow(
-                       popupView, ViewGroup.LayoutParams.WRAP_CONTENT,  ViewGroup.LayoutParams.WRAP_CONTENT);
-                popupWindow.showAsDropDown(firebtn);
-
-                back_dim_layout.setVisibility(View.VISIBLE);*//*
-            }
-        });
-
-
-*/
     }
 
-    public List<Product> getProductList() {
-        //pseudo code to get product, replace your code to get real product here
-        productList = new ArrayList<>();
-        productList.add(new Product(R.drawable.eyepic1,"HONEY", "FRESHLOOK COLORBLENDS"));
-        productList.add(new Product(R.drawable.eyepic2,"HAZELNUT", "FRESHLOOK COLORBLENDS"));
-        productList.add(new Product(R.drawable.eyepic3, "GREY", "FRESHLOOK COLORBLENDS"));
-        productList.add(new Product(R.drawable.eyepic8,"GREEN", "FRESHLOOK COLORBLENDS"));
-        productList.add(new Product(R.drawable.eyepic5, "AMETHYST", "FRESHLOOK COLORBLENDS"));
-        productList.add(new Product(R.drawable.listlens4,"GEMSTONE GREEN", "FRESHLOOK COLORBLENDS"));
-        productList.add(new Product(R.drawable.listpic3, "TRUE SAPPHIRE", "FRESHLOOK COLORBLENDS"));
-        productList.add(new Product(R.drawable.listlens2, "STERLING GREY", "FRESHLOOK COLORBLENDS"));
 
-
-        return productList;
-    }
 
 
     AdapterView.OnItemClickListener onItemClick = new AdapterView.OnItemClickListener() {
@@ -206,5 +193,36 @@ public class SubGridList_Activity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void processFinish(String output) {
+        loading.dismiss();
+        Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
 
+        try {
+            JSONObject jsonObject = new JSONObject(output);
+            if(jsonObject.getBoolean("status"))
+            {
+                JSONArray jsonArray = new JSONArray(jsonObject.getString("response"));
+                for (int i=0;i<jsonArray.length();i++)
+                {
+                    JSONObject response = new JSONObject(jsonArray.get(i).toString());
+                    String id = String.valueOf(response.getInt("id"));
+                    String name = response.getString("name");
+                    String image = response.getString("image_one");
+                    final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
+                    productList.add(new Product(id,name,imageUrl, "FRESHLOOK COLORBLENDS"));
+                }
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (JSONException e) {
+            Log.i("subgridlist",e.toString());
+        }
+
+        //getProductList();
+        switchView();
+    }
 }

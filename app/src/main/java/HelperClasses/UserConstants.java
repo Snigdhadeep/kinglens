@@ -24,4 +24,5 @@ public class UserConstants {
 
     public static String collection_Brand_id = "";
     public static String collection_Category_id = "";
+    public static String product_Collection_id = "";
 }
