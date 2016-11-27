@@ -41,10 +41,9 @@
                     android:verticalSpacing="1dp"
                     android:stretchMode="columnWidth"
                     android:numColumns="2"
-
                     android:horizontalSpacing="1dp"
                     android:id="@+id/gridview"
-                    android:background="#f2f2f2"
+                    android:background="#ffffff"
 
                     />
 

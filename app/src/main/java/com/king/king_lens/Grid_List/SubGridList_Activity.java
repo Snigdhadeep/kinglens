@@ -14,6 +14,7 @@ import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -157,7 +158,9 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             //Do any thing when user click to item
            // Toast.makeText(getApplicationContext(), productList.get(position).getTitle() + " - " + productList.get(position).getDescription(), Toast.LENGTH_SHORT).show();
-
+            ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+            String product_id = imageView.getTag().toString();
+            Toast.makeText(SubGridList_Activity.this, product_id, Toast.LENGTH_SHORT).show();
             Intent intent=new Intent(getApplicationContext(),ProductView.class);
             startActivity(intent);
 
@@ -196,7 +199,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
     @Override
     public void processFinish(String output) {
         loading.dismiss();
-        Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
 
         try {
             JSONObject jsonObject = new JSONObject(output);
