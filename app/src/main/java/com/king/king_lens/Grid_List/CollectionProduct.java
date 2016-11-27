@@ -8,11 +8,13 @@ public class CollectionProduct {
     private int imageId;
     private String title;
     private String imageUrl;
+    private String id;
 
-    public CollectionProduct(String imageUrl, String title) {
+    public CollectionProduct(String imageUrl,String id, String title) {
         this.imageId = imageId;
         this.title = title;
         this.imageUrl = imageUrl;
+        this.id = id;
 
     }
 
@@ -35,6 +37,11 @@ public class CollectionProduct {
     public String getImageUrl()
     {
         return imageUrl;
+    }
+
+    public String getId()
+    {
+        return id;
     }
 
 

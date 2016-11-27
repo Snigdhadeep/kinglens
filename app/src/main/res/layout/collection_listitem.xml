@@ -22,7 +22,7 @@
         android:layout_width="218dp"
         android:layout_gravity="center"
         android:layout_height="150dp"
-        android:src="@drawable/multifocal"/>
+        android:src="@drawable/fakeloading"/>
     </LinearLayout>
 
 

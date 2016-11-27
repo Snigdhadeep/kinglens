@@ -76,7 +76,7 @@ public class CollectionListAdapter extends ArrayAdapter<CollectionProduct> {
             }
         }.execute();
 
-
+        img.setTag(collectionProduct.getId());
         txt.setText(collectionProduct.getTitle());
 
         return v;

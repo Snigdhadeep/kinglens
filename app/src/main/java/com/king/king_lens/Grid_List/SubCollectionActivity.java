@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.king.king_lens.Product.SubGridListActivity;
 import com.king.king_lens.R;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
@@ -27,16 +29,25 @@ import java.util.HashMap;
 import java.util.List;
 
 import HelperClasses.AsyncResponse;
+import HelperClasses.AsyncResponse2;
 import HelperClasses.RegisterUser;
+import HelperClasses.RegisterUser2;
 import HelperClasses.UserConstants;
 
-public class SubCollectionActivity extends AppCompatActivity implements AsyncResponse.Response{
+public class SubCollectionActivity extends AppCompatActivity implements AsyncResponse.Response, AsyncResponse2.Response2{
 
+    //
+    ImageView ivCollectionBanner;
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
     private String route = "api/v1/collectionbycategoryandbrand";
     HashMap<String,String> data = new HashMap<>();
+
+    //server variables
+    RegisterUser2 registerUser2 = new RegisterUser2("POST");
+    private String route2 = "api/v1/get-brand-image";
+    HashMap<String,String> data2 = new HashMap<>();
 
     //loading variables
     ProgressDialog loading;
@@ -44,6 +55,7 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
     //page variables
     String brand_id="";
     String category_id="";
+
 
 
     private ListView listView;
@@ -59,6 +71,7 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         registerUser.delegate = this;
+        registerUser2.delegate = this;
 
 
             //getting data of intent
@@ -74,11 +87,16 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
         registerUser.register(data,route);
         loading = ProgressDialog.show(this, "", "Please wait...", true);
 
+        data2.put("brand_id",brand_id);
+        registerUser2.register(data2,route2);
+
 
 
         Toast.makeText(this, brand_id+" AND "+category_id, Toast.LENGTH_SHORT).show();
 
         listView = (ListView)findViewById(R.id.mylistview);
+
+        ivCollectionBanner = (ImageView) findViewById(R.id.ivCollectionBanner);
 
 
 
@@ -88,7 +106,8 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
+                ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+                Toast.makeText(SubCollectionActivity.this, imageView.getTag().toString(), Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(getApplicationContext(),SubGridList_Activity.class);
                 startActivity(i);
 
@@ -123,10 +142,11 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
                 for (int i=0;i<jsonArray.length();i++)
                 {
                     JSONObject response = new JSONObject(jsonArray.get(i).toString());
+                    String id = String.valueOf(response.getInt("id"));
                     final String name = response.getString("name");
                     String image = response.getString("image");
                     final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
-                    collectionProduct.add(new CollectionProduct(imageUrl, name));
+                    collectionProduct.add(new CollectionProduct(imageUrl, id, name));
 
 
 
@@ -152,5 +172,55 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
         outState.putString("brand_id", brand_id);
         outState.putString("category_id",category_id);
 
+    }
+
+    @Override
+    public void processFinish2(String output) {
+        //Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
+        try {
+            JSONObject jsonObject = new JSONObject(output);
+            if(jsonObject.getBoolean("status"))
+            {
+                JSONObject response = new JSONObject(jsonObject.getString("response"));
+                String image = response.getString("image");
+                final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
+
+                AsyncTask asyncTask = new AsyncTask<Void, Void, Void>() {
+                    Bitmap bmp;
+                    @Override
+                    protected void onPreExecute() {
+                        super.onPreExecute();
+                    }
+                    @Override
+                    protected Void doInBackground(Void... params) {
+
+                        try {
+                            InputStream in = new URL(imageUrl).openStream();
+                            bmp = BitmapFactory.decodeStream(in);
+                        } catch (Exception e) {
+                            //Toast.makeText(getContext(),"Some error occoured while loading images!",Toast.LENGTH_LONG).show();
+                            Log.i("kingsukmajumder","error in loading images "+e.toString());
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        //loading.dismiss();
+                        if (bmp != null)
+                        {
+                            ivCollectionBanner.setImageBitmap(bmp);
+                        }
+                    }
+                }.execute();
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (JSONException e) {
+            Log.i("subcollection",e.toString());
+        }
     }
 }
