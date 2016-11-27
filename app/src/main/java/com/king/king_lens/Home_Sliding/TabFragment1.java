@@ -53,7 +53,7 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
     LinearLayout linearLayout;
 
 
-    //server variables
+    //server variable
     RegisterUser registerUser = new RegisterUser("POST");
     private String route = "api/v1/brandbycategory";
     HashMap<String,String> data = new HashMap<>();
