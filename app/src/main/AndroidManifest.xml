@@ -19,14 +19,12 @@
             android:name=".MainActivity"
             android:label="ADASAT"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Splashscreen"
             android:label="ADASAT"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeSplash"
-            />
+            android:theme="@style/AppThemeSplash" />
         <activity
             android:name=".Home_adslot"
             android:label="ADASAT"
@@ -63,8 +61,8 @@
         <activity
             android:name=".Register_Activity"
             android:label="REGISTER"
-            android:screenOrientation="portrait"
             android:parentActivityName=".LoginActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -78,15 +76,15 @@
         <activity
             android:name=".My_Account"
             android:label="My Account"
-            android:screenOrientation="portrait"
             android:parentActivityName=".Home_adslot"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Product.ProductView"
             android:label="PRODUCT NAME"
-            android:screenOrientation="portrait"
             android:parentActivityName=".Grid_List.Gridlist_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -114,13 +112,17 @@
         <activity
             android:name=".Collection.CollectionPageActivity"
             android:label="@string/title_activity_collection_page"
-            android:screenOrientation="portrait"
             android:parentActivityName=".Home_adslot"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.king.king_lens.Home_adslot" />
         </activity>
+        <activity
+            android:name=".WishList"
+            android:label="@string/title_activity_wish_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

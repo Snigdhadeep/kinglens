@@ -145,6 +145,9 @@ public class Home_adslot extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.home_menu_heart) {
 
+            Intent intent=new Intent(getApplicationContext(),WishList.class);
+            startActivity(intent);
+
         }
         else if(id == R.id.home_menu_search){
 

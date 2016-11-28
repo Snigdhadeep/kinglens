@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.king.king_lens.Product.ProductView;
 import com.king.king_lens.R;
+import com.king.king_lens.WishList;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -160,6 +161,8 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
             //Do any thing when user click to item
            // Toast.makeText(getApplicationContext(), productList.get(position).getTitle() + " - " + productList.get(position).getDescription(), Toast.LENGTH_SHORT).show();
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+
+
             String product_id = imageView.getTag().toString();
 
             UserConstants.product_Product_id = product_id;

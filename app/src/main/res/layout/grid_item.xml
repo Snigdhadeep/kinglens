@@ -24,7 +24,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView3"
+            android:id="@+id/ivwish"
             android:src="@drawable/ic_heart"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
