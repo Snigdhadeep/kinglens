@@ -78,7 +78,7 @@ public class ListViewAdapter extends ArrayAdapter<Product> {
             }
         }.execute();
 
-        img.setTag(product.getImageId());
+        img.setTag(product.getProduct_id());
         txtTitle.setText(product.getTitle());
         txtDescription.setText(product.getDescription());
        // txtPrice.setText(""+product.getPrice());
