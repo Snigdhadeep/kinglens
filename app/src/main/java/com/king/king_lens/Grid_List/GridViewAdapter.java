@@ -76,7 +76,7 @@ public class GridViewAdapter extends ArrayAdapter<Product> {
             }
         }.execute();
 
-        img.setTag(product.getImageId());
+        img.setTag(product.getProduct_id());
 
         img.setImageResource(product.getImageId());
         txtTitle.setText(product.getTitle());

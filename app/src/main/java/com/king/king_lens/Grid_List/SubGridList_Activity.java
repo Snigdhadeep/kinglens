@@ -160,7 +160,9 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
            // Toast.makeText(getApplicationContext(), productList.get(position).getTitle() + " - " + productList.get(position).getDescription(), Toast.LENGTH_SHORT).show();
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
             String product_id = imageView.getTag().toString();
-            Toast.makeText(SubGridList_Activity.this, product_id, Toast.LENGTH_SHORT).show();
+
+            UserConstants.product_Product_id = product_id;
+
             Intent intent=new Intent(getApplicationContext(),ProductView.class);
             startActivity(intent);
 
