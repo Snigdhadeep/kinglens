@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.king.king_lens.Product.SubGridListActivity;
@@ -38,11 +40,16 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
 
     //
     ImageView ivCollectionBanner;
+    LinearLayout llParent;
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
     private String route = "api/v1/collectionbycategoryandbrand";
     HashMap<String,String> data = new HashMap<>();
+
+    //object variables
+    ArrayList<AsyncTask> imageLoadingThread= new ArrayList<AsyncTask>();
+
 
     //server variables
     RegisterUser2 registerUser2 = new RegisterUser2("POST");
@@ -67,6 +74,8 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
         setContentView(R.layout.activity_sub_collection);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        llParent=(LinearLayout)findViewById(R.id.llParent);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -94,7 +103,7 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
 
         Toast.makeText(this, brand_id+" AND "+category_id, Toast.LENGTH_SHORT).show();
 
-        listView = (ListView)findViewById(R.id.mylistview);
+       // listView = (ListView)findViewById(R.id.mylistview);
 
         ivCollectionBanner = (ImageView) findViewById(R.id.ivCollectionBanner);
 
@@ -102,7 +111,7 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
 
 
         //get list of product
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      /*  listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -113,7 +122,7 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
                 startActivity(i);
 
             }
-        });
+        });*/
 
         collectionProduct = new ArrayList<>();
 
@@ -142,12 +151,61 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
 
                 for (int i=0;i<jsonArray.length();i++)
                 {
+
                     JSONObject response = new JSONObject(jsonArray.get(i).toString());
                     String id = String.valueOf(response.getInt("id"));
                     final String name = response.getString("name");
-                    String image = response.getString("image");
+                    final String image = response.getString("image");
                     final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
-                    collectionProduct.add(new CollectionProduct(imageUrl, id, name));
+                  //  collectionProduct.add(new CollectionProduct(imageUrl, id, name));
+                    View inflatedLayout= getLayoutInflater().inflate(R.layout.collection_listitem, null, false);
+                    TextView txt_collection=(TextView)inflatedLayout.findViewById(R.id.txt_collection);
+                    final ImageView imageView=(ImageView)inflatedLayout.findViewById(R.id.imageView);
+                    txt_collection.setText(name);
+                    imageView.setTag(id);
+
+                    AsyncTask asyncTask = new AsyncTask<Void, Void, Void>() {
+                        Bitmap bmp;
+                        @Override
+                        protected void onPreExecute() {
+                            super.onPreExecute();
+                        }
+                        @Override
+                        protected Void doInBackground(Void... params) {
+
+                            try {
+                                InputStream in = new URL(imageUrl).openStream();
+                                bmp = BitmapFactory.decodeStream(in);
+                            } catch (Exception e) {
+                                //Toast.makeText(getContext(),"Some error occoured while loading images!",Toast.LENGTH_LONG).show();
+                                Log.i("kingsukmajumder","error in loading images "+e.toString());
+                            }
+                            return null;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Void result) {
+                            //loading.dismiss();
+                            if (bmp != null)
+
+                                imageView.setImageBitmap(bmp);
+                        }
+                    }.execute();
+                    imageLoadingThread.add(asyncTask);
+
+
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            UserConstants.product_Collection_id = imageView.getTag().toString();
+                            Intent i=new Intent(getApplicationContext(),SubGridList_Activity.class);
+                            startActivity(i);
+                        }
+                    });
+
+                    llParent.addView(inflatedLayout);
+
+
 
 
 
@@ -224,4 +282,15 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
             Log.i("subcollection",e.toString());
         }
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i("kingsukmajumder","pause");
+        for(int i=0;i<imageLoadingThread.size();i++)
+        {
+            imageLoadingThread.get(i).cancel(true);
+        }
+    }
+
 }

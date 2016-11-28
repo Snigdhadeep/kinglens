@@ -41,6 +41,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
     private ViewStub stubList;
     private ListView listView;
     private GridView gridView;
+    private GridView lvgridView;
     private ListViewAdapter listViewAdapter;
     private GridViewAdapter gridViewAdapter;
     private List<Product> productList = new ArrayList<>();;
@@ -100,7 +101,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         stubList.inflate();
         stubGrid.inflate();
 
-        listView = (ListView)findViewById(R.id.mylistview);
+        lvgridView = (GridView) findViewById(R.id.mylistview);
         gridView = (GridView)findViewById(R.id.mygridview);
 
 
@@ -110,7 +111,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         SharedPreferences sharedPreferences =getApplicationContext().getSharedPreferences("ViewMode", 0);
         currentViewMode = sharedPreferences.getInt("currentViewMode", VIEW_MODE_LISTVIEW);//Default is view listview
         //Register item lick
-        listView.setOnItemClickListener(onItemClick);
+        lvgridView.setOnItemClickListener(onItemClick);
         gridView.setOnItemClickListener(onItemClick);
 
 
@@ -187,8 +188,10 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
 
     private void setAdapters() {
         if(VIEW_MODE_LISTVIEW == currentViewMode) {
-            listViewAdapter = new ListViewAdapter(getApplicationContext(), R.layout.list_item, productList);
-            listView.setAdapter(listViewAdapter);
+           /* listViewAdapter = new ListViewAdapter(getApplicationContext(), R.layout.list_item, productList);
+            listView.setAdapter(listViewAdapter);*/
+            gridViewAdapter = new GridViewAdapter(getApplicationContext(), R.layout.list_item, productList);
+            lvgridView.setAdapter(gridViewAdapter);
         } else {
             gridViewAdapter = new GridViewAdapter(getApplicationContext(), R.layout.grid_item, productList);
             gridView.setAdapter(gridViewAdapter);

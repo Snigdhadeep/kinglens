@@ -18,14 +18,19 @@
         <activity
             android:name=".MainActivity"
             android:label="ADASAT"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".Splashscreen"
             android:label="ADASAT"
-            android:theme="@style/AppThemeSplash" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSplash"
+            />
         <activity
             android:name=".Home_adslot"
             android:label="ADASAT"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter android:label="ADASAT">
                 <action android:name="android.intent.action.MAIN" />
@@ -36,24 +41,29 @@
         <activity
             android:name=".EnterScreen"
             android:label="ADASAT"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:label="ADASAT.NET"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Grid_List.Gridlist_Activity"
             android:label="ADASAT.NET"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Grid_List.Filter_Activity" />
         <activity
             android:name=".Collection_Activity"
             android:label="@string/title_activity_collection_"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Register_Activity"
             android:label="REGISTER"
+            android:screenOrientation="portrait"
             android:parentActivityName=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan">
@@ -63,16 +73,19 @@
         </activity>
         <activity
             android:name=".Select_Language"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".My_Account"
             android:label="My Account"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Home_adslot"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Product.ProductView"
             android:label="PRODUCT NAME"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Grid_List.Gridlist_Activity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan">
@@ -83,6 +96,7 @@
         <activity
             android:name=".Grid_List.SubCollectionActivity"
             android:parentActivityName=".Grid_List.Gridlist_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -91,6 +105,7 @@
         <activity
             android:name=".Grid_List.SubGridList_Activity"
             android:parentActivityName=".Grid_List.SubCollectionActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -99,6 +114,7 @@
         <activity
             android:name=".Collection.CollectionPageActivity"
             android:label="@string/title_activity_collection_page"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Home_adslot"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
