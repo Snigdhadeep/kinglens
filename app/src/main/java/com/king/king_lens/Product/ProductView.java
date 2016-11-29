@@ -37,6 +37,21 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
     ImageView frontImage;
     TextView productPrice;
 
+    //Initializing textviews of datails in productview
+    TextView Properties;
+    TextView LensColourGlasses;
+    TextView AccessoryColor;
+    TextView Packaging;
+    TextView Replacement;
+    TextView LensMaterial;
+    TextView LensSegment;
+    TextView BrandLens;
+    TextView CylinderOptions;
+    TextView AxisOptions;
+
+
+
+
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
     private String route = "api/v1/get-product-by-id";
@@ -83,7 +98,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                     case R.id.rbRighteye:
                         // do operations specific to this selection
                         lnlenspower.setVisibility(View.VISIBLE);
-                        lefteye.setVisibility(View.INVISIBLE);
+                        lefteye.setVisibility(View.VISIBLE);
                         righteye.setVisibility(View.VISIBLE);
                         botheye.setVisibility(View.INVISIBLE);
 
@@ -93,7 +108,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                         // do operations specific to this selection
                         lnlenspower.setVisibility(View.VISIBLE);
                         lefteye.setVisibility(View.VISIBLE);
-                        righteye.setVisibility(View.INVISIBLE);
+                        righteye.setVisibility(View.VISIBLE);
                         botheye.setVisibility(View.INVISIBLE);
 
 
@@ -158,6 +173,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                 String image = response.getString("image_one");
                 final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
                 String sale_price = response.getString("sale_price");
+                Log.i("sale_price",sale_price);
 
 
                 productPrice.setText(sale_price+"KWD");

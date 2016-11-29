@@ -168,12 +168,14 @@
                 android:visibility="gone"
                 >
             </Spinner>
+
+        </LinearLayout>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="QTY"
+           android:layout_gravity="center"
             android:inputType="number"/>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -206,6 +208,7 @@
                 android:layout_height="wrap_content"
                 android:text="Properties"
                 android:textColor="#000"
+                android:id="@+id/Properties"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
 
@@ -213,6 +216,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lens Colour Glasses"
+                android:id="@+id/LensColourGlasses"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -221,6 +225,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Accessory Color"
+                android:id="@+id/AccessoryColor"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -228,6 +233,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Packaging"
+                android:id="@+id/Packaging"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -235,6 +241,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Replacement"
+                android:id="@+id/Replacement"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -242,6 +249,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lens Material"
+                android:id="@+id/LensMaterial"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -249,6 +257,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lens Segment"
+                android:id="@+id/LensSegment"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -256,6 +265,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Brand Lens"
+                android:id="@+id/BrandLens"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -263,6 +273,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cylinder Options"
+                android:id="@+id/CylinderOptions"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -270,6 +281,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Axis Options"
+                android:id="@+id/AxisOptions"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>

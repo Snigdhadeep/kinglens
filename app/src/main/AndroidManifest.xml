@@ -121,7 +121,12 @@
         </activity>
         <activity
             android:name=".WishList"
-            android:label="@string/title_activity_wish_list"
+            android:label="WISHLIST"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddToCart"
+            android:label="SHOPPING CART"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

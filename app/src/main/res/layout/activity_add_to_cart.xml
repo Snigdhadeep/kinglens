@@ -9,7 +9,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_wish_list"
+        layout="@layout/app_bar_add_to_cart"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -19,6 +19,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@menu/activity_wish_list_drawer" />
+        app:menu="@menu/activity_add_to_cart_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

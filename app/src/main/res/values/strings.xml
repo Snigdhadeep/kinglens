@@ -137,6 +137,7 @@
     <string name="title_activity_sub_grid_list_">SubGridList_Activity</string>
     <string name="title_activity_collection_page">CollectionPageActivity</string>
     <string name="title_activity_wish_list">WishList</string>
+    <string name="title_activity_add_to_cart">AddToCart</string>
 
 
 </resources>
