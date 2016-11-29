@@ -301,6 +301,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dimensions"
+                android:id="@+id/product_properties"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -309,6 +310,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No"
+                android:id="@+id/lens_color_glasses"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -317,6 +319,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No"
+                android:id="@+id/accessory_color"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -325,6 +328,7 @@
                 android:layout_height="wrap_content"
                 android:text="1 box contains 2 lenses"
                 android:textColor="#000"
+                android:id="@+id/packaging"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
             <TextView
@@ -332,12 +336,14 @@
                 android:layout_height="wrap_content"
                 android:text="Monthly Disposable"
                 android:textColor="#000"
+                android:id="@+id/replcing"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="55% H2O 45% polymer"
+                android:id="@+id/lens_material"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -347,11 +353,13 @@
                 android:text="Colored Lens"
                 android:textColor="#000"
                 android:textStyle="bold"
+                android:id="@+id/lens_segment"
                 android:layout_marginTop="7dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="FreshLook"
+                android:id="@+id/brand_lens"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -359,6 +367,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="000"
+                android:id="@+id/cylinder_options"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
@@ -366,6 +375,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00.00"
+                android:id="@+id/axis_options"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>

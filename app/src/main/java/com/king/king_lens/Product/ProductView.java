@@ -38,16 +38,16 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
     TextView productPrice;
 
     //Initializing textviews of datails in productview
-    TextView Properties;
-    TextView LensColourGlasses;
-    TextView AccessoryColor;
-    TextView Packaging;
-    TextView Replacement;
-    TextView LensMaterial;
-    TextView LensSegment;
-    TextView BrandLens;
-    TextView CylinderOptions;
-    TextView AxisOptions;
+    TextView product_properties;
+    TextView lens_color_glasses;
+    TextView accessory_color;
+    TextView packaging;
+    TextView replcing;
+    TextView lens_material;
+    TextView lens_segment;
+    TextView brand_lens;
+    TextView cylinder_options;
+    TextView axis_options;
 
 
 
@@ -128,6 +128,18 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         });
 
 
+        product_properties = (TextView) findViewById(R.id.product_properties);
+        lens_color_glasses = (TextView) findViewById(R.id.lens_color_glasses);
+        accessory_color = (TextView) findViewById(R.id.accessory_color);
+        packaging = (TextView) findViewById(R.id.packaging);
+        replcing = (TextView) findViewById(R.id.replcing);
+        lens_material = (TextView) findViewById(R.id.lens_material);
+        lens_segment = (TextView) findViewById(R.id.lens_segment);
+        brand_lens = (TextView) findViewById(R.id.brand_lens);
+        cylinder_options = (TextView) findViewById(R.id.cylinder_options);
+        axis_options = (TextView) findViewById(R.id.axis_options);
+
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -164,6 +176,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
     public void processFinish(String output) {
         loading.dismiss();
         //Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
+        Log.i("kingsukmajumder",output);
         try {
             JSONObject jsonObject = new JSONObject(output);
             if(jsonObject.getBoolean("status"))
@@ -173,7 +186,34 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                 String image = response.getString("image_one");
                 final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
                 String sale_price = response.getString("sale_price");
-                Log.i("sale_price",sale_price);
+
+                if(!response.isNull("product_details"))
+                {
+                    JSONObject product_details = new JSONObject(response.getString("product_details"));
+                    product_properties.setText(product_details.getString("product_properties"));
+                    lens_color_glasses.setText(product_details.getString("lens_color_glasses"));
+                    accessory_color.setText(product_details.getString("accessory_color"));
+                    packaging.setText(product_details.getString("packaging"));
+                    replcing.setText(product_details.getString("replcing"));
+                    lens_material.setText(product_details.getString("lens_material"));
+                    lens_segment.setText(product_details.getString("lens_segment"));
+                    brand_lens.setText(product_details.getString("brand_lens"));
+                    cylinder_options.setText(product_details.getString("cylinder_options"));
+                    axis_options.setText(product_details.getString("axis_options"));
+                }
+                else
+                {
+                    product_properties.setText("");
+                    lens_color_glasses.setText("");
+                    accessory_color.setText("");
+                    packaging.setText("");
+                    replcing.setText("");
+                    lens_material.setText("");
+                    lens_segment.setText("");
+                    brand_lens.setText("");
+                    cylinder_options.setText("");
+                    axis_options.setText("");
+                }
 
 
                 productPrice.setText(sale_price+"KWD");
