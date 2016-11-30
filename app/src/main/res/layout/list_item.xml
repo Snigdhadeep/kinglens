@@ -10,20 +10,25 @@
     android:layout_height="wrap_content">
     <ImageView
        android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:scaleType="fitXY"
-        android:src="@drawable/fakeloading"/>
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView3"
-        android:src="@drawable/ic_heart"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/ivwishicon"
+        android:src="@drawable/fav_1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
 
 
 
@@ -62,7 +67,6 @@
         android:layout_below="@id/txtTitle"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:textColor="#FFF"
         android:text="Description"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 

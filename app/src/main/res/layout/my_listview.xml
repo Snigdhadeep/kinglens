@@ -2,13 +2,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d1d1d1">
+    android:background="#FFF">
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mylistview"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:gravity="center"
 
         />

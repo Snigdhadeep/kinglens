@@ -50,19 +50,19 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
     private GridViewAdapter gridViewAdapter;
     private List<Product> productList = new ArrayList<>();;
     private int currentViewMode = 0;
-    private int selected = 0;
+    private int selected = 2;
 
     static final int VIEW_MODE_LISTVIEW = 0;
     static final int VIEW_MODE_GRIDVIEW = 1;
 
-    static final int VIEW_MODE_SELECTED= 0;
-    static final int VIEW_MODE_REMOVED= 1;
+    static final int VIEW_MODE_SELECTED= 2;
+    static final int VIEW_MODE_REMOVED= 3;
 
 
     ImageButton gridlistbtn;
     ImageButton filterbtn;
     ImageButton  firebtn;
-    ImageView ivwishicon;
+
 
 
     //server variables
@@ -132,8 +132,6 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         gridlistbtn=(ImageButton)findViewById(R.id.listicon);
         filterbtn=(ImageButton)findViewById(R.id.filter);
         firebtn=(ImageButton)findViewById(R.id.fire);
-        ivwishicon=(ImageView) findViewById(R.id.ivwishicon);
-
 
         //onclick listbtn
 
@@ -195,6 +193,8 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
             //Do any thing when user click to item
            // Toast.makeText(getApplicationContext(), productList.get(position).getTitle() + " - " + productList.get(position).getDescription(), Toast.LENGTH_SHORT).show();
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+            final ImageView ivwishicon=(ImageView)view.findViewById(R.id.ivwishicon);
+
 
 
             String product_id = imageView.getTag().toString();
@@ -203,6 +203,28 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
 
             Intent intent=new Intent(getApplicationContext(),ProductView.class);
             startActivity(intent);
+
+
+
+            ivwishicon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if (VIEW_MODE_SELECTED == selected) {
+                        ivwishicon.setImageResource(R.drawable.fav_2);
+                        selected = VIEW_MODE_REMOVED;
+                    } else {
+                        selected = VIEW_MODE_REMOVED;
+                        ivwishicon.setImageResource(R.drawable.fav_1);
+                    }
+
+
+                    SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("ViewMode", 0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("selected", selected);
+                    editor.commit();
+                }
+            });
 
         }
     };
