@@ -103,7 +103,6 @@
         <activity
             android:name=".Grid_List.SubGridList_Activity"
             android:parentActivityName=".Grid_List.SubCollectionActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

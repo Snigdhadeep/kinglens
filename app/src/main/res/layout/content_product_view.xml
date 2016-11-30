@@ -24,26 +24,58 @@
         android:orientation="vertical"
         >
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-<LinearLayout
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="380dp"
     android:orientation="vertical"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
 
     >
+
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/frontImage"
-        android:src="@drawable/fakeloading"
         android:scaleType="fitXY"
 
         />
-</LinearLayout>
+
+
+</RelativeLayout>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow2"
+                android:id="@+id/imageView3"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_icon"
+                android:id="@+id/imageView4"
+                android:layout_centerVertical="true"
+                android:layout_alignTop="@+id/imageView3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+
+        </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:orientation="horizontal">
 
     <LinearLayout
@@ -86,6 +118,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_gravity="center"
            >
             <RadioGroup
@@ -181,6 +215,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:background="@color/appthemelight">
         <TextView
             android:layout_width="wrap_content"
