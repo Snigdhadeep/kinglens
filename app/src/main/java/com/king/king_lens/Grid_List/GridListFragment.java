@@ -103,8 +103,8 @@ public class GridListFragment extends Fragment {
 
 
 
-         stubList = (ViewStub)view.findViewById(R.id.stub_list);
-        stubGrid = (ViewStub)view.findViewById(R.id.stub_grid);
+         //stubList = (ViewStub)view.findViewById(R.id.stub_list);
+        //stubGrid = (ViewStub)view.findViewById(R.id.stub_grid);
 
         //Inflate ViewStub before get view
 
