@@ -3,6 +3,7 @@ package com.king.king_lens.Grid_List;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 
 import com.king.king_lens.Product.ProductView;
 import com.king.king_lens.R;
+import com.king.king_lens.Select_Language;
 import com.king.king_lens.WishList;
 
 import org.json.JSONArray;
@@ -47,14 +50,19 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
     private GridViewAdapter gridViewAdapter;
     private List<Product> productList = new ArrayList<>();;
     private int currentViewMode = 0;
+    private int selected = 0;
 
     static final int VIEW_MODE_LISTVIEW = 0;
     static final int VIEW_MODE_GRIDVIEW = 1;
+
+    static final int VIEW_MODE_SELECTED= 0;
+    static final int VIEW_MODE_REMOVED= 1;
 
 
     ImageButton gridlistbtn;
     ImageButton filterbtn;
     ImageButton  firebtn;
+    ImageView ivwishicon;
 
 
     //server variables
@@ -75,6 +83,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         setContentView(R.layout.app_bar_fragmentgridlist_);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -102,7 +111,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         stubList.inflate();
         stubGrid.inflate();
 
-        lvgridView = (GridView) findViewById(R.id.mylistview);
+        listView = (ListView) findViewById(R.id.mylistview);
         gridView = (GridView)findViewById(R.id.mygridview);
 
 
@@ -111,8 +120,9 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         //Get current view mode in share reference
         SharedPreferences sharedPreferences =getApplicationContext().getSharedPreferences("ViewMode", 0);
         currentViewMode = sharedPreferences.getInt("currentViewMode", VIEW_MODE_LISTVIEW);//Default is view listview
+        selected = sharedPreferences.getInt("selected", VIEW_MODE_SELECTED);
         //Register item lick
-        lvgridView.setOnItemClickListener(onItemClick);
+        listView.setOnItemClickListener(onItemClick);
         gridView.setOnItemClickListener(onItemClick);
 
 
@@ -122,6 +132,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         gridlistbtn=(ImageButton)findViewById(R.id.listicon);
         filterbtn=(ImageButton)findViewById(R.id.filter);
         firebtn=(ImageButton)findViewById(R.id.fire);
+        ivwishicon=(ImageView) findViewById(R.id.ivwishicon);
 
 
         //onclick listbtn
@@ -131,9 +142,11 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
             public void onClick(View view) {
 
                 if (VIEW_MODE_LISTVIEW == currentViewMode) {
+                    gridlistbtn.setImageResource(R.drawable.ic_gridlist2);
                     currentViewMode = VIEW_MODE_GRIDVIEW;
                 } else {
                     currentViewMode = VIEW_MODE_LISTVIEW;
+                    gridlistbtn.setImageResource(R.drawable.ic_gridlist1);
                 }
                 //Switch view
                 switchView();
@@ -146,6 +159,27 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
 
         });
 
+
+      /*  ivwishicon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (VIEW_MODE_SELECTED == selected) {
+                    ivwishicon.setImageResource(R.drawable.fav_2);
+                    selected = VIEW_MODE_REMOVED;
+                } else {
+                    currentViewMode = VIEW_MODE_REMOVED;
+                    ivwishicon.setImageResource(R.drawable.fav_1);
+                }
+
+
+                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("ViewMode", 0);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("selected", selected);
+                editor.commit();
+            }
+        });
+*/
 
 
 
@@ -193,10 +227,10 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
 
     private void setAdapters() {
         if(VIEW_MODE_LISTVIEW == currentViewMode) {
-           /* listViewAdapter = new ListViewAdapter(getApplicationContext(), R.layout.list_item, productList);
-            listView.setAdapter(listViewAdapter);*/
-            gridViewAdapter = new GridViewAdapter(getApplicationContext(), R.layout.list_item, productList);
-            lvgridView.setAdapter(gridViewAdapter);
+         listViewAdapter = new ListViewAdapter(getApplicationContext(), R.layout.list_item, productList);
+            listView.setAdapter(listViewAdapter);
+            /*gridViewAdapter = new GridViewAdapter(getApplicationContext(), R.layout.list_item, productList);
+            listView.setAdapter(gridViewAdapter);*/
         } else {
             gridViewAdapter = new GridViewAdapter(getApplicationContext(), R.layout.grid_item, productList);
             gridView.setAdapter(gridViewAdapter);

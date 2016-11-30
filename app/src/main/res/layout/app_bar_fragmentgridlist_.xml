@@ -18,42 +18,12 @@
             android:layout_height="wrap_content"
             android:background="#44A0BB"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-        <FrameLayout
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#FFF"
-            android:visibility="visible"
 
-            >
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/listicon"
-                android:background="#FFF"
-                android:src="@drawable/listicon48"
-                android:layout_gravity="left|center_vertical" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/filter"
-                android:src="@drawable/filter32"
-                android:background="#FFF"
-                android:layout_gravity="center" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/fire"
-                android:src="@drawable/fire32"
-                android:background="#FFF"
-                android:layout_gravity="right|center_vertical" />
-        </FrameLayout>
 
 
     </android.support.design.widget.AppBarLayout>
+
+
 
     <include layout="@layout/content_fragment_gridlist" />
 
