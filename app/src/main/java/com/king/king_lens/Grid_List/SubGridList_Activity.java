@@ -91,6 +91,8 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
 
     String totalOutput="";
 
+    ArrayList<AsyncTask> imageLoadingThread= new ArrayList<AsyncTask>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -306,7 +308,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                         parentProductLL.addView(inflatedLayout);
                     }
                     JSONObject response = new JSONObject(jsonArray.get(i).toString());
-                    String id = String.valueOf(response.getInt("id"));
+                    final String id = String.valueOf(response.getInt("id"));
                     String name = response.getString("name");
                     String image = response.getString("image_one");
                     final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
@@ -314,6 +316,18 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                     View inflatedLayout= getLayoutInflater().inflate(R.layout.list_item, null, false);
                     ImageView imageView = (ImageView) inflatedLayout.findViewById(R.id.imageView);
                     loadImage(imageUrl,imageView);
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Toast.makeText(SubGridList_Activity.this, "clicked", Toast.LENGTH_SHORT).show();
+
+
+                            UserConstants.product_Product_id = id;
+
+                            Intent intent=new Intent(getApplicationContext(),ProductView.class);
+                            startActivity(intent);
+                        }
+                    });
 
 
 
@@ -348,14 +362,14 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                     }
                     try {
                         JSONObject response1 = new JSONObject(jsonArray.get(i).toString());
-                        String id1 = String.valueOf(response1.getInt("id"));
+                        final String id1 = String.valueOf(response1.getInt("id"));
                         String name1 = response1.getString("name");
                         String image1 = response1.getString("image_one");
                         final String imageUrl1 = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image1;
 
 
                         JSONObject response2 = new JSONObject(jsonArray.get(i+1).toString());
-                        String id2 = String.valueOf(response2.getInt("id"));
+                        final String id2 = String.valueOf(response2.getInt("id"));
                         String name2 = response2.getString("name");
                         String image2 = response2.getString("image_one");
                         final String imageUrl2 = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image2;
@@ -364,7 +378,25 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
 
                         View inflatedLayout= getLayoutInflater().inflate(R.layout.grid_item_2, null, false);
                         ImageView imageViewGrid1 = (ImageView) inflatedLayout.findViewById(R.id.imageViewGrid1);
+                        imageViewGrid1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                UserConstants.product_Product_id = id1;
+
+                                Intent intent=new Intent(getApplicationContext(),ProductView.class);
+                                startActivity(intent);
+                            }
+                        });
                         ImageView imageViewGrid2 = (ImageView) inflatedLayout.findViewById(R.id.imageViewGrid2);
+                        imageViewGrid2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                UserConstants.product_Product_id = id2;
+
+                                Intent intent=new Intent(getApplicationContext(),ProductView.class);
+                                startActivity(intent);
+                            }
+                        });
                         loadImage(imageUrl1,imageViewGrid1);
                         loadImage(imageUrl2,imageViewGrid2);
 
@@ -375,13 +407,22 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                     {
                         //Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
                         JSONObject response1 = new JSONObject(jsonArray.get(i).toString());
-                        String id1 = String.valueOf(response1.getInt("id"));
+                        final String id1 = String.valueOf(response1.getInt("id"));
                         String name1 = response1.getString("name");
                         String image1 = response1.getString("image_one");
                         final String imageUrl1 = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image1;
 
                         View inflatedLayout= getLayoutInflater().inflate(R.layout.grid_item_2, null, false);
                         ImageView imageViewGrid1 = (ImageView) inflatedLayout.findViewById(R.id.imageViewGrid1);
+                        imageViewGrid1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                UserConstants.product_Product_id = id1;
+
+                                Intent intent=new Intent(getApplicationContext(),ProductView.class);
+                                startActivity(intent);
+                            }
+                        });
                         LinearLayout llsecondLL = (LinearLayout) inflatedLayout.findViewById(R.id.llsecondLL);
                         llsecondLL.setVisibility(View.INVISIBLE);
 
@@ -436,5 +477,18 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                 }
             }
         }.execute();
+
+        imageLoadingThread.add(asyncTask);
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i("kingsukmajumder","pause");
+        for(int i=0;i<imageLoadingThread.size();i++)
+        {
+            imageLoadingThread.get(i).cancel(true);
+        }
     }
 }

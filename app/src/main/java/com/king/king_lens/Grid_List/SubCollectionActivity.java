@@ -205,10 +205,6 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
 
                     llParent.addView(inflatedLayout);
 
-
-
-
-
                 }
 
                 settingUpListAdapter();

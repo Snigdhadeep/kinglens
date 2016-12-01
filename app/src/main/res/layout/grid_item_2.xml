@@ -29,7 +29,7 @@
                         android:layout_height="150dp"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
-                        android:src="@drawable/fakeloading"
+                        android:src="@drawable/whiteback"
 
                         />
 
@@ -97,17 +97,6 @@
                     android:layout_height="wrap_content">
 
 
-
-                    <ImageView
-                        android:id="@+id/imageViewGrid2"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/fakeloading"
-
-                        />
-
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -115,6 +104,18 @@
                         android:src="@drawable/fav_1"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <ImageView
+                        android:id="@+id/imageViewGrid2"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/dynamicimage"
+
+                        android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true" />
 
