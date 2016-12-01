@@ -85,12 +85,12 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         final Spinner righteye=(Spinner)findViewById(R.id.righteye);
         final Spinner botheye=(Spinner)findViewById(R.id.botheye);
 
-        radioEyegroup = (RadioGroup) findViewById(R.id.radioEyegroup);
+       // radioEyegroup = (RadioGroup) findViewById(R.id.radioEyegroup);
 
         frontImage = (ImageView) findViewById(R.id.frontImage);
         productPrice = (TextView) findViewById(R.id.productPrice);
 
-        radioEyegroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+       /* radioEyegroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
@@ -126,7 +126,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
 
             }
         });
-
+*/
 
         product_properties = (TextView) findViewById(R.id.product_properties);
         lens_color_glasses = (TextView) findViewById(R.id.lens_color_glasses);

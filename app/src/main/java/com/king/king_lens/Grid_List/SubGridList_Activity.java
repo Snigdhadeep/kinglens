@@ -155,6 +155,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         filterbtn=(ImageButton)findViewById(R.id.filter);
         firebtn=(ImageButton)findViewById(R.id.fire);
 
+
         //onclick listbtn
 
         gridlistbtn.setOnClickListener(new View.OnClickListener() {
@@ -165,10 +166,14 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                 if(GridViewOn)
                 {
                     setUpListView(totalOutput);
+                    gridlistbtn.setImageResource(R.drawable.gridlist_list2);
+
+
                 }
                 else
                 {
                     setUpGridView(totalOutput);
+                    gridlistbtn.setImageResource(R.drawable.gridlist_grid2);
                 }
             }
 

@@ -15,13 +15,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txt_collection"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:textSize="20sp"
             android:textColor="@color/appthemecolor"/>
     <ImageView
        android:id="@+id/imageView"
-        android:layout_width="218dp"
+        android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:src="@drawable/fakeloading"/>
     </LinearLayout>
 
