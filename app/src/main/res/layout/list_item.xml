@@ -45,9 +45,11 @@
         android:layout_marginTop="15dp"
         android:layout_toRightOf="@id/imageView"
         android:text="Title"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="#000"
         android:textStyle="bold"
-        android:layout_gravity="center"
+        android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
          />
 <!--
@@ -69,8 +71,10 @@
         android:layout_alignLeft="@id/txtTitle"
         android:layout_below="@id/txtTitle"
         android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:text="Description"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -78,7 +82,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvPrice"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
         android:textColor="#000"
+        android:layout_gravity="center"
+        android:textSize="18dp"
         android:textStyle="bold"
         android:gravity="center"/>
 

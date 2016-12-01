@@ -22,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.king.king_lens.Product.ProductView;
@@ -71,6 +72,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
 
     ImageView ivwishicon;
     LinearLayout parentProductLL;
+
 
 
 
@@ -316,11 +318,23 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                     final String id = String.valueOf(response.getInt("id"));
                     String name = response.getString("name");
                     String image = response.getString("image_one");
+                    String description = response.getString("description");
+                    String sale_price = response.getString("sale_price");
                     final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
                     //productList.add(new Product(id,name,imageUrl, "FRESHLOOK COLORBLENDS"));
                     View inflatedLayout= getLayoutInflater().inflate(R.layout.list_item, null, false);
                     ImageView imageView = (ImageView) inflatedLayout.findViewById(R.id.imageView);
+                    TextView txtDescription = (TextView) inflatedLayout.findViewById(R.id.txtDescription);
+                    TextView txtTitle = (TextView) inflatedLayout.findViewById(R.id.txtTitle);
+                    TextView tvPrice = (TextView) inflatedLayout.findViewById(R.id.tvPrice);
+                    tvPrice.setText(sale_price+" KWT");
+                    txtTitle.setText(name);
+                    txtDescription.setText(description);
+
+
                     loadImage(imageUrl,imageView);
+
+
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

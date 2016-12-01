@@ -187,6 +187,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                 final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
                 String sale_price = response.getString("sale_price");
 
+
                 if(!response.isNull("product_details"))
                 {
                     JSONObject product_details = new JSONObject(response.getString("product_details"));
