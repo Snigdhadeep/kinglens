@@ -26,6 +26,7 @@
         android:layout_height="40dp"
         android:id="@+id/ivwishicon"
         android:src="@drawable/fav_1"
+        android:visibility="invisible"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_alignTop="@+id/imageView"

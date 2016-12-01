@@ -362,6 +362,31 @@
 
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#44A0BB"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="ADASAT.NET ALL RIGHTS RESERVED"
+                android:layout_marginLeft="16dp"/>
+        </LinearLayout>
+
+
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -382,23 +407,22 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/facebook"
+                android:src="@drawable/facebook2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-
-                android:layout_weight=".5"/>
+                />
             <View
-                android:id="@+id/view10"
+                android:id="@+id/view105"
                 android:layout_width="10dp"
                 android:layout_height="0dp"
                 android:layout_centerHorizontal="true" />
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/twitter"
+                android:src="@drawable/twitter2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-                android:layout_weight=".2"/>
+                />
             <View
                 android:id="@+id/view11"
                 android:layout_width="10dp"
@@ -407,13 +431,13 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/instagram"
+                android:src="@drawable/instagram4"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-                android:layout_weight=".5"/>
+                />
         </LinearLayout>
 
 
     </LinearLayout>
-
+</LinearLayout>
 </FrameLayout>
