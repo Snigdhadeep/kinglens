@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.king.king_lens.Product.ProductView;
+
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -23,6 +25,7 @@ import java.util.HashMap;
 import HelperClasses.AsyncResponse;
 import HelperClasses.EmailValidator;
 import HelperClasses.RegisterUser;
+import HelperClasses.UserConstants;
 
 public class Register_Activity extends AppCompatActivity implements AsyncResponse.Response {
 
@@ -152,8 +155,17 @@ public class Register_Activity extends AppCompatActivity implements AsyncRespons
                 editor.putInt("id", response.getInt("id"));
                 if(editor.commit())
                 {
-                    Intent intent = new Intent(Register_Activity.this,Home_adslot.class);
-                    startActivity(intent);
+                    if(UserConstants.returnToProductView)
+                    {
+                        UserConstants.returnToProductView=false;
+                        Intent intent = new Intent(this,ProductView.class);
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        Intent intent = new Intent(this,Home_adslot.class);
+                        startActivity(intent);
+                    }
                 }
             }
             else

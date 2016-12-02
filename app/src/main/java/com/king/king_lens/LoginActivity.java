@@ -22,6 +22,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.king.king_lens.Product.ProductView;
+
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -31,6 +33,7 @@ import HelperClasses.AsyncResponse;
 import HelperClasses.CheckNetwork;
 import HelperClasses.EmailValidator;
 import HelperClasses.RegisterUser;
+import HelperClasses.UserConstants;
 
 public class LoginActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AsyncResponse.Response {
@@ -326,8 +329,17 @@ public class LoginActivity extends AppCompatActivity
 
                     if(editor.commit())
                     {
-                        Intent intent = new Intent(LoginActivity.this,Home_adslot.class);
-                        startActivity(intent);
+                        if(UserConstants.returnToProductView)
+                        {
+                            UserConstants.returnToProductView=false;
+                            Intent intent = new Intent(LoginActivity.this,ProductView.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Intent intent = new Intent(LoginActivity.this,Home_adslot.class);
+                            startActivity(intent);
+                        }
                     }
                 }
                 else
@@ -355,8 +367,17 @@ public class LoginActivity extends AppCompatActivity
                     editor.putInt("id", response.getInt("id"));
                     if(editor.commit())
                     {
-                        Intent intent = new Intent(LoginActivity.this,Home_adslot.class);
-                        startActivity(intent);
+                        if(UserConstants.returnToProductView)
+                        {
+                            UserConstants.returnToProductView=false;
+                            Intent intent = new Intent(LoginActivity.this,ProductView.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Intent intent = new Intent(LoginActivity.this,Home_adslot.class);
+                            startActivity(intent);
+                        }
                     }
                 }
                 else

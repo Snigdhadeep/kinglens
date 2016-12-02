@@ -16,6 +16,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
        >
 
     <LinearLayout
@@ -99,6 +100,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:textSize="15dp"
+            android:id="@+id/tvProductName"
             android:layout_marginBottom="20dp"
             android:text="FRESHLOOK COLORBLENDS"
             android:layout_height="25dp" />
@@ -474,7 +476,6 @@
     </ScrollView>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -488,6 +489,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="center"
+            android:id="@+id/llAddtoCart"
           >
 
         <ImageView

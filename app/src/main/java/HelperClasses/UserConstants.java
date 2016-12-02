@@ -26,4 +26,6 @@ public class UserConstants {
     public static String collection_Category_id = "";
     public static String product_Collection_id = "";
     public static String product_Product_id = "";
+
+    public static boolean returnToProductView = false;
 }

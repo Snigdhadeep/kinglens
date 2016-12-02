@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.king.king_lens.Grid_List.Gridlist_Activity;
@@ -54,6 +55,8 @@ public class TabFragment2 extends Fragment implements AsyncResponse.Response {
 
     HashMap<Bitmap,Integer> imageList = new HashMap<>();
     int j=0;
+
+    LinearLayout llNoBrand;
 
 
 
@@ -104,6 +107,8 @@ public class TabFragment2 extends Fragment implements AsyncResponse.Response {
             registerUser.register(data,route);
             UserConstants.tab1ExecutionDone = true;
         }
+
+        llNoBrand = (LinearLayout) view.findViewById(R.id.llNoBrand);
 
      return view;
 
@@ -188,7 +193,8 @@ public class TabFragment2 extends Fragment implements AsyncResponse.Response {
             }//if statemnt
             else
             {
-                Toast.makeText(getContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                llNoBrand.setVisibility(View.VISIBLE);
             }
 
         } catch (JSONException e) {

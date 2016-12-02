@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.king.king_lens.Grid_List.Gridlist_Activity;
@@ -43,6 +44,8 @@ public class TabFragment3 extends Fragment implements AsyncResponse.Response {
     private GridviewAdapter gridviewAdapter;
     private View view;
     CarouselView carouselView;
+
+    LinearLayout llNoBrand;
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
@@ -90,6 +93,8 @@ public class TabFragment3 extends Fragment implements AsyncResponse.Response {
 
             UserConstants.tab1ExecutionDone = true;
         }
+
+        llNoBrand = (LinearLayout) view.findViewById(R.id.llNoBrand);
 
         return view;
 
@@ -176,7 +181,8 @@ public class TabFragment3 extends Fragment implements AsyncResponse.Response {
             }//if statemnt
             else
             {
-                Toast.makeText(getContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                llNoBrand.setVisibility(View.VISIBLE);
             }
         } catch (JSONException e) {
             e.toString();

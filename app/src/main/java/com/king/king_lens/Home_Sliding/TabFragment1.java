@@ -51,6 +51,7 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
     CarouselView carouselView;
 
     LinearLayout linearLayout;
+    LinearLayout llNoBrand;
 
 
     //server variable
@@ -109,6 +110,8 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
             registerUser.register(data,route);
             UserConstants.tab1ExecutionDone = true;
         }
+
+        llNoBrand = (LinearLayout) view.findViewById(R.id.llNoBrand);
 
 
      return view;
@@ -200,7 +203,8 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
             }
             else
             {
-                Toast.makeText(getContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                llNoBrand.setVisibility(View.VISIBLE);
             }
 
             //setUpImages();

@@ -1,6 +1,8 @@
 package com.king.king_lens.Product;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -19,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.king.king_lens.AddToCart;
+import com.king.king_lens.LoginActivity;
 import com.king.king_lens.R;
 
 import org.json.JSONException;
@@ -29,10 +33,12 @@ import java.net.URL;
 import java.util.HashMap;
 
 import HelperClasses.AsyncResponse;
+import HelperClasses.AsyncResponse2;
 import HelperClasses.RegisterUser;
+import HelperClasses.RegisterUser2;
 import HelperClasses.UserConstants;
 
-public class ProductView extends AppCompatActivity implements AsyncResponse.Response{
+public class ProductView extends AppCompatActivity implements AsyncResponse.Response,View.OnClickListener, AsyncResponse2.Response2{
 
     ImageView frontImage;
     TextView productPrice;
@@ -50,12 +56,18 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
     TextView axis_options;
 
 
+    TextView tvProductName;
+    LinearLayout llAddtoCart;
 
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
     private String route = "api/v1/get-product-by-id";
     HashMap<String,String> data = new HashMap<>();
+
+    RegisterUser2 registerUser2 = new RegisterUser2("POST");
+    private String routeAddToCart = "api/v1/post-cart-by-id";
+    HashMap<String,String> data2 = new HashMap<>();
 
 
     RadioGroup radioEyegroup;
@@ -64,6 +76,8 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
     //page variables
     String product_id = "";
     ProgressDialog loading;
+
+    ProgressDialog loadingForCart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +89,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
 
         //initializing variables
         registerUser.delegate = this;
+        registerUser2.delegate = this;
 
         data.put("product_id",product_id);
         loading = ProgressDialog.show(this, "", "Please wait...", true);
@@ -139,7 +154,10 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         cylinder_options = (TextView) findViewById(R.id.cylinder_options);
         axis_options = (TextView) findViewById(R.id.axis_options);
 
+        tvProductName = (TextView) findViewById(R.id.tvProductName);
+        llAddtoCart = (LinearLayout) findViewById(R.id.llAddtoCart);
 
+        llAddtoCart.setOnClickListener(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -186,7 +204,9 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                 String image = response.getString("image_one");
                 final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
                 String sale_price = response.getString("sale_price");
+                String name = response.getString("name");
 
+                tvProductName.setText(name);
 
                 if(!response.isNull("product_details"))
                 {
@@ -257,6 +277,53 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
 
         } catch (JSONException e) {
             Log.i("productview",e.toString());
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
+        int user_id = prefs.getInt("id",0);
+        int gueat_id = prefs.getInt("guest_id",0);
+
+        if(user_id==0 && gueat_id==0)
+        {
+            Toast.makeText(this, "Please Login To Continue", Toast.LENGTH_SHORT).show();
+            UserConstants.returnToProductView = true;
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+        }
+        else
+        {
+            data2.put("user_id",String.valueOf(user_id));
+            data2.put("product_id",product_id);
+            //Toast.makeText(this, data2.toString(), Toast.LENGTH_SHORT).show();
+            loadingForCart = ProgressDialog.show(this, "", "Adding product to cart...", true);
+            registerUser2.register(data2,routeAddToCart);
+
+        }
+    }
+
+    @Override
+    public void processFinish2(String output) {
+        loadingForCart.dismiss();
+        //Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
+        try
+        {
+            JSONObject jsonObject = new JSONObject(output);
+            if(jsonObject.getBoolean("status"))
+            {
+                Intent intent = new Intent(this, AddToCart.class);
+                startActivity(intent);
+            }
+            else
+            {
+                Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch (Exception e)
+        {
+            Log.i("ProductView",e.toString());
         }
     }
 }

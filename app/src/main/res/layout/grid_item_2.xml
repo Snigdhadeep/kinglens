@@ -13,6 +13,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:layout_margin="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -59,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
+                    android:gravity="center"
                     android:text="Title"
                     android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -70,8 +72,19 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
+                    android:gravity="center"
                     android:text="Description"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:text="price"
+                    android:id="@+id/tvPriceGrid1"
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     />
 
             </LinearLayout>
 
@@ -136,6 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
+                    android:gravity="center"
                     android:text="Title"
                     android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -146,9 +160,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:gravity="center"
                     android:layout_marginTop="10dp"
                     android:text="Description"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:text="price"
+                    android:id="@+id/tvPriceGrid2"
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                />
 
             </LinearLayout>
 

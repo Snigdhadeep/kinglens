@@ -300,6 +300,8 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
 
     public void setUpListView(String output)
     {
+        clearAllPendigAsync();
+
         parentProductLL.removeAllViews();
         GridViewOn=false;
         try {
@@ -327,7 +329,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                     TextView txtDescription = (TextView) inflatedLayout.findViewById(R.id.txtDescription);
                     TextView txtTitle = (TextView) inflatedLayout.findViewById(R.id.txtTitle);
                     TextView tvPrice = (TextView) inflatedLayout.findViewById(R.id.tvPrice);
-                    tvPrice.setText(sale_price+" KWT");
+                    tvPrice.setText(sale_price+" KWD");
                     txtTitle.setText(name);
                     txtDescription.setText(description);
 
@@ -365,6 +367,8 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
 
     public void setUpGridView(String output)
     {
+        clearAllPendigAsync();
+
         parentProductLL.removeAllViews();
         GridViewOn=true;
         try {
@@ -384,6 +388,8 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                         final String id1 = String.valueOf(response1.getInt("id"));
                         String name1 = response1.getString("name");
                         String image1 = response1.getString("image_one");
+                        String description1 = response1.getString("description");
+                        String sale_price1 = response1.getString("sale_price");
                         final String imageUrl1 = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image1;
 
 
@@ -391,12 +397,29 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                         final String id2 = String.valueOf(response2.getInt("id"));
                         String name2 = response2.getString("name");
                         String image2 = response2.getString("image_one");
+                        String description2 = response2.getString("description");
+                        String sale_price2 = response2.getString("sale_price");
                         final String imageUrl2 = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image2;
                         //productList.add(new Product(id,name,imageUrl, "FRESHLOOK COLORBLENDS"));
 
 
                         View inflatedLayout= getLayoutInflater().inflate(R.layout.grid_item_2, null, false);
                         ImageView imageViewGrid1 = (ImageView) inflatedLayout.findViewById(R.id.imageViewGrid1);
+                        TextView txtTitleGrid1 = (TextView) inflatedLayout.findViewById(R.id.txtTitleGrid1);
+                        TextView txtDescriptionGrid1 = (TextView) inflatedLayout.findViewById(R.id.txtDescriptionGrid1);
+                        TextView tvPriceGrid1 = (TextView) inflatedLayout.findViewById(R.id.tvPriceGrid1);
+                        txtDescriptionGrid1.setText(description1);
+                        tvPriceGrid1.setText(sale_price1+" KWD");
+                        txtTitleGrid1.setText(name1);
+
+                        TextView txtTitleGrid2 = (TextView) inflatedLayout.findViewById(R.id.txtTitleGrid2);
+                        TextView txtDescriptionGrid2 = (TextView) inflatedLayout.findViewById(R.id.txtDescriptionGrid2);
+                        TextView tvPriceGrid2 = (TextView) inflatedLayout.findViewById(R.id.tvPriceGrid2);
+                        txtDescriptionGrid2.setText(description2);
+                        tvPriceGrid2.setText(sale_price2+" KWD");
+                        txtTitleGrid2.setText(name2);
+
+
                         imageViewGrid1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -429,10 +452,21 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
                         final String id1 = String.valueOf(response1.getInt("id"));
                         String name1 = response1.getString("name");
                         String image1 = response1.getString("image_one");
+                        String description1 = response1.getString("description");
+                        String sale_price1 = response1.getString("sale_price");
                         final String imageUrl1 = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image1;
 
                         View inflatedLayout= getLayoutInflater().inflate(R.layout.grid_item_2, null, false);
                         ImageView imageViewGrid1 = (ImageView) inflatedLayout.findViewById(R.id.imageViewGrid1);
+
+
+                        TextView txtTitleGrid1 = (TextView) inflatedLayout.findViewById(R.id.txtTitleGrid1);
+                        TextView txtDescriptionGrid1 = (TextView) inflatedLayout.findViewById(R.id.txtDescriptionGrid1);
+                        TextView tvPriceGrid1 = (TextView) inflatedLayout.findViewById(R.id.tvPriceGrid1);
+                        txtDescriptionGrid1.setText(description1);
+                        tvPriceGrid1.setText(sale_price1+" KWD");
+                        txtTitleGrid1.setText(name1);
+
                         imageViewGrid1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -505,6 +539,11 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
     public void onPause() {
         super.onPause();
         Log.i("kingsukmajumder","pause");
+        clearAllPendigAsync();
+    }
+
+    public void clearAllPendigAsync()
+    {
         for(int i=0;i<imageLoadingThread.size();i++)
         {
             imageLoadingThread.get(i).cancel(true);

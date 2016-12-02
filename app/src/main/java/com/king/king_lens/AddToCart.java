@@ -1,10 +1,15 @@
 package com.king.king_lens;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,12 +19,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import HelperClasses.AsyncResponse;
+import HelperClasses.RegisterUser;
+import HelperClasses.UserConstants;
 
 public class AddToCart extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-int user_id;
+        implements NavigationView.OnNavigationItemSelectedListener, AsyncResponse.Response {
+    int user_id;
     LinearLayout llparentcart;
+
+    //server variables
+    RegisterUser registerUser = new RegisterUser("POST");
+    private String route = "api/v1/get-cart-by-id";
+    HashMap<String,String> data = new HashMap<>();
+
+    ProgressDialog loading;
+
+    ArrayList<AsyncTask> imageLoadingThread= new ArrayList<AsyncTask>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,14 +58,14 @@ int user_id;
 
         llparentcart=(LinearLayout)findViewById(R.id.llparentcart);
 
-        int i=10;
-        while (i>0){
+        registerUser.delegate=this;
 
+        /*int i=10;
+        while (i>0)
+        {
             View inflatedLayout= getLayoutInflater().inflate(R.layout.cartitem, null, false);
             llparentcart.addView(inflatedLayout);
-            i=i-1;
-
-        }
+        }*/
 
 
 
@@ -42,6 +73,7 @@ int user_id;
         setSupportActionBar(toolbar);
 
         SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
+
 
 
 
@@ -71,7 +103,9 @@ int user_id;
             navigationView.getMenu().findItem(R.id.nav_myaccount).setVisible(false);
         }
 
-
+        data.put("user_id",String.valueOf(user_id));
+        registerUser.register(data,route);
+        loading = ProgressDialog.show(this, "", "Please wait...", true);
     }
 
     @Override
@@ -156,5 +190,97 @@ int user_id;
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void processFinish(String output) {
+        loading.dismiss();
+        Log.i("kingsukmajumder",output);
+        //Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
+
+        try {
+            JSONObject jsonObject = new JSONObject(output);
+            if(jsonObject.getBoolean("status"))
+            {
+                JSONArray jsonArray = new JSONArray(jsonObject.getString("response"));
+                for (int i=0;i<jsonArray.length();i++)
+                {
+                    JSONObject carts = jsonArray.getJSONObject(i);
+                    JSONObject response = carts.getJSONObject("product");
+                    Log.i("kingsukmajumder",response.toString());
+                    String name = response.getString("name");
+                    String image = response.getString("image_one");
+                    String sale_price = response.getString("sale_price");
+                    String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
+
+                    View inflatedLayout= getLayoutInflater().inflate(R.layout.cartitem, null, false);
+                    TextView txtProductName = (TextView) inflatedLayout.findViewById(R.id.txtProductName);
+                    TextView txtProductPrice = (TextView) inflatedLayout.findViewById(R.id.txtProductPrice);
+                    ImageView productImageView = (ImageView) inflatedLayout.findViewById(R.id.productImageView);
+
+                    txtProductName.setText(name);
+                    txtProductPrice.setText(sale_price+" KWD");
+                    loadImage(imageUrl,productImageView);
+
+                    llparentcart.addView(inflatedLayout);
+                }
+            }
+            else
+            {
+                Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            Log.i("AddToCart",e.toString());
+        }
+    }
+
+    public void loadImage(final String imageUrl,final ImageView theImageView)
+    {
+        AsyncTask asyncTask = new AsyncTask<Void, Void, Void>() {
+            Bitmap bmp;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                    InputStream in = new URL(imageUrl).openStream();
+                    bmp = BitmapFactory.decodeStream(in);
+                } catch (Exception e) {
+                    //Toast.makeText(getContext(),"Some error occoured while loading images!",Toast.LENGTH_LONG).show();
+                    Log.i("kingsukmajumder","error in loading images "+e.toString());
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                //loading.dismiss();
+                if (bmp != null)
+                {
+                    theImageView.setImageBitmap(bmp);
+                }
+            }
+        }.execute();
+
+        imageLoadingThread.add(asyncTask);
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i("kingsukmajumder","pause");
+        clearAllPendigAsync();
+    }
+
+    public void clearAllPendigAsync()
+    {
+        for(int i=0;i<imageLoadingThread.size();i++)
+        {
+            imageLoadingThread.get(i).cancel(true);
+        }
     }
 }
