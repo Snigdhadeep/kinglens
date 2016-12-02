@@ -19,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,20 +35,33 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import HelperClasses.AsyncResponse;
+import HelperClasses.AsyncResponse2;
 import HelperClasses.RegisterUser;
+import HelperClasses.RegisterUser2;
 import HelperClasses.UserConstants;
 
 public class AddToCart extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AsyncResponse.Response {
+        implements NavigationView.OnNavigationItemSelectedListener, AsyncResponse.Response, AsyncResponse2.Response2,View.OnClickListener {
     int user_id;
     LinearLayout llparentcart;
+
+    TextView tvTotalPrducts;
+    TextView tvTotalPrice;
+
+    Button btnCheckout;
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
     private String route = "api/v1/get-cart-by-id";
     HashMap<String,String> data = new HashMap<>();
 
+    //server variables
+    RegisterUser2 registerUser2 = new RegisterUser2("POST");
+    private String routeRemove = "api/v1/remove-cart-by-id";
+    HashMap<String,String> data2 = new HashMap<>();
+
     ProgressDialog loading;
+    ProgressDialog removeLoading;
 
     ArrayList<AsyncTask> imageLoadingThread= new ArrayList<AsyncTask>();
 
@@ -58,7 +72,14 @@ public class AddToCart extends AppCompatActivity
 
         llparentcart=(LinearLayout)findViewById(R.id.llparentcart);
 
+        tvTotalPrducts = (TextView) findViewById(R.id.tvTotalPrducts);
+        tvTotalPrice = (TextView) findViewById(R.id.tvTotalPrice);
+
+        btnCheckout = (Button) findViewById(R.id.btnCheckout);
+        btnCheckout.setOnClickListener(this);
+
         registerUser.delegate=this;
+        registerUser2.delegate=this;
 
         /*int i=10;
         while (i>0)
@@ -197,26 +218,44 @@ public class AddToCart extends AppCompatActivity
         loading.dismiss();
         Log.i("kingsukmajumder",output);
         //Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
-
+        llparentcart.removeAllViews();
         try {
             JSONObject jsonObject = new JSONObject(output);
             if(jsonObject.getBoolean("status"))
             {
                 JSONArray jsonArray = new JSONArray(jsonObject.getString("response"));
+
+                tvTotalPrducts.setText(jsonArray.length()+" PRODUCTS");
+
+                float totalPrice = (float) 0.00;
                 for (int i=0;i<jsonArray.length();i++)
                 {
                     JSONObject carts = jsonArray.getJSONObject(i);
                     JSONObject response = carts.getJSONObject("product");
-                    Log.i("kingsukmajumder",response.toString());
+                    //Log.i("kingsukmajumder",response.toString());
+                    final int id = carts.getInt("id");
                     String name = response.getString("name");
                     String image = response.getString("image_one");
                     String sale_price = response.getString("sale_price");
+                    totalPrice+=Integer.parseInt(sale_price);
                     String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
 
                     View inflatedLayout= getLayoutInflater().inflate(R.layout.cartitem, null, false);
                     TextView txtProductName = (TextView) inflatedLayout.findViewById(R.id.txtProductName);
                     TextView txtProductPrice = (TextView) inflatedLayout.findViewById(R.id.txtProductPrice);
                     ImageView productImageView = (ImageView) inflatedLayout.findViewById(R.id.productImageView);
+                    LinearLayout remoteLL = (LinearLayout) inflatedLayout.findViewById(R.id.remoteLL);
+
+                    remoteLL.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            data2.put("cart_id",String.valueOf(id));
+                            Toast.makeText(AddToCart.this, data2.toString(), Toast.LENGTH_SHORT).show();
+                            registerUser2.register(data2,routeRemove);
+                            //removeLoading = ProgressDialog.show(getApplicationContext(), "", "Removing product from cart...", true);
+                            loading.show();
+                        }
+                    });
 
                     txtProductName.setText(name);
                     txtProductPrice.setText(sale_price+" KWD");
@@ -224,10 +263,14 @@ public class AddToCart extends AppCompatActivity
 
                     llparentcart.addView(inflatedLayout);
                 }
+
+                tvTotalPrice.setText(String.format("%.2f", totalPrice)+" KWD");
             }
             else
             {
                 Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                tvTotalPrice.setText("0.00 KWD");
+                tvTotalPrducts.setText("0 PRODUCTS");
             }
         } catch (JSONException e) {
             Log.i("AddToCart",e.toString());
@@ -281,6 +324,43 @@ public class AddToCart extends AppCompatActivity
         for(int i=0;i<imageLoadingThread.size();i++)
         {
             imageLoadingThread.get(i).cancel(true);
+        }
+    }
+
+    @Override
+    public void processFinish2(String output) {
+        //Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
+        loading.dismiss();
+        try
+        {
+            JSONObject jsonObject = new JSONObject(output);
+            if(jsonObject.getBoolean("status"))
+            {
+                registerUser.register(data,route);
+                loading.show();
+            }
+            else
+            {
+                Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch (Exception e)
+        {
+            Log.i("Addtocart", e.toString());
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(tvTotalPrducts.getText().toString().equals("0 PRODUCTS"))
+        {
+            Toast.makeText(this, "Need to add at least one product", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            UserConstants.paymentAmount = tvTotalPrice.getText().toString();
+            Intent i = new Intent(this,Payment_Activity.class);
+            startActivity(i);
         }
     }
 }
