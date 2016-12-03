@@ -1,61 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Grid_List.wishfrag1">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <FrameLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp">
 
-
-
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="630dp"
-            android:background="@drawable/bg2"
-            android:scaleType="centerCrop"
-            />
-
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar_wish">
-
-        </include>
-
-
-
-
-
-        <LinearLayout
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#fff"
-            android:layout_gravity="bottom"
-            >
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/editText5"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/default_circle_indicator_stroke_color" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/editText3"
+            android:layout_weight="1"
+            android:text="Mob"
+            android:layout_marginTop="20dp" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:inputType="textPostalAddress"
+            android:ems="10"
+            android:id="@+id/editText4"
+            android:layout_weight="1"
+            android:text="Address"
+            android:layout_marginTop="20dp" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Coupon (Optional)"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="30dp">
 
+        <Button
+            android:text="PLACE ORDER"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button3"
+            android:layout_weight="1" />
+    </LinearLayout>
 
-
-
-
-        </LinearLayout>
-
-
-
-
-
-
-
-
-
-    </FrameLayout>
-</RelativeLayout>
+</LinearLayout>

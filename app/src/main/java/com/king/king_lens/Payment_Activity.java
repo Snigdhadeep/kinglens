@@ -14,12 +14,12 @@ public class Payment_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_);
+        setContentView(R.layout.fragment_wishfrag2);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+       /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         etTotalAmount = (EditText) findViewById(R.id.etTotalAmount);
-        etTotalAmount.setText(UserConstants.paymentAmount);
+        etTotalAmount.setText(UserConstants.paymentAmount);*/
     }
 }

@@ -135,7 +135,8 @@
             android:name=".Payment_Activity"
             android:parentActivityName=".AddToCart"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="COD"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.king.king_lens.AddToCart" />
