@@ -201,6 +201,8 @@ public class Home_adslot extends AppCompatActivity
         }else if (id == R.id.nav_search) {
 
         } else if (id == R.id.nav_shoppingcart) {
+            Intent intent = new Intent(getApplicationContext(),AddToCart.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_wishlist) {
 
