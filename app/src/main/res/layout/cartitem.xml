@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.king.king_lens.AddToCart"
    >
@@ -34,7 +37,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,7 +53,6 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:id="@+id/txtProductDetails"
-                android:visibility="gone"
                 android:text="Product details"
                 />
 
@@ -58,7 +61,8 @@
                 android:layout_height="30dp"
                 android:orientation="vertical"
                 android:gravity="center|right"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
+
                 android:background="@drawable/rectproduct"
 
                 >
@@ -119,7 +123,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
 
         <LinearLayout
@@ -127,6 +132,7 @@
             android:layout_height="30dp"
             android:orientation="horizontal"
             android:gravity="center|right"
+
             android:background="@drawable/rectproduct"
 
             >
@@ -134,6 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:layout_marginRight="5dp"
                 android:orientation="horizontal"
                 >
                 <ImageView
@@ -160,7 +167,7 @@
             android:layout_height="30dp"
             android:orientation="horizontal"
             android:gravity="center|right"
-            android:layout_marginLeft="7dp"
+            android:layout_marginLeft="12dp"
             android:background="@drawable/rectproduct"
 
             >
@@ -168,6 +175,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:layout_marginRight="10dp"
                 android:orientation="horizontal"
                 >
                 <ImageView
@@ -201,7 +209,15 @@
                 android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
+
+
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/appthemecolor"
+        ></View>
 
     <ScrollView
         android:layout_width="match_parent"

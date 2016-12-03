@@ -13,7 +13,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:orientation="vertical"
           >
 
@@ -84,7 +83,7 @@
 
 
                 <EditText
-                    android:layout_width="300dp"
+                    android:layout_width="200dp"
                     android:layout_height="30dp"
                     android:background="@drawable/rect_payment"
                     android:text=""
@@ -108,6 +107,7 @@
                     android:layout_height="wrap_content"
                     android:text="Card Number"
                     android:textSize="15dp"
+                    android:layout_marginBottom="5dp"
                     android:textColor="#367e93"
 
                     />
@@ -122,7 +122,7 @@
 
 
                 <EditText
-                    android:layout_width="300dp"
+                    android:layout_width="200dp"
                     android:layout_height="30dp"
                     android:background="@drawable/rect_payment"
                     android:text=""
@@ -131,35 +131,90 @@
                     android:layout_marginRight="16dp"
 
                     />
-
             </LinearLayout>
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp" >
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Expire Date"
+                            android:textSize="15dp"
+                            android:layout_marginBottom="5dp"
+                            android:textColor="#367e93"
+
+                            />
+
+                        <EditText
+                            android:layout_width="100dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/rect_payment"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="#000000"
+
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Expire Date"
+                            android:textSize="15dp"
+                            android:layout_marginBottom="5dp"
+                            android:textColor="#367e93"
+
+                            />
+
+                        <EditText
+                            android:layout_width="100dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/rect_payment"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:layout_marginRight="16dp"
+
+                            />
+                    </LinearLayout>
+
+            </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_marginTop="10dp"
-            >
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                android:layout_marginLeft="30dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Expire Date                       Security Code"
+                    android:text="Zip/Postal Code"
                     android:textSize="15dp"
+                    android:layout_marginBottom="5dp"
                     android:textColor="#367e93"
 
                     />
 
 
                 <View
-                    android:id="@+id/view216"
+                    android:id="@+id/view2156"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_centerHorizontal="true" />
@@ -167,7 +222,7 @@
 
 
                 <EditText
-                    android:layout_width="300dp"
+                    android:layout_width="200dp"
                     android:layout_height="30dp"
                     android:background="@drawable/rect_payment"
                     android:text=""
@@ -176,11 +231,56 @@
                     android:layout_marginRight="16dp"
 
                     />
-                </LinearLayout>
+            </LinearLayout>
 
 
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:background="#0c2aee"
+                android:layout_marginLeft="30dp">
+
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="SENDING..."
+                    android:textStyle="bold"
+                    android:textColor="#FFF"
+
+                    android:layout_marginRight="16dp"
+
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/imageView2"
+                    android:src="@drawable/visamaster"/>
 
             </LinearLayout>
+
+
+
+
+
+
+
 
 
 
@@ -199,6 +299,7 @@
 
 
 
+    <!-- for share buttons in lower tab -->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -230,7 +331,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
@@ -245,11 +348,11 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/facebook"
+                android:src="@drawable/facebook2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
 
-                android:layout_weight=".5"/>
+                />
             <View
                 android:id="@+id/view10"
                 android:layout_width="10dp"
@@ -258,10 +361,10 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/twitter"
+                android:src="@drawable/twitter2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-                android:layout_weight=".2"/>
+                />
             <View
                 android:id="@+id/view11"
                 android:layout_width="10dp"
@@ -270,10 +373,11 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/instagram"
+                android:src="@drawable/instagram4"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-                android:layout_weight=".5"/>
+                android:layout_marginRight="3dp"
+                />
         </LinearLayout>
 
 

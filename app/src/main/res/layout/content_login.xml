@@ -201,17 +201,23 @@
 
     </LinearLayout>
 
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="20dp">
 
+</RelativeLayout>
 
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
             android:text="FORGOT PASSWORD ?"
             android:textColor="#f3787d7e"
             android:id="@+id/forgotpass"
-            android:background="#FFFFFF"
-            android:layout_gravity="center" />
+            android:gravity="center"
+             />
+
+
         <View
             android:id="@+id/view132"
             android:layout_width="0dp"
@@ -335,7 +341,7 @@
                 android:gravity="center"
                 android:textColor="#ffffff"
                 android:text="ADASAT.NET ALL RIGHTS RESERVED"
-                android:layout_marginLeft="4dp"/>
+                android:layout_marginLeft="16dp"/>
         </LinearLayout>
 
 
@@ -345,7 +351,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_marginRight="16dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
