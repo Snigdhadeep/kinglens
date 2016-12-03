@@ -128,7 +128,18 @@
         <activity
             android:name=".AddToCart"
             android:label="SHOPPING CART"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".Payment_Activity"
+            android:parentActivityName=".AddToCart"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.king.king_lens.AddToCart" />
+        </activity>
     </application>
 
 </manifest>

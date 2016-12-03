@@ -12,15 +12,16 @@
      -->
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/llparentcart">
+        android:layout_marginBottom="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/llparentcart">
 
 
-    </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 
@@ -44,35 +45,38 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp">
-        
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-           >
-            <TextView
-                android:layout_width="wrap_content"
+
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-                android:text="SUBTOTAL"
-                android:textSize="25dp"
-                android:layout_alignParentLeft="true"
+                    android:text="SUBTOTAL"
+                    android:textSize="25dp"
+                    android:layout_alignParentLeft="true"
 
-                android:textColor="#000"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="299.97 KWD"
-                android:textSize="25dp"
-                android:layout_alignParentRight="true"
-                android:textColor="#000"
-                android:textStyle="bold"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00 KWD"
+                    android:textSize="25dp"
+                    android:id="@+id/tvTotalPrice"
+                    android:textColor="#000"
+                    android:textStyle="bold"
 
 
-                />
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
 
-        </RelativeLayout>
+            </RelativeLayout>
 
 
             <RelativeLayout
@@ -91,9 +95,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3 PRODUCTS"
+                    android:text="0 PRODUCTS"
                     android:layout_alignParentLeft="true"
-
+                    android:id="@+id/tvTotalPrducts"
                     android:textSize="17dp"
 
 
@@ -110,7 +114,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           android:layout_gravity="bottom"
+            android:layout_gravity="bottom"
             android:layout_marginTop="10dp"
 
 
@@ -123,11 +127,9 @@
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-
-
                 android:text="CHECK OUT"
                 android:textColor="#fff"
-                android:id="@+id/signin"
+                android:id="@+id/btnCheckout"
                 android:height="50dp"
                 android:background="@drawable/rect1"
                 android:textStyle="bold" />

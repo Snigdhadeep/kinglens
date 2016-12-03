@@ -28,4 +28,6 @@ public class UserConstants {
     public static String product_Product_id = "";
 
     public static boolean returnToProductView = false;
+
+    public static String paymentAmount = "";
 }
