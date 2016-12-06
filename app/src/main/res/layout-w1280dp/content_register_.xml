@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.king.king_lens.Register_Activity"
+    tools:showIn="@layout/activity_register_">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="50dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="NAME"
+            android:textColor="#44A0BB"
+            android:height="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            />
+    <EditText
+        android:id="@+id/firstname"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:textColor="#000000"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:textAlignment="center"
+
+
+        >
+    </EditText>
+    <View
+        android:id="@+id/view21"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="EMAIL"
+            android:textColor="#44A0BB"
+            android:height="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            />
+    <EditText
+        android:id="@+id/email"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:textColor="#000000"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:textAlignment="center"
+
+        >
+    </EditText>
+    <View
+        android:id="@+id/view9"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="PASSWORD"
+            android:textColor="#44A0BB"
+            android:height="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            />
+    <EditText
+        android:id="@+id/password"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:inputType="textPassword"
+        android:background="@drawable/rect_edittext"
+        android:textColor="#000000"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:textAlignment="center"
+        >
+    </EditText>
+
+
+
+
+    <View
+        android:id="@+id/view10"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="GENDER"
+            android:textColor="#44A0BB"
+            android:height="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            />
+        <Spinner
+        android:id="@+id/gender"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:entries="@array/gender_array"
+        android:prompt="@string/genderprompt"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+        >
+    </Spinner>
+
+    <View
+        android:id="@+id/view22"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="CONTACT NO."
+            android:textColor="#44A0BB"
+            android:id="@+id/notamember"
+            android:height="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            />
+        <EditText
+        android:id="@+id/contact_no"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rect_edittext"
+        android:textColor="#000000"
+        android:inputType="number"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:textAlignment="center"
+
+        >
+    </EditText>
+
+
+        <View
+            android:id="@+id/view24"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#D1F4FE"
+            android:gravity="center"
+
+
+
+            >
+
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+
+                android:gravity="center"
+                android:text="REGISTER"
+                android:textColor="#fff"
+                android:id="@+id/reg_btn"
+                android:height="50dp"
+                android:background="@drawable/rect1"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#44A0BB"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="ADASAT.NET ALL RIGHTS RESERVED"
+                android:layout_marginLeft="16dp"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textColor="#ffffff"
+                android:text="Follow us"
+                android:layout_weight=".5"
+                />
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/facebook2"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+
+                />
+            <View
+                android:id="@+id/view102"
+                android:layout_width="10dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/twitter2"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                />
+            <View
+                android:id="@+id/view11"
+                android:layout_width="10dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/instagram4"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                android:layout_marginRight="3dp"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

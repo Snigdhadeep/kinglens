@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.king.king_lens.My_Account"
+    tools:showIn="@layout/activity_my__account">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_margin="16dp">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="NAME"
+                    android:textColor="#44A0BB"
+                    android:height="30dp"
+                    />
+
+            <EditText
+                android:id="@+id/firstname"
+                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/rect_edittext"
+                android:textColor="#000000"
+                android:textColorHint="#f3787d7e"
+                android:textAlignment="center"
+
+                >
+            </EditText>
+
+            </LinearLayout>
+
+
+
+
+
+
+            <View
+                android:id="@+id/view10"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="GENDER"
+                android:textColor="#44A0BB"
+                android:height="30dp"
+                />
+            <EditText
+                android:id="@+id/gender"
+                android:enabled="false"
+                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/rect_edittext"
+                android:textAlignment="center"
+                >
+            </EditText>
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/view234"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="PHONE NO"
+                    android:textColor="#44A0BB"
+                    android:height="30dp"
+                    />
+                <EditText
+                    android:id="@+id/ph_no"
+                    android:layout_height="40dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/rect_edittext"
+                    android:textColor="#000000"
+                    android:inputType="number"
+                    android:textColorHint="#f3787d7e"
+                    android:textAlignment="center"
+
+
+                    >
+                </EditText>
+
+            </LinearLayout>
+
+
+
+            <View
+                android:id="@+id/view239"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true" />
+
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_landph"/>
+                <EditText
+                    android:id="@+id/addph_no"
+                    android:layout_height="40dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/rect_edittext"
+                    android:hint="  Add Phone No."
+                    android:textColor="#000000"
+                    android:textColorHint="#f3787d7e"
+                    android:layout_marginRight="16dp"
+
+
+                    >
+                </EditText>
+
+            </LinearLayout>-->
+
+
+
+            <!--<View
+                android:id="@+id/view23"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="PASSWORD"
+                    android:textColor="#44A0BB"
+                    android:height="30dp"
+                    />
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_height="40dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/rect_edittext"
+                    android:inputType="textPassword"
+                    android:textColor="#000000"
+                    android:textColorHint="#f3787d7e"
+                    android:textAlignment="center"
+
+                    >
+                </EditText>
+
+
+
+
+            </LinearLayout>
+
+
+
+            <View
+                android:id="@+id/view24"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="SAVE"
+                android:textColor="#fff"
+                android:id="@+id/save_btn"
+                android:height="50dp"
+                android:background="@drawable/rect1"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </ScrollView>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#44A0BB"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="ADASAT.NET ALL RIGHTS RESERVED"
+                android:layout_marginLeft="16dp"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textColor="#ffffff"
+                android:text="Follow us"
+                android:layout_weight=".5"
+                />
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/facebook2"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+
+                />
+            <View
+                android:id="@+id/view101"
+                android:layout_width="10dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/twitter2"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                />
+            <View
+                android:id="@+id/view11"
+                android:layout_width="10dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/instagram4"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                android:layout_marginRight="3dp"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</FrameLayout>
+
