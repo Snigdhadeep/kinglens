@@ -52,7 +52,7 @@
                 android:background="@drawable/rect_edittext"
                 android:textColor="#000000"
                 android:textColorHint="#f3787d7e"
-
+                android:textAlignment="center"
 
                 >
             </EditText>
@@ -89,7 +89,7 @@
                 android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/rect_edittext"
-
+                android:textAlignment="center"
                 >
             </EditText>
             </LinearLayout>
@@ -121,7 +121,7 @@
                     android:textColor="#000000"
                     android:inputType="number"
                     android:textColorHint="#f3787d7e"
-
+                    android:textAlignment="center"
 
 
                     >
@@ -189,7 +189,7 @@
                     android:inputType="textPassword"
                     android:textColor="#000000"
                     android:textColorHint="#f3787d7e"
-
+                    android:textAlignment="center"
 
                     >
                 </EditText>
@@ -238,7 +238,7 @@
             >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="132dp"
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:textColor="#ffffff"
@@ -253,11 +253,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_marginRight="16dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center"
+                android:textSize="10dp"
                 android:textColor="#ffffff"
                 android:text="Follow us"
                 android:layout_weight=".5"
@@ -271,9 +273,10 @@
                 android:src="@drawable/facebook2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
+
                 />
             <View
-                android:id="@+id/view105"
+                android:id="@+id/view101"
                 android:layout_width="10dp"
                 android:layout_height="0dp"
                 android:layout_centerHorizontal="true" />
@@ -283,7 +286,7 @@
                 android:src="@drawable/twitter2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-               />
+                />
             <View
                 android:id="@+id/view11"
                 android:layout_width="10dp"
@@ -295,12 +298,11 @@
                 android:src="@drawable/instagram4"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-               />
+                android:layout_marginRight="3dp"
+                />
         </LinearLayout>
 
 
     </LinearLayout>
-
-
 </FrameLayout>
 

@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appthemelight">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Amount"
+
+            android:textSize="15dp"
+            android:textColor="#1e2122"
+            />
+
+            />
+
+
+        <View
+            android:id="@+id/view210"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true" />
+
+
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:background="@drawable/rect_payment"
+            android:text=" 100 KWD"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:layout_marginRight="16dp"
+            android:id="@+id/etTotalAmount"
+            android:editable="false"
+
+            />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,40 +70,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:hint="Name"
             android:ems="10"
-            android:id="@+id/editText5"
+            android:id="@+id/etName"
             android:layout_weight="1"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/default_circle_indicator_stroke_color" />
+             />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="phone"
+            android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText3"
+            android:id="@+id/etMobileno"
             android:layout_weight="1"
-            android:text="Mob"
+            android:hint="Mob"
             android:layout_marginTop="20dp" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:inputType="textPostalAddress"
             android:ems="10"
-            android:id="@+id/editText4"
+            android:id="@+id/etAddress"
             android:layout_weight="1"
-            android:text="Address"
+            android:hint="Address"
             android:layout_marginTop="20dp" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Coupon (Optional)"
+            android:hint="Coupon (Optional)"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/etCoupone"
             android:layout_weight="1"
             android:layout_marginTop="20dp" />
     </LinearLayout>
@@ -57,17 +112,101 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="30dp">
+     android:gravity="center"
+       >
 
         <Button
             android:text="PLACE ORDER"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button3"
-            android:layout_weight="1" />
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPlaceOrder"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFF"
+            android:background="@color/appthemecolor"
+             />
     </LinearLayout>
-
 </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#44A0BB"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="ADASAT.NET ALL RIGHTS RESERVED"
+                android:layout_marginLeft="16dp"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textColor="#ffffff"
+                android:text="Follow us"
+                android:layout_weight=".5"
+                />
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/facebook2"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+
+                />
+            <View
+                android:id="@+id/view10"
+                android:layout_width="10dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/twitter2"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                />
+            <View
+                android:id="@+id/view11"
+                android:layout_width="10dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/instagram4"
+                android:layout_gravity="center"
+                android:background="#44A0BB"
+                android:layout_marginRight="3dp"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</FrameLayout>

@@ -52,6 +52,7 @@
             android:textColorHint="#f3787d7e"
             android:textCursorDrawable="@null"
             android:layout_marginRight="16dp"
+            android:textAlignment="center"
 
 
             >
@@ -133,8 +134,7 @@
             android:textColor="#000000"
             android:textColorHint="#f3787d7e"
             android:layout_marginRight="16dp"
-
-
+            android:textAlignment="center"
             >
 
         </EditText>
@@ -154,7 +154,7 @@
             android:textColor="#000000"
             android:textColorHint="#f3787d7e"
             android:layout_marginRight="16dp"
-
+            android:textAlignment="center"
 
             >
 
@@ -264,13 +264,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#FFFFFF"
         android:layout_gravity="center">
 
 
         <ImageView
             android:layout_width="250dp"
             android:layout_height="100dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/imageView2"
             android:src="@drawable/visamaster"/>
 
@@ -301,6 +301,7 @@
                 android:textColor="#fff"
                 android:id="@+id/signup_btn"
                 android:height="50dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/rect1"
                 android:textStyle="bold" />
 
@@ -336,7 +337,7 @@
             >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="132dp"
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:textColor="#ffffff"
@@ -357,6 +358,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center"
+                android:textSize="10dp"
                 android:textColor="#ffffff"
                 android:text="Follow us"
                 android:layout_weight=".5"
@@ -383,7 +385,7 @@
                 android:src="@drawable/twitter2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
-               />
+                />
             <View
                 android:id="@+id/view11"
                 android:layout_width="10dp"
@@ -396,7 +398,7 @@
                 android:layout_gravity="center"
                 android:background="#44A0BB"
                 android:layout_marginRight="3dp"
-               />
+                />
         </LinearLayout>
 
 

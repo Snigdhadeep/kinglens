@@ -104,6 +104,7 @@
         </activity>
         <activity
             android:name=".Grid_List.SubGridList_Activity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Grid_List.SubCollectionActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -136,6 +137,7 @@
             android:parentActivityName=".AddToCart"
             android:screenOrientation="portrait"
             android:label="COD"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
