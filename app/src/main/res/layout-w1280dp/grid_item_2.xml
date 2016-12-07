@@ -62,6 +62,7 @@
                     android:layout_marginTop="15dp"
                     android:gravity="center"
                     android:text="Title"
+                    android:textSize="50sp"
                     android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -79,7 +80,7 @@
                 <TextView
                     android:text="price"
                     android:id="@+id/tvPriceGrid1"
-                    android:textSize="16dp"
+                    android:textSize="40sp"
                     android:textColor="#000"
                     android:gravity="center"
                     android:layout_width="match_parent"
@@ -151,6 +152,7 @@
                     android:layout_marginTop="15dp"
                     android:gravity="center"
                     android:text="Title"
+                    android:textSize="50sp"
                     android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -168,7 +170,7 @@
                 <TextView
                     android:text="price"
                     android:id="@+id/tvPriceGrid2"
-                    android:textSize="16dp"
+                    android:textSize="40sp"
                     android:textColor="#000"
                     android:gravity="center"
                     android:layout_width="match_parent"

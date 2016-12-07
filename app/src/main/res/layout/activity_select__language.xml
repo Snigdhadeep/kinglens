@@ -12,103 +12,103 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:orientation="vertical">
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#D1F4FE">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SELECT YOUR LANGUAGE"
-            android:layout_gravity="center"
-            android:paddingTop="@dimen/activity_horizontal_margin"
-            android:textColor="#44A0BB"
-            android:textSize="14dp"
-           />
-
-        </FrameLayout>
-        <View
-            android:id="@+id/view205"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_centerHorizontal="true" />
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-            <LinearLayout
-                android:layout_width="wrap_content"
+
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="#D1F4FE"
-                android:gravity="center"
-                android:layout_weight="1"
+                android:background="#D1F4FE">
 
-                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SELECT YOUR LANGUAGE"
+                    android:layout_gravity="center"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:textColor="#44A0BB"
+                    android:textSize="14dp"
+                    />
+
+            </FrameLayout>
+            <View
+                android:id="@+id/view205"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true" />
 
 
-
-
-                <Button
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="#D1F4FE"
                     android:gravity="center"
-                    android:text="ENGLISH"
-                    android:textColor="#fff"
-                    android:id="@+id/english_lang"
-                    android:height="50dp"
-                    android:background="@drawable/rect1"
-                    android:textStyle="bold" />
+                    android:layout_weight="1"
+
+                    >
+
+
+
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="ENGLISH"
+                        android:textColor="#fff"
+                        android:id="@+id/english_lang"
+                        android:height="50dp"
+                        android:background="@drawable/rect1"
+                        android:textStyle="bold" />
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="#D1F4FE"
+                    android:gravity="center"
+                    android:layout_weight="1"
+
+                    >
+
+
+
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="30dp"
+
+                        android:gravity="center"
+                        android:text="URDU"
+                        android:layout_marginRight="20dp"
+
+                        android:textColor="#fff"
+                        android:id="@+id/urdu_lang"
+                        android:height="50dp"
+                        android:background="@drawable/rect1"
+                        android:textStyle="bold" />
+
+
+
+                </LinearLayout>
 
 
 
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:background="#D1F4FE"
-                android:gravity="center"
-                android:layout_weight="1"
-
-                >
-
-
-
-
-                <Button
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-
-                    android:gravity="center"
-                    android:text="URDU"
-                   android:layout_marginRight="20dp"
-
-                    android:textColor="#fff"
-                    android:id="@+id/urdu_lang"
-                    android:height="50dp"
-                    android:background="@drawable/rect1"
-                    android:textStyle="bold" />
-
-
-
-            </LinearLayout>
-
-
-
-        </LinearLayout>
 
 
 
@@ -117,102 +117,21 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            >
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SELECT YOUR COUNTRY"
-                android:layout_gravity="center"
-                android:textColor="#44A0BB"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SELECT YOUR COUNTRY"
+                        android:layout_gravity="center"
+                        android:textColor="#44A0BB"
 
-                android:textSize="14dp"
-                />
-        </FrameLayout>
-
-
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fillViewport="true"
-                    android:scrollbars="horizontal|vertical">
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:gravity="center"
-           android:layout_marginBottom="50dp">
-
-
-
-
-
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginRight="10dp">
-           <ImageView
-               android:layout_width="120dp"
-               android:layout_height="80dp"
-               android:id="@+id/country1"
-
-               android:src="@drawable/country1"
-             />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SAUDI ARABIA"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
-       </LinearLayout>
-
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:orientation="vertical"
-               android:layout_marginRight="10dp">
-               <ImageView
-                   android:layout_width="120dp"
-                   android:layout_height="80dp"
-                   android:id="@+id/country2"
-                   android:src="@drawable/country2"
-                   />
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="UAE"
-                   android:textStyle="bold"
-                   android:layout_gravity="center"/>
-           </LinearLayout>
-
-
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:orientation="vertical"
-               android:layout_marginRight="10dp">
-               <ImageView
-                   android:layout_width="120dp"
-                   android:layout_height="80dp"
-                   android:id="@+id/country3"
-                   android:src="@drawable/country3"
-                   />
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="BAHRAIN"
-                   android:textStyle="bold"
-                   android:layout_gravity="center"/>
-           </LinearLayout>
-
-       </LinearLayout>
-            </HorizontalScrollView>
+                        android:textSize="14dp"
+                        />
+                </FrameLayout>
 
 
                 <HorizontalScrollView
@@ -222,70 +141,151 @@
                     android:fillViewport="true"
                     android:scrollbars="horizontal|vertical">
 
-                <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="50dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="50dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginRight="10dp">
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:id="@+id/country4"
-                    android:src="@drawable/country4"
-                    />
-                <TextView
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginRight="10dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="80dp"
+                                android:id="@+id/country1"
+
+                                android:src="@drawable/country1"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SAUDI ARABIA"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginRight="10dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="80dp"
+                                android:id="@+id/country2"
+                                android:src="@drawable/country2"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="UAE"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginRight="10dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="80dp"
+                                android:id="@+id/country3"
+                                android:src="@drawable/country3"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BAHRAIN"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+
+                <HorizontalScrollView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="KUWAIT"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginRight="10dp">
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:id="@+id/country5"
-                    android:src="@drawable/country5"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="QATAR"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
+                    android:layout_gravity="center"
+                    android:fillViewport="true"
+                    android:scrollbars="horizontal|vertical">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginRight="10dp">
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:id="@+id/country6"
-                    android:src="@drawable/country6"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="OMAN"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="50dp">
 
-        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginRight="10dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="80dp"
+                                android:id="@+id/country4"
+                                android:src="@drawable/country4"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="KUWAIT"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginRight="10dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="80dp"
+                                android:id="@+id/country5"
+                                android:src="@drawable/country5"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="QATAR"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginRight="10dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="80dp"
+                                android:id="@+id/country6"
+                                android:src="@drawable/country6"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="OMAN"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </HorizontalScrollView>
 
@@ -293,73 +293,45 @@
 
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="#D1F4FE"
-            android:gravity="center"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="#D1F4FE"
+                    android:gravity="center"
 
 
-            >
-
-
-
-
-            <Button
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-
-
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-
-                android:gravity="center"
-                android:text="START"
-                android:textColor="#fff"
-                android:id="@+id/start"
-                android:height="50dp"
-                android:background="@drawable/rect1"
-                android:textStyle="bold" />
+                    >
 
 
 
-        </LinearLayout>
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="30dp"
+
+
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+
+                        android:gravity="center"
+                        android:text="START"
+                        android:textColor="#fff"
+                        android:id="@+id/start"
+                        android:height="50dp"
+                        android:background="@drawable/rect1"
+                        android:textStyle="bold" />
+
+
+
+                </LinearLayout>
 
             </LinearLayout>
 
 
 
-    </LinearLayout>
-
-    </ScrollView>
-
-
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#44A0BB"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom"
-        >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-           >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:textColor="#ffffff"
-                android:text="ADASAT.NET ALL RIGHTS RESERVED"
-                android:layout_marginLeft="16dp"/>
         </LinearLayout>
 
+    </ScrollView>
 
 
     <LinearLayout
@@ -377,7 +349,7 @@
             >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="132dp"
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:textColor="#ffffff"
@@ -398,6 +370,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center"
+                android:textSize="10dp"
                 android:textColor="#ffffff"
                 android:text="Follow us"
                 android:layout_weight=".5"
@@ -411,9 +384,10 @@
                 android:src="@drawable/facebook2"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
+
                 />
             <View
-                android:id="@+id/view105"
+                android:id="@+id/view10"
                 android:layout_width="10dp"
                 android:layout_height="0dp"
                 android:layout_centerHorizontal="true" />
@@ -435,10 +409,11 @@
                 android:src="@drawable/instagram4"
                 android:layout_gravity="center"
                 android:background="#44A0BB"
+                android:layout_marginRight="3dp"
                 />
         </LinearLayout>
 
 
     </LinearLayout>
-</LinearLayout>
+
 </FrameLayout>
