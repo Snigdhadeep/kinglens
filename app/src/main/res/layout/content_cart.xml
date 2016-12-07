@@ -10,151 +10,6 @@
 
     <!-- this layout contains 3 linear layouts
      -->
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-       >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/llparentcart"
-            >
-
-
-        </LinearLayout>
-
-
-
-    <!-- for calculating total cart -->
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#D1F4FE"
-        android:orientation="vertical"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="50dp"
-
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="SUBTOTAL"
-                    android:textSize="25dp"
-                    android:layout_alignParentLeft="true"
-
-                    android:textColor="#000"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0.00 KWD"
-                    android:textSize="25dp"
-                    android:id="@+id/tvTotalPrice"
-                    android:textColor="#000"
-                    android:textStyle="bold"
-
-
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:text="DELIVERY TIME 6-9 DAYS"
-                    android:textSize="17dp"
-                    android:textColor="#3d3c3c"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0 PRODUCTS"
-                    android:layout_alignParentLeft="true"
-                    android:id="@+id/tvTotalPrducts"
-                    android:textSize="17dp"
-
-
-                    />
-
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="10dp"
-
-
-            >
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="100dp"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="CHECK OUT"
-                android:textColor="#fff"
-                android:id="@+id/btnCheckout"
-                android:height="50dp"
-                android:background="@drawable/rect1"
-                android:textStyle="bold" />
-
-
-
-        </LinearLayout>
-
-
-
-
-    </LinearLayout>
-
-
-        </LinearLayout>
-
-    </ScrollView>
 
 
     <!-- for share buttons in lower tab -->
@@ -239,4 +94,150 @@
 
 
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/llparentcart"
+            >
+
+
+        </LinearLayout>
+
+
+
+    <!-- for calculating total cart -->
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#D1F4FE"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="50dp"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Subtotal"
+                    android:textSize="20dp"
+                    android:layout_alignParentLeft="true"
+
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00 KWD"
+                    android:textSize="25dp"
+                    android:id="@+id/tvTotalPrice"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Delivery Time 6-9 Days"
+                    android:textSize="15dp"
+                    android:textColor="#3d3c3c"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 Products"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tvTotalPrducts"
+                    android:textSize="15dp"
+
+
+                    />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
+
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="100dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="CHECK OUT"
+                android:textColor="#fff"
+                android:id="@+id/btnCheckout"
+                android:height="50dp"
+                android:background="@drawable/rect1"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 </FrameLayout>

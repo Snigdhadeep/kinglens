@@ -10,15 +10,15 @@
     android:layout_marginTop="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.king.king_lens.AddToCart"
-   >
+    >
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:id="@+id/linearLayout2">
 
         <LinearLayout
@@ -27,10 +27,9 @@
 
             <ImageView
                 android:id="@+id/productImageView"
-                android:layout_width="400dp"
-                android:layout_height="400dp"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/dynamicimage"
                 android:layout_marginTop="10dp"
                 android:background="#ffffff"/>
         </LinearLayout>
@@ -45,17 +44,18 @@
             android:layout_marginLeft="15dp">
 
             <TextView
-                android:layout_width="200dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtProductName"
-                android:textSize="25sp"
-                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
                 android:text="Product Name"
                 android:textColor="#000"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:visibility="gone"
                 android:id="@+id/txtProductDetails"
                 android:text="Product details"
@@ -66,7 +66,7 @@
                 android:layout_height="30dp"
                 android:orientation="vertical"
                 android:gravity="center|right"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="20dp"
 
                 android:background="@drawable/rectproduct"
 
@@ -81,8 +81,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="POWER"
-                        android:textSize="25sp"
+                        android:text="Power"
                         android:gravity="center"
                         android:textColor="#000"/>
                 </LinearLayout>
@@ -111,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="99.99 KWD"
-                    android:textSize="25sp"
+                    android:textSize="18dp"
                     android:textColor="#000"
                     android:id="@+id/txtProductPrice"
                     android:gravity="right"
@@ -133,7 +132,7 @@
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="15dp">
 
 
         <LinearLayout
@@ -151,21 +150,18 @@
                 android:gravity="center"
                 android:layout_marginRight="5dp"
                 android:orientation="horizontal"
-
                 >
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:src="@drawable/ic_heart"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SAVE FOR LATER"
-                    android:textSize="25sp"
+                    android:text="Save For Later"
                     android:gravity="center"
-                    android:textColor="#000"
-                    android:id="@+id/textView7" />
+                    android:textColor="#000"/>
             </LinearLayout>
 
 
@@ -196,14 +192,13 @@
                 >
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:src="@drawable/ic_remove"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="REMOVE"
-                    android:textSize="25sp"
+                    android:text="Remove"
                     android:gravity="center"
                     android:textColor="#000"/>
             </LinearLayout>
@@ -219,7 +214,7 @@
                 android:layout_height="wrap_content"
                 android:text="+1"
                 android:layout_gravity="center"
-                android:textSize="25sp"
+                android:textSize="20dp"
                 android:textColor="#000"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
@@ -233,7 +228,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/appthemecolor"
         ></View>
 

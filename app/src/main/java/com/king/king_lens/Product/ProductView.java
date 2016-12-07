@@ -85,6 +85,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         product_id = UserConstants.product_Product_id;
 
         //initializing variables
@@ -205,8 +206,9 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                 final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
                 String sale_price = response.getString("sale_price");
                 String name = response.getString("name");
-
+                getSupportActionBar().setTitle(name);
                 tvProductName.setText(name);
+
 
                 if(!response.isNull("product_details"))
                 {
