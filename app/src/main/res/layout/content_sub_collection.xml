@@ -29,7 +29,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@color/appthemecolor"
+            android:background="@color/colorPrimary"
             android:gravity="center">
 
 
@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:id="@+id/llParent"
+            android:textColor="@color/colorPrimary"
             >
 
           <!--  <ListView
