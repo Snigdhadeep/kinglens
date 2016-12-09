@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -65,6 +66,10 @@ public class AddToCart extends AppCompatActivity
 
     ArrayList<AsyncTask> imageLoadingThread= new ArrayList<AsyncTask>();
 
+    EditText leftQty;
+    EditText rightQty;
+    EditText bothQty;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +82,8 @@ public class AddToCart extends AppCompatActivity
 
         btnCheckout = (Button) findViewById(R.id.btnCheckout);
         btnCheckout.setOnClickListener(this);
+
+
 
         registerUser.delegate=this;
         registerUser2.delegate=this;
@@ -232,6 +239,12 @@ public class AddToCart extends AppCompatActivity
                 {
                     JSONObject carts = jsonArray.getJSONObject(i);
                     JSONObject response = carts.getJSONObject("product");
+                    String power_json = carts.getString("power_json");
+                    JSONArray powerArray = new JSONArray(power_json);
+                    JSONObject both_eye = powerArray.getJSONObject(0);
+
+                    //JSONArray power_json = carts.getJSONArray("power_json");
+                    Toast.makeText(this, ""+both_eye.length(), Toast.LENGTH_SHORT).show();
                     //Log.i("kingsukmajumder",response.toString());
                     final int id = carts.getInt("id");
                     String name = response.getString("name");

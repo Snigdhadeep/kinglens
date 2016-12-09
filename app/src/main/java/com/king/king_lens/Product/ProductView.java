@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -102,7 +105,11 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
 
 
     JSONArray powerQty = new JSONArray();
-    JSONObject bothEye= new JSONObject();
+    //JSONObject bothEye= new JSONObject();
+
+    EditText leftQty;
+    EditText rightQty;
+    EditText bothQty;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,6 +142,9 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         frontImage = (ImageView) findViewById(R.id.frontImage);
         productPrice = (TextView) findViewById(R.id.productPrice);
 
+        leftQty = (EditText) findViewById(R.id.textView6);
+        rightQty = (EditText) findViewById(R.id.textView622);
+        bothQty = (EditText) findViewById(R.id.textView5);
 
 
         product_properties = (TextView) findViewById(R.id.product_properties);
@@ -337,53 +347,15 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onClick(View v) {
 
-
-        if(checkboth.isChecked())
+        for (int l=0;l<powerQty.length();l++)
         {
-            JSONObject qtyPower = new JSONObject();
-            try {
-                qtyPower.put("value",bothEyeValue);
-                qtyPower.put("quantity","1");
-                bothEye.put("bothEye",qtyPower);
-
-                powerQty.put(bothEye);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        if(checkleft.isChecked())
-        {
-            JSONObject qtyPower = new JSONObject();
-            try {
-                qtyPower.put("value",leftEyeValue);
-                qtyPower.put("quantity","1");
-                bothEye.put("leftEye",qtyPower);
-
-                powerQty.put(bothEye);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            powerQty.remove(l);
         }
 
-        if(checkright.isChecked())
-        {
-            JSONObject qtyPower = new JSONObject();
-            try {
-                qtyPower.put("value",rightEyeValue);
-                qtyPower.put("quantity","1");
-                bothEye.put("rightEye",qtyPower);
-
-                powerQty.put(bothEye);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
 
         //Toast.makeText(this, powerQty.toString(), Toast.LENGTH_LONG).show();
         Log.i("kingsuk",powerQty.toString());
@@ -401,13 +373,89 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         }
         else
         {
-            data2.put("user_id",String.valueOf(user_id));
-            data2.put("product_id",product_id);
-            //Toast.makeText(this, data2.toString(), Toast.LENGTH_SHORT).show();
-            loadingForCart = ProgressDialog.show(this, "", "Adding product to cart...", true);
-            registerUser2.register(data2,routeAddToCart);
+            if(checkboth.isChecked() || checkleft.isChecked() || checkright.isChecked())
+            {
+                if(checkboth.isChecked()&&bothQty.getText().toString().equals("") || checkleft.isChecked()&&leftQty.getText().toString().equals("") || checkright.isChecked()&&rightQty.getText().toString().equals(""))
+                {
+                    Toast.makeText(this, "Quantity needs to be selected", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+
+                    data2.put("user_id",String.valueOf(user_id));
+                    data2.put("product_id",product_id);
+
+                    addPowerOfProduct();
+                    data2.put("power_json",powerQty.toString());
+                    //Toast.makeText(this, data2.toString(), Toast.LENGTH_SHORT).show();
+                    loadingForCart = ProgressDialog.show(this, "", "Adding product to cart...", true);
+                    registerUser2.register(data2,routeAddToCart);
+                }
+
+            }
+            else
+            {
+                Toast.makeText(this, "Atleast one eye needs to be selected", Toast.LENGTH_SHORT).show();
+            }
+
 
         }
+    }
+
+    public void addPowerOfProduct()
+    {
+        if(checkboth.isChecked())
+        {
+            JSONObject qtyPower = new JSONObject();
+            try {
+                qtyPower.put("name","both");
+                qtyPower.put("value",bothEyeValue);
+                qtyPower.put("quantity",bothQty.getText().toString());
+                JSONObject bothEye= new JSONObject();
+                bothEye.put("bothEye",qtyPower);
+
+                powerQty.put(0,qtyPower);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(checkleft.isChecked())
+        {
+            JSONObject qtyPower = new JSONObject();
+            try {
+                qtyPower.put("name","left");
+                qtyPower.put("value",leftEyeValue);
+                qtyPower.put("quantity",leftQty.getText().toString());
+                JSONObject bothEye= new JSONObject();
+                bothEye.put("leftEye",qtyPower);
+
+                powerQty.put(1,qtyPower);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        if(checkright.isChecked())
+        {
+            JSONObject qtyPower = new JSONObject();
+            try {
+                qtyPower.put("name","right");
+                qtyPower.put("value",rightEyeValue);
+                qtyPower.put("quantity",rightQty.getText().toString());
+                JSONObject bothEye= new JSONObject();
+                bothEye.put("rightEye",qtyPower);
+
+                powerQty.put(2,qtyPower);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @Override

@@ -267,6 +267,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView6"
                     android:gravity="right"></EditText>
+
                 <EditText
                     android:hint="Qty"
                     android:layout_gravity="right"
@@ -277,6 +278,7 @@
 
 
                     android:gravity="right" />
+
                 <EditText
                     android:hint="Qty"
                     android:inputType="number"
