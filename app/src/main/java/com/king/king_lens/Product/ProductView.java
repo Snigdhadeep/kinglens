@@ -13,6 +13,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -25,12 +28,15 @@ import com.king.king_lens.AddToCart;
 import com.king.king_lens.LoginActivity;
 import com.king.king_lens.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import HelperClasses.AsyncResponse;
 import HelperClasses.AsyncResponse2;
@@ -78,6 +84,25 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
     ProgressDialog loading;
 
     ProgressDialog loadingForCart;
+
+    List<String> spinnerArray =  new ArrayList<String>();
+    List<Integer> spinnerValue = new ArrayList<Integer>();
+
+    Spinner lefteye;
+    Spinner righteye;
+    Spinner botheye;
+
+    String leftEyeValue;
+    String rightEyeValue;
+    String bothEyeValue;
+
+    CheckBox checkleft;
+    CheckBox checkboth;
+    CheckBox checkright;
+
+
+    JSONArray powerQty = new JSONArray();
+    JSONObject bothEye= new JSONObject();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,52 +122,20 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         registerUser.register(data,route);
 
         lnlenspower=(LinearLayout)findViewById(R.id.lnlenspower) ;
-        final Spinner lefteye=(Spinner)findViewById(R.id.lefteye);
-        final Spinner righteye=(Spinner)findViewById(R.id.righteye);
-        final Spinner botheye=(Spinner)findViewById(R.id.botheye);
+        lefteye=(Spinner)findViewById(R.id.lefteye);
+        righteye=(Spinner)findViewById(R.id.righteye);
+        botheye=(Spinner)findViewById(R.id.botheye);
 
-       // radioEyegroup = (RadioGroup) findViewById(R.id.radioEyegroup);
+        checkleft = (CheckBox) findViewById(R.id.checkleft);
+        checkright = (CheckBox) findViewById(R.id.checkright);
+        checkboth = (CheckBox) findViewById(R.id.checkboth);
+
+        // radioEyegroup = (RadioGroup) findViewById(R.id.radioEyegroup);
 
         frontImage = (ImageView) findViewById(R.id.frontImage);
         productPrice = (TextView) findViewById(R.id.productPrice);
 
-       /* radioEyegroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
-                switch(i){
-                    case R.id.rbRighteye:
-                        // do operations specific to this selection
-                        lnlenspower.setVisibility(View.VISIBLE);
-                        lefteye.setVisibility(View.VISIBLE);
-                        righteye.setVisibility(View.VISIBLE);
-                        botheye.setVisibility(View.INVISIBLE);
-
-
-                        break;
-                    case R.id.rbLefteye:
-                        // do operations specific to this selection
-                        lnlenspower.setVisibility(View.VISIBLE);
-                        lefteye.setVisibility(View.VISIBLE);
-                        righteye.setVisibility(View.VISIBLE);
-                        botheye.setVisibility(View.INVISIBLE);
-
-
-                        break;
-                    case R.id.rbBotheye:
-                        // do operations specific to this selection
-
-                        lnlenspower.setVisibility(View.VISIBLE);
-                        lefteye.setVisibility(View.INVISIBLE);
-                        righteye.setVisibility(View.INVISIBLE);
-                        botheye.setVisibility(View.VISIBLE);
-
-                        break;
-                }
-
-            }
-        });
-*/
 
         product_properties = (TextView) findViewById(R.id.product_properties);
         lens_color_glasses = (TextView) findViewById(R.id.lens_color_glasses);
@@ -208,6 +201,67 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                 String name = response.getString("name");
                 getSupportActionBar().setTitle(name);
                 tvProductName.setText(name);
+
+                String power_ranges = response.getString("power_ranges");
+                JSONArray power_array = new JSONArray(power_ranges);
+
+
+
+                if(power_array.length()>0)
+                {
+                    for (int j = 0; j<power_array.length();j++)
+                    {
+                        JSONObject currentObject = power_array.getJSONObject(j);
+                        String power = currentObject.getString("power");
+                        //Toast.makeText(this, power, Toast.LENGTH_SHORT).show();
+                        spinnerArray.add(power);
+                    }
+
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getApplicationContext(), R.layout.simple_spinner_item_custm, spinnerArray);
+
+                    lefteye.setAdapter(adapter);
+                    righteye.setAdapter(adapter);
+                    botheye.setAdapter(adapter);
+
+                    lefteye.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            leftEyeValue = spinnerArray.get(position);
+                            //Toast.makeText(ProductView.this, leftEyeValue, Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                            leftEyeValue = "";
+                        }
+                    });
+
+                    righteye.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            rightEyeValue = spinnerArray.get(position);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                            rightEyeValue = "";
+                        }
+                    });
+
+                    botheye.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            bothEyeValue = spinnerArray.get(position);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                            bothEyeValue = "";
+                        }
+                    });
+
+                }
+
 
 
                 if(!response.isNull("product_details"))
@@ -279,11 +333,61 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
 
         } catch (JSONException e) {
             Log.i("productview",e.toString());
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void onClick(View v) {
+
+
+        if(checkboth.isChecked())
+        {
+            JSONObject qtyPower = new JSONObject();
+            try {
+                qtyPower.put("value",bothEyeValue);
+                qtyPower.put("quantity","1");
+                bothEye.put("bothEye",qtyPower);
+
+                powerQty.put(bothEye);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        if(checkleft.isChecked())
+        {
+            JSONObject qtyPower = new JSONObject();
+            try {
+                qtyPower.put("value",leftEyeValue);
+                qtyPower.put("quantity","1");
+                bothEye.put("leftEye",qtyPower);
+
+                powerQty.put(bothEye);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(checkright.isChecked())
+        {
+            JSONObject qtyPower = new JSONObject();
+            try {
+                qtyPower.put("value",rightEyeValue);
+                qtyPower.put("quantity","1");
+                bothEye.put("rightEye",qtyPower);
+
+                powerQty.put(bothEye);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //Toast.makeText(this, powerQty.toString(), Toast.LENGTH_LONG).show();
+        Log.i("kingsuk",powerQty.toString());
+
         SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
         int user_id = prefs.getInt("id",0);
         int gueat_id = prefs.getInt("guest_id",0);
