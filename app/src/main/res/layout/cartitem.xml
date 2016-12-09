@@ -80,12 +80,12 @@
                     android:gravity="center">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:text="Left"
                         android:id="@+id/tvLeft"
                         android:textSize="10sp"
-                        android:layout_marginLeft="10dp"
+
                         android:layout_marginRight="10dp"
                         android:textStyle="bold"
                         android:gravity="center"
@@ -96,7 +96,8 @@
                         android:id="@+id/tvPower_left"
                         android:text="Power"
                         android:textSize="10sp"
-                        android:layout_marginLeft="11dp"
+                        android:layout_marginLeft="1dp"
+
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:textColor="#000"/>
@@ -105,7 +106,7 @@
                         android:layout_height="30dp"
                         android:text="Qty - "
                         android:textSize="10sp"
-                        android:layout_marginLeft="10dp"
+
                         android:gravity="center"
                         android:textColor="#000"/>
                     <TextView
@@ -139,12 +140,12 @@
                     android:gravity="center">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:text="Right"
                         android:id="@+id/tvRight"
                         android:textSize="10sp"
-                        android:layout_marginLeft="8dp"
+
                         android:layout_marginRight="5dp"
                         android:textStyle="bold"
                         android:gravity="center"
@@ -155,7 +156,7 @@
                         android:id="@+id/tvPower_right"
                         android:text="Power"
                         android:textSize="10sp"
-                        android:layout_marginLeft="10dp"
+                     android:layout_marginLeft="5dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:textColor="#000"/>
@@ -164,7 +165,6 @@
                         android:layout_height="30dp"
                         android:text="Qty - "
                         android:textSize="10sp"
-                        android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:textColor="#000"/>
                     <TextView
@@ -194,12 +194,11 @@
                     android:gravity="center">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:text="Both"
                         android:id="@+id/tvBoth"
                         android:textSize="10sp"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:textStyle="bold"
                         android:gravity="center"
@@ -210,7 +209,7 @@
                         android:id="@+id/tvPower_cartitem"
                         android:text="Power"
                         android:textSize="10sp"
-                        android:layout_marginLeft="8dp"
+
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:textColor="#000"/>
@@ -219,7 +218,6 @@
                         android:layout_height="30dp"
                         android:text="Qty - "
                         android:textSize="10sp"
-                        android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:textColor="#000"/>
                     <TextView
@@ -294,7 +292,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Save For Later"
+                    android:text=" Save For Later"
                     android:gravity="center"
                     android:textColor="#000"/>
             </LinearLayout>
@@ -352,9 +350,9 @@
                 android:layout_height="wrap_content"
                 android:text="99.99 KWD"
                 android:textSize="15dp"
+                android:layout_marginRight="5dp"
                 android:textColor="#000"
                 android:id="@+id/txtProductPrice"
-
                 android:textStyle="bold"
 
                 />
