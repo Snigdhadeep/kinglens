@@ -14,7 +14,7 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="15dp"
@@ -39,13 +39,13 @@
           2. product details and 3. power -->
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="15dp">
 
             <TextView
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtProductName"
                 android:textSize="16sp"
@@ -63,28 +63,171 @@
                 />
 
             <LinearLayout
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:orientation="vertical"
-                android:gravity="center|right"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
 
-                android:background="@drawable/rectproduct"
+
 
                 >
 
                 <!-- contains a text  -->
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Power"
-                        android:textSize="15sp"
+                        android:layout_height="30dp"
+                        android:text="Left"
+                        android:id="@+id/tvLeft"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvPower_left"
+                        android:text="Power"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="11dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Qty - "
+                        android:textSize="10sp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvQty_left"
+                        android:text="1"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="vertical"
+
+
+
+
+                >
+
+                <!-- contains a text  -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Right"
+                        android:id="@+id/tvRight"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="5dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvPower_right"
+                        android:text="Power"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Qty - "
+                        android:textSize="10sp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvQty_cartitem"
+                        android:text="1"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="vertical"
+                >
+
+                <!-- contains a text  -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Both"
+                        android:id="@+id/tvBoth"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvPower_cartitem"
+                        android:text="Power"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Qty - "
+                        android:textSize="10sp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvQty_number"
+                        android:text="1"
+                        android:textSize="15sp"
                         android:gravity="center"
                         android:textColor="#000"/>
                 </LinearLayout>
@@ -95,7 +238,6 @@
 
 
 
-        </LinearLayout>
 
 
         <!-- for the kwd -->
@@ -109,23 +251,12 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="99.99 KWD"
-                    android:textSize="18dp"
-                    android:textColor="#000"
-                    android:id="@+id/txtProductPrice"
-                    android:gravity="right"
-                    android:textStyle="bold"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+
             </RelativeLayout>
         </LinearLayout>
 
 
-
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -134,8 +265,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+
+
         android:layout_marginTop="15dp">
 
 
@@ -211,33 +342,22 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"
-                android:layout_gravity="center"
-                android:textSize="24sp"
+                android:text="99.99 KWD"
+                android:textSize="15dp"
                 android:textColor="#000"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="50dp" />
+                android:id="@+id/txtProductPrice"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1"
                 android:textStyle="bold"
-                android:layout_gravity="center"
-                android:textSize="24sp"
-                android:textColor="#000"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="20dp" />
+
+                />
 
 
         </RelativeLayout>
@@ -250,7 +370,7 @@
         android:layout_height="1dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:background="?android:attr/colorButtonNormal"
+        android:background="#E5E5E5"
         ></View>
 
     <ScrollView
