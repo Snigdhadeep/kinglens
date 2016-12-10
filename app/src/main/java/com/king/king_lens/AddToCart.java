@@ -232,7 +232,7 @@ public class AddToCart extends AppCompatActivity
             {
                 JSONArray jsonArray = new JSONArray(jsonObject.getString("response"));
 
-                tvTotalPrducts.setText(jsonArray.length()+" PRODUCTS");
+                tvTotalPrducts.setText(jsonArray.length()+" Products");
 
                 float totalPrice = (float) 0.00;
                 for (int i=0;i<jsonArray.length();i++)
@@ -263,34 +263,46 @@ public class AddToCart extends AppCompatActivity
                     LinearLayout llRight = (LinearLayout) inflatedLayout.findViewById(R.id.llRight);
                     LinearLayout llBoth = (LinearLayout) inflatedLayout.findViewById(R.id.llBoth);
 
+                    try{
+
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
                     for(int k =0; k<powerArray.length(); k++)
                     {
-                        JSONObject currentPower = powerArray.getJSONObject(k);
-                        //Toast.makeText(this, currentPower.toString(), Toast.LENGTH_SHORT).show();
-                        if(currentPower.getString("name").equals("left"))
+                        if(!powerArray.isNull(k))
                         {
-                            llLeft.setVisibility(View.VISIBLE);
-                            TextView tvPower_left = (TextView) inflatedLayout.findViewById(R.id.tvPower_left);
-                            TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_left);
-                            tvPower_left.setText("Power "+currentPower.getString("value"));
-                            tvQty_left.setText(currentPower.getString("quantity"));
+                            JSONObject currentPower = powerArray.getJSONObject(k);
+
+                            //Toast.makeText(this, currentPower.toString(), Toast.LENGTH_SHORT).show();
+                            if(currentPower.getString("name").equals("left"))
+                            {
+                                llLeft.setVisibility(View.VISIBLE);
+                                TextView tvPower_left = (TextView) inflatedLayout.findViewById(R.id.tvPower_left);
+                                TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_left);
+                                tvPower_left.setText("Power "+currentPower.getString("value"));
+                                tvQty_left.setText(currentPower.getString("quantity"));
+                            }
+                            else if(currentPower.getString("name").equals("right"))
+                            {
+                                llRight.setVisibility(View.VISIBLE);
+                                TextView tvPower_left = (TextView) inflatedLayout.findViewById(R.id.tvPower_right);
+                                TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_cartitem);
+                                tvPower_left.setText("Power "+currentPower.getString("value"));
+                                tvQty_left.setText(currentPower.getString("quantity"));
+                            }
+                            else if(currentPower.getString("name").equals("both"))
+                            {
+                                llBoth.setVisibility(View.VISIBLE);
+                                TextView tvPower_left = (TextView) inflatedLayout.findViewById(R.id.tvPower_cartitem);
+                                TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_number);
+                                tvPower_left.setText("Power "+currentPower.getString("value"));
+                                tvQty_left.setText(currentPower.getString("quantity"));
+                            }
                         }
-                        else if(currentPower.getString("name").equals("right"))
-                        {
-                            llRight.setVisibility(View.VISIBLE);
-                            TextView tvPower_left = (TextView) inflatedLayout.findViewById(R.id.tvPower_right);
-                            TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_cartitem);
-                            tvPower_left.setText("Power "+currentPower.getString("value"));
-                            tvQty_left.setText(currentPower.getString("quantity"));
-                        }
-                        else if(currentPower.getString("name").equals("both"))
-                        {
-                            llBoth.setVisibility(View.VISIBLE);
-                            TextView tvPower_left = (TextView) inflatedLayout.findViewById(R.id.tvPower_cartitem);
-                            TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_number);
-                            tvPower_left.setText("Power "+currentPower.getString("value"));
-                            tvQty_left.setText(currentPower.getString("quantity"));
-                        }
+
                     }
 
                     remoteLL.setOnClickListener(new View.OnClickListener() {
@@ -399,7 +411,7 @@ public class AddToCart extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        if(tvTotalPrducts.getText().toString().equals("0 PRODUCTS"))
+        if(tvTotalPrducts.getText().toString().equals("0 Products"))
         {
             Toast.makeText(this, "Need to add at least one product", Toast.LENGTH_SHORT).show();
         }

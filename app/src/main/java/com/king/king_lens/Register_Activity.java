@@ -151,8 +151,9 @@ public class Register_Activity extends AppCompatActivity implements AsyncRespons
             if(jsonObject.getBoolean("status"))
             {
                 JSONObject response = new JSONObject(jsonObject.getString("response"));
+                JSONObject user = new JSONObject(response.getString("user"));
                 SharedPreferences.Editor editor = getSharedPreferences("ADASAT", MODE_PRIVATE).edit();
-                editor.putInt("id", response.getInt("id"));
+                editor.putInt("id", user.getInt("id"));
                 if(editor.commit())
                 {
                     if(UserConstants.returnToProductView)
