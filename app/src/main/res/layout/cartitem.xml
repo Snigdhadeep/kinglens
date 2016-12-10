@@ -64,7 +64,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
 
@@ -77,7 +77,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:id="@+id/llLeft"
+                    android:visibility="gone"
+                    >
 
                     <TextView
                         android:layout_width="30dp"
@@ -124,7 +127,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
 
 
@@ -137,7 +140,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:id="@+id/llRight"
+                    android:visibility="gone"
+                    >
 
                     <TextView
                         android:layout_width="30dp"
@@ -182,7 +188,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 >
 
@@ -191,7 +197,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:id="@+id/llBoth"
+                    android:visibility="gone"
+                    >
 
                     <TextView
                         android:layout_width="30dp"
@@ -273,7 +282,7 @@
             android:layout_height="30dp"
             android:orientation="horizontal"
             android:gravity="center|right"
-
+            android:layout_marginLeft="5dp"
             android:background="@drawable/rectproduct"
 
             >

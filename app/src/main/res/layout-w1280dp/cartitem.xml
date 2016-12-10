@@ -10,16 +10,17 @@
     android:layout_marginTop="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.king.king_lens.AddToCart"
-   >
+    >
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/linearLayout2">
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/linearLayout2"
+        android:layout_marginTop="5dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -38,16 +39,17 @@
           2. product details and 3. power -->
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="15dp">
 
             <TextView
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtProductName"
-                android:textSize="15sp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:layout_marginTop="5dp"
                 android:text="Product Name"
                 android:textColor="#000"/>
@@ -61,26 +63,178 @@
                 />
 
             <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:gravity="center|right"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
 
-                android:background="@drawable/rectproduct"
+
 
                 >
 
                 <!-- contains a text  -->
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:id="@+id/llLeft"
+                    android:visibility="gone"
+                    >
 
                     <TextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:text="Left"
+                        android:id="@+id/tvLeft"
+                        android:textSize="10sp"
+
+                        android:layout_marginRight="10dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="POWER"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvPower_left"
+                        android:text="Power"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Qty - "
+                        android:textSize="10sp"
+
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvQty_left"
+                        android:text="1"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+
+
+
+                >
+
+                <!-- contains a text  -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:id="@+id/llRight"
+                    android:visibility="gone"
+                    >
+
+                    <TextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:text="Right"
+                        android:id="@+id/tvRight"
+                        android:textSize="10sp"
+
+                        android:layout_marginRight="5dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvPower_right"
+                        android:text="Power"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Qty - "
+                        android:textSize="10sp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvQty_cartitem"
+                        android:text="1"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <!-- contains a text  -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:id="@+id/llBoth"
+                    android:visibility="gone"
+                    >
+
+                    <TextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:text="Both"
+                        android:id="@+id/tvBoth"
+                        android:textSize="10sp"
+                        android:layout_marginRight="10dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvPower_cartitem"
+                        android:text="Power"
+                        android:textSize="10sp"
+
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Qty - "
+                        android:textSize="10sp"
+                        android:gravity="center"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/tvQty_number"
+                        android:text="1"
+                        android:textSize="15sp"
                         android:gravity="center"
                         android:textColor="#000"/>
                 </LinearLayout>
@@ -91,36 +245,25 @@
 
 
 
-        </LinearLayout>
 
 
-        <!-- for the kwd -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            <!-- for the kwd -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
 
-            >
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
+                >
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="99.99 KWD"
-                    android:textSize="18dp"
-                    android:textColor="#000"
-                    android:id="@+id/txtProductPrice"
-                    android:gravity="right"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
-            </RelativeLayout>
+                    android:layout_height="wrap_content">
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
         </LinearLayout>
-
-
-
 
 
     </LinearLayout>
@@ -129,8 +272,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+
+
         android:layout_marginTop="15dp">
 
 
@@ -149,16 +292,16 @@
                 android:gravity="center"
                 android:layout_marginRight="5dp"
                 android:orientation="horizontal"
-                >
+                android:backgroundTint="@color/appthemecolor">
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:src="@drawable/ic_heart"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SAVE FOR LATER"
+                    android:text=" Save For Later"
                     android:gravity="center"
                     android:textColor="#000"/>
             </LinearLayout>
@@ -191,13 +334,13 @@
                 >
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:src="@drawable/ic_remove"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="REMOVE"
+                    android:text="Remove"
                     android:gravity="center"
                     android:textColor="#000"/>
             </LinearLayout>
@@ -206,29 +349,35 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginTop="5dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+1"
-                android:layout_gravity="center"
-                android:textSize="20dp"
+                android:text="99.99 KWD"
+                android:textSize="15dp"
+                android:layout_marginRight="5dp"
                 android:textColor="#000"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:id="@+id/txtProductPrice"
+                android:textStyle="bold"
+
+                />
+
 
         </RelativeLayout>
 
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/appthemecolor"
+        android:layout_marginBottom="10dp"
+        android:background="#E5E5E5"
         ></View>
 
     <ScrollView

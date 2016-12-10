@@ -241,10 +241,10 @@ public class AddToCart extends AppCompatActivity
                     JSONObject response = carts.getJSONObject("product");
                     String power_json = carts.getString("power_json");
                     JSONArray powerArray = new JSONArray(power_json);
-                    JSONObject both_eye = powerArray.getJSONObject(0);
+
 
                     //JSONArray power_json = carts.getJSONArray("power_json");
-                    Toast.makeText(this, ""+both_eye.length(), Toast.LENGTH_SHORT).show();
+
                     //Log.i("kingsukmajumder",response.toString());
                     final int id = carts.getInt("id");
                     String name = response.getString("name");
@@ -258,6 +258,40 @@ public class AddToCart extends AppCompatActivity
                     TextView txtProductPrice = (TextView) inflatedLayout.findViewById(R.id.txtProductPrice);
                     ImageView productImageView = (ImageView) inflatedLayout.findViewById(R.id.productImageView);
                     LinearLayout remoteLL = (LinearLayout) inflatedLayout.findViewById(R.id.remoteLL);
+
+                    LinearLayout llLeft = (LinearLayout) inflatedLayout.findViewById(R.id.llLeft);
+                    LinearLayout llRight = (LinearLayout) inflatedLayout.findViewById(R.id.llRight);
+                    LinearLayout llBoth = (LinearLayout) inflatedLayout.findViewById(R.id.llBoth);
+
+                    for(int k =0; k<powerArray.length(); k++)
+                    {
+                        JSONObject currentPower = powerArray.getJSONObject(k);
+                        //Toast.makeText(this, currentPower.toString(), Toast.LENGTH_SHORT).show();
+                        if(currentPower.getString("name").equals("left"))
+                        {
+                            llLeft.setVisibility(View.VISIBLE);
+                            TextView tvPower_left = (TextView) inflatedLayout.findViewById(R.id.tvPower_left);
+                            TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_left);
+                            tvPower_left.setText("Power "+currentPower.getString("value"));
+                            tvQty_left.setText(currentPower.getString("quantity"));
+                        }
+                        else if(currentPower.getString("name").equals("right"))
+                        {
+                            llRight.setVisibility(View.VISIBLE);
+                            TextView tvPower_left = (TextView) inflatedLayout.findViewById(R.id.tvPower_right);
+                            TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_cartitem);
+                            tvPower_left.setText("Power "+currentPower.getString("value"));
+                            tvQty_left.setText(currentPower.getString("quantity"));
+                        }
+                        else if(currentPower.getString("name").equals("both"))
+                        {
+                            llBoth.setVisibility(View.VISIBLE);
+                            TextView tvPower_left = (TextView) inflatedLayout.findViewById(R.id.tvPower_cartitem);
+                            TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_number);
+                            tvPower_left.setText("Power "+currentPower.getString("value"));
+                            tvQty_left.setText(currentPower.getString("quantity"));
+                        }
+                    }
 
                     remoteLL.setOnClickListener(new View.OnClickListener() {
                         @Override
