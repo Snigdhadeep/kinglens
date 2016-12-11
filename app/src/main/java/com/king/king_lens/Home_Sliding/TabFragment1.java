@@ -33,13 +33,15 @@ import java.util.HashMap;
 import java.util.List;
 
 import HelperClasses.AsyncResponse;
+import HelperClasses.AsyncResponse2;
 import HelperClasses.RegisterUser;
+import HelperClasses.RegisterUser2;
 import HelperClasses.UserConstants;
 
 /**
  * Created by apple on 18/03/16.
  */
-public class TabFragment1 extends Fragment implements AsyncResponse.Response {
+public class TabFragment1 extends Fragment implements AsyncResponse.Response, AsyncResponse2.Response2 {
 
 
 
@@ -59,14 +61,22 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
     private String route = "api/v1/brandbycategory";
     HashMap<String,String> data = new HashMap<>();
 
+    //server variable
+    RegisterUser2 registerUser2 = new RegisterUser2("POST");
+    private String route2 = "api/v1/banner-images";
+    HashMap<String,String> data2 = new HashMap<>();
+
 
     //unused variables
     int[] sampleImages = {
-            R.drawable.airoptics_3, R.drawable.solotika_1, R.drawable.freshlook_2};
+            R.drawable.whiteback, R.drawable.whiteback, R.drawable.whiteback};
     private int[] IMAGEgrid = {R.drawable.freshlooknew, R.drawable.layerfour, R.drawable.layerfive, R.drawable.layersix, R.drawable.layerseven,R.drawable.brand1};
 
 
-
+    int carouselCount = 0;
+    Bitmap bit1;
+    Bitmap bit2;
+    Bitmap bit3;
 
 
     @Override
@@ -91,9 +101,13 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
         gridview = (ExpandableHeightGridView)view.findViewById(R.id.gridview);
         beanclassArrayList= new ArrayList<Beanclass>();
 
+        registerUser2.delegate = this;
+
+        registerUser2.register(data2,route2);
+
         if (UserConstants.tab1ExecutionDone) {
             // Restore last state for checked position.
-
+            setBitMapArray();
             ArrayList<Beanclass> savedImageData = UserConstants.tab1ImageArray;
             for(int k = 0; k<savedImageData.size();k++)
             {
@@ -105,6 +119,9 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
         else
         {
             registerUser.delegate = this;
+            registerUser2.delegate = this;
+
+            registerUser2.register(data2,route2);
 
             data.put("category_id",String.valueOf(3));
             registerUser.register(data,route);
@@ -227,5 +244,122 @@ public class TabFragment1 extends Fragment implements AsyncResponse.Response {
     @Override
     public void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public void processFinish2(String output) {
+        //Toast.makeText(getContext(), output, Toast.LENGTH_SHORT).show();
+
+        try
+        {
+            JSONObject jsonObject = new JSONObject(output);
+            if(jsonObject.getBoolean("status"))
+            {
+                JSONObject response = new JSONObject(jsonObject.getString("response"));
+                String color1 = response.getString("color1");
+                String color1Url = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+color1;
+                //loadImage(color1Url);
+
+                String color2 = response.getString("color2");
+                String color2Url = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+color2;
+
+                String color3 = response.getString("color3");
+                String color3Url = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+color3;
+                loadImage(color1Url,color2Url,color3Url);
+
+
+                //Toast.makeText(getContext(), color1Url, Toast.LENGTH_SHORT).show();
+
+            }
+            else
+            {
+                Toast.makeText(getContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch (Exception e) {
+            Log.i("tabfrag1",e.toString());
+            Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    public void loadImage(final String imageUrl, final String imageUrl2, final String imageUrl3)
+    {
+        AsyncTask asyncTask = new AsyncTask<Void, Void, Void>() {
+            Bitmap bmp;
+            Bitmap bmp2;
+            Bitmap bmp3;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                    InputStream in = new URL(imageUrl).openStream();
+                    bmp = BitmapFactory.decodeStream(in);
+
+                    InputStream in2 = new URL(imageUrl2).openStream();
+                    bmp2 = BitmapFactory.decodeStream(in2);
+
+                    InputStream in3 = new URL(imageUrl3).openStream();
+                    bmp3 = BitmapFactory.decodeStream(in3);
+                } catch (Exception e) {
+                    //Toast.makeText(getContext(),"Some error occoured while loading images!",Toast.LENGTH_LONG).show();
+                    Log.i("kingsukmajumder","error in loading images "+e.toString());
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                //loading.dismiss();
+                if (bmp != null && bmp2!=null && bmp3!=null)
+                {
+                    /*if(carouselCount==0)
+                    {*/
+                        UserConstants.colorBit1=bmp;
+                    /*}
+                    else if(carouselCount==1)
+                    {*/
+                    UserConstants.colorBit2=bmp2;
+                    UserConstants.colorBit3=bmp3;
+                    //}
+                    /*else if(carouselCount==2)
+                    {
+                        bit3=bmp;
+                    }*/
+
+
+
+                    setBitMapArray();
+
+                }
+            }
+        }.execute();
+
+
+
+    }
+
+    public void setBitMapArray()
+    {
+        final Bitmap[] bitImages = {
+                UserConstants.colorBit1,  UserConstants.colorBit2,  UserConstants.colorBit3};
+        setUpCarousel(bitImages);
+    }
+
+    public void setUpCarousel(final Bitmap[] bitImages)
+    {
+        carouselView.setPageCount(bitImages.length);
+        carouselView.setImageListener(new ImageListener() {
+            @Override
+            public void setImageForPosition(int position, ImageView imageView) {
+
+                imageView.setImageBitmap(bitImages[position]);
+            }
+        });
     }
 }

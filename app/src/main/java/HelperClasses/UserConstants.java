@@ -30,4 +30,16 @@ public class UserConstants {
     public static boolean returnToProductView = false;
 
     public static String paymentAmount = "";
+
+    public static Bitmap colorBit1;
+    public static Bitmap colorBit2;
+    public static Bitmap colorBit3;
+
+    public static Bitmap prescriptionBit1;
+    public static Bitmap prescriptionBit2;
+    public static Bitmap prescriptionBit3;
+
+    public static Bitmap acceBit1;
+    public static Bitmap acceBit2;
+    public static Bitmap acceBit3;
 }
