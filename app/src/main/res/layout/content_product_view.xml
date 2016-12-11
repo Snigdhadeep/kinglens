@@ -75,6 +75,67 @@
 
 
         </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fillViewport="true"
+            android:scrollbars="horizontal|vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+
+                android:layout_margin="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="10dp">
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/country4"
+                        android:src="@drawable/country4"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="10dp">
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/country5"
+                        android:src="@drawable/country5"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="10dp">
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/country6"
+                        android:src="@drawable/country6"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
