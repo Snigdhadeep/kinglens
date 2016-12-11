@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -68,6 +69,13 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
     TextView tvProductName;
     LinearLayout llAddtoCart;
 
+    ImageView imgPre1;
+    ImageView imgPre2;
+    ImageView imgPre3;
+
+    ImageView arrowRight;
+    ImageView arrowLeft;
+
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
@@ -110,12 +118,18 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
     EditText leftQty;
     EditText rightQty;
     EditText bothQty;
+
+    //Bitmap[] allBitmaps;
+    int imagePosition = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //final Drawable upArrow = getResources().getDrawable();
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_cross_sign);
 
 
         product_id = UserConstants.product_Product_id;
@@ -157,6 +171,13 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         brand_lens = (TextView) findViewById(R.id.brand_lens);
         cylinder_options = (TextView) findViewById(R.id.cylinder_options);
         axis_options = (TextView) findViewById(R.id.axis_options);
+
+        arrowRight = (ImageView) findViewById(R.id.arrowRight);
+        arrowLeft = (ImageView) findViewById(R.id.arrowLeft);
+
+        imgPre1 = (ImageView) findViewById(R.id.imgPre1);
+        imgPre2 = (ImageView) findViewById(R.id.imgPre2);
+        imgPre3 = (ImageView) findViewById(R.id.imgPre3);
 
         tvProductName = (TextView) findViewById(R.id.tvProductName);
         llAddtoCart = (LinearLayout) findViewById(R.id.llAddtoCart);
@@ -200,6 +221,8 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         return super.onOptionsItemSelected(item);
     }//optionsitemSelected
 
+
+
     @Override
     public void processFinish(String output) {
         loading.dismiss();
@@ -211,8 +234,15 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
             {
                 JSONObject response = new JSONObject(jsonObject.getString("response"));
                 String id = String.valueOf(response.getInt("id"));
+
                 String image = response.getString("image_one");
+                String image2 = response.getString("image_two");
+                String image3 = response.getString("image_three");
+
                 final String imageUrl = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image;
+                final String imageUrl2 = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image2;
+                final String imageUrl3 = UserConstants.BASE_URL+UserConstants.IMAGE_FOLDER+image3;
+
                 String sale_price = response.getString("sale_price");
                 String name = response.getString("name");
                 getSupportActionBar().setTitle(name);
@@ -313,6 +343,8 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
 
                 AsyncTask asyncTask = new AsyncTask<Void, Void, Void>() {
                     Bitmap bmp;
+                    Bitmap bmp2;
+                    Bitmap bmp3;
                     @Override
                     protected void onPreExecute() {
                         super.onPreExecute();
@@ -323,6 +355,12 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                         try {
                             InputStream in = new URL(imageUrl).openStream();
                             bmp = BitmapFactory.decodeStream(in);
+
+                            InputStream in2 = new URL(imageUrl2).openStream();
+                            bmp2 = BitmapFactory.decodeStream(in2);
+
+                            InputStream in3 = new URL(imageUrl3).openStream();
+                            bmp3 = BitmapFactory.decodeStream(in3);
                         } catch (Exception e) {
                             //Toast.makeText(getContext(),"Some error occoured while loading images!",Toast.LENGTH_LONG).show();
                             Log.i("kingsukmajumder","error in loading images "+e.toString());
@@ -336,6 +374,13 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                         if (bmp != null)
                         {
                             frontImage.setImageBitmap(bmp);
+                            imgPre1.setImageBitmap(bmp);
+                            imgPre2.setImageBitmap(bmp2);
+                            imgPre3.setImageBitmap(bmp3);
+
+                            Bitmap[] allBitmaps = new Bitmap[]{bmp,bmp2,bmp3};
+
+                            setUpAllImageViews(allBitmaps);
                         }
 
 
@@ -351,6 +396,83 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
             Log.i("productview",e.toString());
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void setUpAllImageViews(final Bitmap[] allBitmaps)
+    {
+        imgPre1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bitmap previewImage = allBitmaps[0];
+                frontImage.setImageBitmap(previewImage);
+                imagePosition=1;
+            }
+        });
+
+        imgPre2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bitmap previewImage = allBitmaps[1];
+                frontImage.setImageBitmap(previewImage);
+                imagePosition=2;
+            }
+        });
+
+        imgPre3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bitmap previewImage = allBitmaps[2];
+                frontImage.setImageBitmap(previewImage);
+                imagePosition=3;
+            }
+        });
+
+        arrowRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(imagePosition==2)
+                {
+                    Bitmap previewImage = allBitmaps[2];
+                    frontImage.setImageBitmap(previewImage);
+
+                    imagePosition=3;
+                }
+                else if(imagePosition==1)
+                {
+                    Bitmap previewImage = allBitmaps[1];
+                    frontImage.setImageBitmap(previewImage);
+                    imagePosition=2;
+                }
+            }
+        });
+
+        arrowLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(imagePosition==3)
+                {
+                    Bitmap previewImage = allBitmaps[1];
+                    frontImage.setImageBitmap(previewImage);
+
+                    imagePosition=2;
+                }
+                else if(imagePosition==2)
+                {
+                    Bitmap previewImage = allBitmaps[0];
+                    frontImage.setImageBitmap(previewImage);
+                    imagePosition=1;
+                }
+            }
+        });
+
+        /*arrowLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ProductView.this, "clicked", Toast.LENGTH_SHORT).show();
+            }
+        });*/
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
