@@ -188,6 +188,12 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         else if(id == R.id.product_menu_search) {
 
         }
+        else if(id == R.id.product_menu_cart) {
+            Intent i=new Intent(getApplicationContext(),AddToCart.class);
+            startActivity(i);
+
+        }
+
 
 
 

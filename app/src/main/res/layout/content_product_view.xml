@@ -107,32 +107,32 @@
                 android:layout_marginBottom="0dp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:gravity="right"
-                android:layout_marginLeft="0dp">
 
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/productPrice"
-                    android:text="11KWD"
-                    android:textSize="20dp"
-                    android:layout_marginTop="0dp"
-                    android:textColor="#000"
-                    android:layout_gravity="right|center"
-                    android:layout_marginRight="5dp"
-                    android:gravity="right"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="50dp" />
-            </LinearLayout>
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:layout_marginLeft="0dp">
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/productPrice"
+                android:text="11KWD"
+                android:textSize="20dp"
+                android:layout_marginTop="0dp"
+                android:textColor="#000"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="5dp"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
