@@ -6,9 +6,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -36,7 +39,7 @@ import HelperClasses.RegisterUser;
 import HelperClasses.RegisterUser2;
 import HelperClasses.UserConstants;
 
-public class SubCollectionActivity extends AppCompatActivity implements AsyncResponse.Response, AsyncResponse2.Response2{
+public class SubCollectionActivity extends AppCompatActivity implements AsyncResponse.Response, AsyncResponse2.Response2,NavigationView.OnNavigationItemSelectedListener{
 
     //
     ImageView ivCollectionBanner;
@@ -289,4 +292,8 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
         }
     }
 
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        return false;
+    }
 }
