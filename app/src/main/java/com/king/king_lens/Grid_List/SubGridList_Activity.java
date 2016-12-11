@@ -569,7 +569,7 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_menu, menu);
+        getMenuInflater().inflate(R.menu.subgridlist_menu, menu);
         return true;
     }//optionsmenu
     @Override
@@ -580,16 +580,16 @@ public class SubGridList_Activity extends AppCompatActivity implements AsyncResp
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.home_menu_heart) {
+      /*  if (id == R.id.home_menu_heart) {
 
-           /* Intent intent=new Intent(getApplicationContext(),WishList.class);
-            startActivity(intent);*/
+           *//* Intent intent=new Intent(getApplicationContext(),WishList.class);
+            startActivity(intent);*//*
+
+        }*/
+         if(id == R.id.subgridlist_menu_search){
 
         }
-        else if(id == R.id.home_menu_search){
-
-        }
-        else if(id == R.id.home_menu_cart){
+      else if(id == R.id.subgridlist_menu_cart){
             Intent i=new Intent(getApplicationContext(),AddToCart.class);
             startActivity(i);
 
