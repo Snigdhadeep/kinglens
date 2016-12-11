@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.king.king_lens.Product.ProductView;
@@ -99,7 +98,7 @@ public class GridListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.app_bar_fragmentgridlist_, container, false);
+        View view= inflater.inflate(R.layout.app_bar_subgridlist, container, false);
 
 
 

@@ -38,6 +38,7 @@ public class Home_adslot extends AppCompatActivity
        setSupportActionBar(toolbar);
 
 
+
         //checking if country and language is selected
         SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
         int language=prefs.getInt("language",0);
