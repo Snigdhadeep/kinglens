@@ -6,17 +6,17 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always"
-        android:icon="@drawable/hearticon"/>
+        android:icon="@drawable/ic_heart"/>
     <item
         android:id="@+id/home_menu_search"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always"
-        android:icon="@drawable/icon_search"/>
+        android:icon="@drawable/ic_search"/>
     <item
         android:id="@+id/home_menu_cart"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always"
-        android:icon="@drawable/carticon"/>
+        android:icon="@drawable/ic_cart"/>
 </menu>

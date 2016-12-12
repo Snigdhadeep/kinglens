@@ -51,6 +51,7 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
     //
     ImageView ivCollectionBanner;
     LinearLayout llParent;
+    int user_id;
 
     //server variables
     RegisterUser registerUser = new RegisterUser("POST");
@@ -148,6 +149,25 @@ public class SubCollectionActivity extends AppCompatActivity implements AsyncRes
         });*/
 
         collectionProduct = new ArrayList<>();
+
+        SharedPreferences prefs = getSharedPreferences("ADASAT", MODE_PRIVATE);
+
+        user_id = prefs.getInt("id",0);
+        //Toast.makeText(getApplicationContext(),""+user_id,Toast.LENGTH_SHORT).show();
+
+        //hiding login logout programatically
+        if(user_id!=0)
+        {
+            //Toast.makeText(getApplicationContext(),"use id"+user_id,Toast.LENGTH_SHORT).show();
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+
+
+        }
+        else
+        {
+            navigationView.getMenu().findItem(R.id.nav_myaccount).setVisible(false);
+        }
 
 
     }

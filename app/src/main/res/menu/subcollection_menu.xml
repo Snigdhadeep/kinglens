@@ -7,6 +7,6 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always"
-        android:icon="@drawable/icon_search"/>
+        android:icon="@drawable/ic_search"/>
 
 </menu>
