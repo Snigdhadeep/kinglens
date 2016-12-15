@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.IntegerRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -233,6 +234,7 @@ public class AddToCart extends AppCompatActivity
                 JSONArray jsonArray = new JSONArray(jsonObject.getString("response"));
 
                 tvTotalPrducts.setText(jsonArray.length()+" Products");
+                tvTotalPrducts.setTag(String.valueOf(jsonArray.length()));
 
                 float totalPrice = (float) 0.00;
                 for (int i=0;i<jsonArray.length();i++)
@@ -263,15 +265,19 @@ public class AddToCart extends AppCompatActivity
                     LinearLayout llRight = (LinearLayout) inflatedLayout.findViewById(R.id.llRight);
                     LinearLayout llBoth = (LinearLayout) inflatedLayout.findViewById(R.id.llBoth);
 
-                    try{
+                    TextView tvKwdExtra = (TextView) inflatedLayout.findViewById(R.id.tvKwdExtra);
 
-                    }
-                    catch (Exception e)
-                    {
+                    final TextView itemQtyMinus = (TextView) inflatedLayout.findViewById(R.id.itemQtyMinus);
+                    final TextView itemQty = (TextView) inflatedLayout.findViewById(R.id.itemQty);
+                    final TextView itemQtyPlus = (TextView) inflatedLayout.findViewById(R.id.itemQtyPlus);
 
-                    }
+                    itemQty.setTag(sale_price);
+
+                    boolean extraPriceToBeAdded=false;
+
                     for(int k =0; k<powerArray.length(); k++)
                     {
+
                         if(!powerArray.isNull(k))
                         {
                             JSONObject currentPower = powerArray.getJSONObject(k);
@@ -284,6 +290,13 @@ public class AddToCart extends AppCompatActivity
                                 TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_left);
                                 tvPower_left.setText("Power "+currentPower.getString("value"));
                                 tvQty_left.setText(currentPower.getString("quantity"));
+                                if(!currentPower.getString("value").equals("0.00"))
+                                {
+                                    extraPriceToBeAdded=true;
+                                    totalPrice+=3;
+                                    itemQtyMinus.setTag(String.valueOf(Integer.parseInt(itemQtyMinus.getTag().toString())+3));
+                                    itemQtyPlus.setTag(String.valueOf(Integer.parseInt(itemQtyPlus.getTag().toString())+3));
+                                }
                             }
                             else if(currentPower.getString("name").equals("right"))
                             {
@@ -292,6 +305,13 @@ public class AddToCart extends AppCompatActivity
                                 TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_cartitem);
                                 tvPower_left.setText("Power "+currentPower.getString("value"));
                                 tvQty_left.setText(currentPower.getString("quantity"));
+                                if(!currentPower.getString("value").equals("0.00"))
+                                {
+                                    extraPriceToBeAdded=true;
+                                    totalPrice+=3;
+                                    itemQtyMinus.setTag(String.valueOf(Integer.parseInt(itemQtyMinus.getTag().toString())+3));
+                                    itemQtyPlus.setTag(String.valueOf(Integer.parseInt(itemQtyPlus.getTag().toString())+3));
+                                }
                             }
                             else if(currentPower.getString("name").equals("both"))
                             {
@@ -300,6 +320,13 @@ public class AddToCart extends AppCompatActivity
                                 TextView tvQty_left = (TextView) inflatedLayout.findViewById(R.id.tvQty_number);
                                 tvPower_left.setText("Power "+currentPower.getString("value"));
                                 tvQty_left.setText(currentPower.getString("quantity"));
+                                if(!currentPower.getString("value").equals("0.00"))
+                                {
+                                    extraPriceToBeAdded=true;
+                                    totalPrice+=3;
+                                    itemQtyMinus.setTag(String.valueOf(Integer.parseInt(itemQtyMinus.getTag().toString())+3));
+                                    itemQtyPlus.setTag(String.valueOf(Integer.parseInt(itemQtyPlus.getTag().toString())+3));
+                                }
                             }
                         }
 
@@ -320,16 +347,65 @@ public class AddToCart extends AppCompatActivity
                     txtProductPrice.setText(sale_price+" KWD");
                     loadImage(imageUrl,productImageView);
 
+                    itemQtyMinus.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Toast.makeText(AddToCart.this, itemQtyMinus.getTag().toString(), Toast.LENGTH_SHORT).show();
+                            if(!itemQty.getText().toString().equals("1"))
+                            {
+                                itemQty.setText(String.valueOf(Integer.parseInt(itemQty.getText().toString())-1));
+
+                                int actualPrice = Integer.parseInt(itemQty.getTag().toString());
+                                int additionalPrice = Integer.parseInt(itemQtyMinus.getTag().toString());
+                                float allTotalPrice = Float.parseFloat(tvTotalPrice.getTag().toString());
+
+                                float newTotalPrice = allTotalPrice-(actualPrice+additionalPrice);
+
+                                tvTotalPrice.setText(String.format("%.2f", newTotalPrice)+" KWD");
+                                tvTotalPrice.setTag(String.valueOf(newTotalPrice));
+
+                                tvTotalPrducts.setText(String.valueOf(Integer.parseInt(tvTotalPrducts.getTag().toString())-1)+" Products");
+                                tvTotalPrducts.setTag(String.valueOf(Integer.parseInt(tvTotalPrducts.getTag().toString())-1));
+                            }
+                        }
+                    });
+
+                    itemQtyPlus.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Toast.makeText(AddToCart.this, itemQtyPlus.getTag().toString(), Toast.LENGTH_SHORT).show();
+                            itemQty.setText(String.valueOf(Integer.parseInt(itemQty.getText().toString())+1));
+
+                            int actualPrice = Integer.parseInt(itemQty.getTag().toString());
+                            int additionalPrice = Integer.parseInt(itemQtyPlus.getTag().toString());
+                            float allTotalPrice = Float.parseFloat(tvTotalPrice.getTag().toString());
+
+                            float newTotalPrice = allTotalPrice+actualPrice+additionalPrice;
+
+                            tvTotalPrice.setText(String.format("%.2f", newTotalPrice)+" KWD");
+                            tvTotalPrice.setTag(String.valueOf(newTotalPrice));
+
+                            tvTotalPrducts.setText(String.valueOf(Integer.parseInt(tvTotalPrducts.getTag().toString())+1)+" Products");
+                            tvTotalPrducts.setTag(String.valueOf(Integer.parseInt(tvTotalPrducts.getTag().toString())+1));
+                        }
+                    });
+
                     llparentcart.addView(inflatedLayout);
+                    if(extraPriceToBeAdded)
+                    {
+                        //totalPrice+=3;
+                        tvKwdExtra.setVisibility(View.VISIBLE);
+                    }
                 }
 
                 tvTotalPrice.setText(String.format("%.2f", totalPrice)+" KWD");
+                tvTotalPrice.setTag(String.valueOf(totalPrice));
             }
             else
             {
                 Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                 tvTotalPrice.setText("0.00 KWD");
-                tvTotalPrducts.setText("0 PRODUCTS");
+                tvTotalPrducts.setText("0 Products");
             }
         } catch (JSONException e) {
             Log.i("AddToCart",e.toString());

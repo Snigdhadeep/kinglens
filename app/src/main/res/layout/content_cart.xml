@@ -77,7 +77,7 @@
                             android:id="@+id/tvTotalPrice"
                             android:textColor="#000"
                             android:textStyle="bold"
-
+                            android:tag="0"
 
                             android:layout_alignParentTop="true"
                             android:layout_alignParentRight="true"
@@ -107,7 +107,7 @@
                             android:layout_alignParentLeft="true"
                             android:id="@+id/tvTotalPrducts"
                             android:textSize="15dp"
-
+                            android:tag="0"
 
                             />
 

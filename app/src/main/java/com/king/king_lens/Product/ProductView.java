@@ -115,9 +115,9 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
     JSONArray powerQty = new JSONArray();
     //JSONObject bothEye= new JSONObject();
 
-    EditText leftQty;
-    EditText rightQty;
-    EditText bothQty;
+    //EditText leftQty;
+    //EditText rightQty;
+    //EditText bothQty;
 
     //Bitmap[] allBitmaps;
     int imagePosition = 1;
@@ -156,9 +156,9 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         frontImage = (ImageView) findViewById(R.id.frontImage);
         productPrice = (TextView) findViewById(R.id.productPrice);
 
-        leftQty = (EditText) findViewById(R.id.textView6);
-        rightQty = (EditText) findViewById(R.id.textView622);
-        bothQty = (EditText) findViewById(R.id.textView5);
+        //leftQty = (EditText) findViewById(R.id.textView6);
+        //rightQty = (EditText) findViewById(R.id.textView622);
+        //bothQty = (EditText) findViewById(R.id.textView5);
 
 
         product_properties = (TextView) findViewById(R.id.product_properties);
@@ -252,7 +252,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
                 JSONArray power_array = new JSONArray(power_ranges);
 
 
-
+                spinnerArray.add("Select");
                 if(power_array.length()>0)
                 {
                     for (int j = 0; j<power_array.length();j++)
@@ -503,21 +503,30 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
         {
             if(checkboth.isChecked() || checkleft.isChecked() || checkright.isChecked())
             {
-                if(checkboth.isChecked()&&bothQty.getText().toString().equals("") || checkleft.isChecked()&&leftQty.getText().toString().equals("") || checkright.isChecked()&&rightQty.getText().toString().equals(""))
+                if(checkboth.isChecked() && (checkleft.isChecked() || checkright.isChecked()))
                 {
-                    Toast.makeText(this, "Quantity needs to be selected", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(this, "Left or Right and Both cannot be selected at the same time!", Toast.LENGTH_SHORT).show();
+
                 }
                 else
                 {
+                    if((checkboth.isChecked()&&!bothEyeValue.equals("Select")) || (checkleft.isChecked()&&!leftEyeValue.equals("Select")) || (checkright.isChecked()&&!rightEyeValue.equals("Select")))
+                    {
+                        data2.put("user_id",String.valueOf(user_id));
+                        data2.put("product_id",product_id);
 
-                    data2.put("user_id",String.valueOf(user_id));
-                    data2.put("product_id",product_id);
+                        addPowerOfProduct();
+                        data2.put("power_json",powerQty.toString());
+                        //Toast.makeText(this, data2.toString(), Toast.LENGTH_SHORT).show();
+                        loadingForCart = ProgressDialog.show(this, "", "Adding product to cart...", true);
+                        registerUser2.register(data2,routeAddToCart);
+                    }
+                    else
+                    {
+                        Toast.makeText(this, "Please Select a proper value", Toast.LENGTH_SHORT).show();
+                    }
 
-                    addPowerOfProduct();
-                    data2.put("power_json",powerQty.toString());
-                    //Toast.makeText(this, data2.toString(), Toast.LENGTH_SHORT).show();
-                    loadingForCart = ProgressDialog.show(this, "", "Adding product to cart...", true);
-                    registerUser2.register(data2,routeAddToCart);
                 }
 
             }
@@ -538,7 +547,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
             try {
                 qtyPower.put("name","both");
                 qtyPower.put("value",bothEyeValue);
-                qtyPower.put("quantity",bothQty.getText().toString());
+                qtyPower.put("quantity","1");
                 JSONObject bothEye= new JSONObject();
                 bothEye.put("bothEye",qtyPower);
 
@@ -555,7 +564,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
             try {
                 qtyPower.put("name","left");
                 qtyPower.put("value",leftEyeValue);
-                qtyPower.put("quantity",leftQty.getText().toString());
+                qtyPower.put("quantity","1");
                 JSONObject bothEye= new JSONObject();
                 bothEye.put("leftEye",qtyPower);
 
@@ -573,7 +582,7 @@ public class ProductView extends AppCompatActivity implements AsyncResponse.Resp
             try {
                 qtyPower.put("name","right");
                 qtyPower.put("value",rightEyeValue);
-                qtyPower.put("quantity",rightQty.getText().toString());
+                qtyPower.put("quantity","1");
                 JSONObject bothEye= new JSONObject();
                 bothEye.put("rightEye",qtyPower);
 
